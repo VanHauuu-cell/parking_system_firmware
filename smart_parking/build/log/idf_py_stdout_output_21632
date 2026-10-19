@@ -1,0 +1,73 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7176
+load:0x40078000,len:15644
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (31) boot: ESP-IDF v5.3.3-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Sep 25 2026 19:27:34[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v3.1[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (85) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0b6a4h ( 46756) map[0m
+[0;32mI (121) esp_image: segment 1: paddr=0001b6cc vaddr=3ffb0000 size=02444h (  9284) load[0m
+[0;32mI (125) esp_image: segment 2: paddr=0001db18 vaddr=40080000 size=02500h (  9472) load[0m
+[0;32mI (130) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=16d1ch ( 93468) map[0m
+[0;32mI (167) esp_image: segment 4: paddr=00036d44 vaddr=40082500 size=0c440h ( 50240) load[0m
+[0;32mI (194) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (194) boot: Disabling RNG early entropy source...[0m
+[0;32mI (207) cpu_start: Multicore app[0m
+[0;32mI (215) cpu_start: Pro cpu start user code[0m
+[0;32mI (215) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (215) app_init: Application information:[0m
+[0;32mI (218) app_init: Project name:     smart_parking[0m
+[0;32mI (224) app_init: App version:      a6e32db-dirty[0m
+[0;32mI (229) app_init: Compile time:     Sep 27 2026 12:23:37[0m
+[0;32mI (235) app_init: ELF file SHA256:  e7de1457f...[0m
+[0;32mI (240) app_init: ESP-IDF:          v5.3.3-dirty[0m
+[0;32mI (245) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (250) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (255) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (260) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (267) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (273) heap_init: At 3FFB2D48 len 0002D2B8 (180 KiB): DRAM[0m
+[0;32mI (279) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (286) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (292) heap_init: At 4008E940 len 000116C0 (69 KiB): IRAM[0m
+[0;32mI (300) spi_flash: detected chip: generic[0m
+[0;32mI (303) spi_flash: flash io: dio[0m
+[0;33mW (307) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (321) main_task: Started on CPU0[0m
+[0;32mI (331) main_task: Calling app_main()[0m
+[0;32mI (331) gpio: GPIO[4]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (431) MFRC522: MFRC522 SPI Khoi tao thanh cong[0m
+[0;32mI (431) APP_MAIN: MFRC522 Khoi tao thanh cong![0m
+[0;32mI (8131) APP_MAIN: Phat hien the! UID: 72:B3:B2:5B[0m
+[0;32mI (11431) APP_MAIN: Phat hien the! UID: 72:B3:B2:5B[0m
+[0;32mI (14511) APP_MAIN: Phat hien the! UID: 72:B3:B2:5B[0m
+[0;32mI (17921) APP_MAIN: Phat hien the! UID: 49:62:4A:00[0m
+[0;32mI (20331) APP_MAIN: Phat hien the! UID: 49:62:4A:00[0m
+[0;32mI (22971) APP_MAIN: Phat hien the! UID: 49:62:4A:00[0m
+[0;32mI (26041) APP_MAIN: Phat hien the! UID: 49:62:4A:00[0m
+[0;32mI (32641) APP_MAIN: Phat hien the! UID: 72:B3:B2:5B[0m
+[0;32mI (35721) APP_MAIN: Phat hien the! UID: 49:62:4A:00[0m
+[0;32mI (99961) APP_MAIN: Phat hien the! UID: 49:62:4A:00[0m
+[0;32mI (101721) APP_MAIN: Phat hien the! UID: 49:62:4A:00[0m
+[0;32mI (107551) APP_MAIN: Phat hien the! UID: 7A:2B:4E:35[0m
+[0;32mI (108871) APP_MAIN: Phat hien the! UID: 7A:2B:4E:35[0m
+[0;32mI (109971) APP_MAIN: Phat hien the! UID: 7A:2B:4E:35[0m

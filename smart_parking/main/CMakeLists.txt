@@ -1,0 +1,12 @@
+idf_component_register(
+    SRCS
+        "main.c"
+        "drivers/ir_sensor.c"
+        "drivers/servo.c"
+        "drivers/mfrc522.c"
+        "drivers/uart_driver.c"
+    INCLUDE_DIRS
+        "."
+        "config"
+        "drivers"
+)

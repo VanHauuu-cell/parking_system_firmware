@@ -1,0 +1,194 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7176
+load:0x40078000,len:15644
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (31) boot: ESP-IDF v5.3.3-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Sep 25 2026 19:27:34[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v3.1[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (85) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a134h ( 41268) map[0m
+[0;32mI (119) esp_image: segment 1: paddr=0001a15c vaddr=3ffb0000 size=0235ch (  9052) load[0m
+[0;32mI (123) esp_image: segment 2: paddr=0001c4c0 vaddr=40080000 size=03b58h ( 15192) load[0m
+[0;32mI (131) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1501ch ( 86044) map[0m
+[0;32mI (163) esp_image: segment 4: paddr=00035044 vaddr=40083b58 size=092bch ( 37564) load[0m
+[0;32mI (184) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (184) boot: Disabling RNG early entropy source...[0m
+[0;32mI (197) cpu_start: Multicore app[0m
+[0;32mI (205) cpu_start: Pro cpu start user code[0m
+[0;32mI (205) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (205) app_init: Application information:[0m
+[0;32mI (208) app_init: Project name:     smart_parking[0m
+[0;32mI (213) app_init: App version:      1[0m
+[0;32mI (218) app_init: Compile time:     Sep 25 2026 19:26:54[0m
+[0;32mI (224) app_init: ELF file SHA256:  a5e17ee61...[0m
+[0;32mI (229) app_init: ESP-IDF:          v5.3.3-dirty[0m
+[0;32mI (234) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (239) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (244) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (249) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (256) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (262) heap_init: At 3FFB2C88 len 0002D378 (180 KiB): DRAM[0m
+[0;32mI (268) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (275) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (281) heap_init: At 4008CE14 len 000131EC (76 KiB): IRAM[0m
+[0;32mI (289) spi_flash: detected chip: generic[0m
+[0;32mI (292) spi_flash: flash io: dio[0m
+[0;33mW (296) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (310) main_task: Started on CPU0[0m
+[0;32mI (320) main_task: Calling app_main()[0m
+[0;32mI (320) MAIN: Smart Parking Main Controller[0m
+[0;32mI (320) SERVO: Servo driver initialized[0m
+[0;32mI (320) MAIN: Servo -> 0 degree[0m
+[0;32mI (330) SERVO: Servo 0: angle=0, pulse=500 us[0m
+[0;32mI (2330) MAIN: Servo -> 45 degree[0m
+[0;32mI (2330) SERVO: Servo 0: angle=45, pulse=1000 us[0m
+[0;32mI (4330) MAIN: Servo -> 90 degree[0m
+[0;32mI (4330) SERVO: Servo 0: angle=90, pulse=1500 us[0m
+[0;32mI (6330) MAIN: Servo -> 135 degree[0m
+[0;32mI (6330) SERVO: Servo 0: angle=135, pulse=2000 us[0m
+[0;32mI (8330) MAIN: Servo -> 180 degree[0m
+[0;32mI (8330) SERVO: Servo 0: angle=180, pulse=2500 us[0m
+[0;32mI (10330) MAIN: Servo -> 0 degree[0m
+[0;32mI (10330) SERVO: Servo 0: angle=0, pulse=500 us[0m
+[0;32mI (12330) MAIN: Servo -> 45 degree[0m
+[0;32mI (12330) SERVO: Servo 0: angle=45, pulse=1000 us[0m
+[0;32mI (14330) MAIN: Servo -> 90 degree[0m
+[0;32mI (14330) SERVO: Servo 0: angle=90, pulse=1500 us[0m
+[0;32mI (16330) MAIN: Servo -> 135 degree[0m
+[0;32mI (16330) SERVO: Servo 0: angle=135, pulse=2000 us[0m
+[0;32mI (18330) MAIN: Servo -> 180 degree[0m
+[0;32mI (18330) SERVO: Servo 0: angle=180, pulse=2500 us[0m
+[0;32mI (20330) MAIN: Servo -> 0 degree[0m
+[0;32mI (20330) SERVO: Servo 0: angle=0, pulse=500 us[0m
+[0;32mI (22330) MAIN: Servo -> 45 degree[0m
+[0;32mI (22330) SERVO: Servo 0: angle=45, pulse=1000 us[0m
+[0;32mI (24330) MAIN: Servo -> 90 degree[0m
+[0;32mI (24330) SERVO: Servo 0: angle=90, pulse=1500 us[0m
+[0;32mI (26330) MAIN: Servo -> 135 degree[0m
+[0;32mI (26330) SERVO: Servo 0: angle=135, pulse=2000 us[0m
+[0;32mI (28330) MAIN: Servo -> 180 degree[0m
+[0;32mI (28330) SERVO: Servo 0: angle=180, pulse=2500 us[0m
+[0;32mI (30330) MAIN: Servo -> 0 degree[0m
+[0;32mI (30330) SERVO: Servo 0: angle=0, pulse=500 us[0m
+[0;32mI (32330) MAIN: Servo -> 45 degree[0m
+[0;32mI (32330) SERVO: Servo 0: angle=45, pulse=1000 us[0m
+[0;32mI (34330) MAIN: Servo -> 90 degree[0m
+[0;32mI (34330) SERVO: Servo 0: angle=90, pulse=1500 us[0m
+[0;32mI (36330) MAIN: Servo -> 135 degree[0m
+[0;32mI (36330) SERVO: Servo 0: angle=135, pulse=2000 us[0m
+[0;32mI (38330) MAIN: Servo -> 180 degree[0m
+[0;32mI (38330) SERVO: Servo 0: angle=180, pulse=2500 us[0m
+[0;32mI (40330) MAIN: Servo -> 0 degree[0m
+[0;32mI (40330) SERVO: Servo 0: angle=0, pulse=500 us[0m
+[0;32mI (42330) MAIN: Servo -> 45 degree[0m
+[0;32mI (42330) SERVO: Servo 0: angle=45, pulse=1000 us[0m
+[0;32mI (44330) MAIN: Servo -> 90 degree[0m
+[0;32mI (44330) SERVO: Servo 0: angle=90, pulse=1500 us[0m
+[0;32mI (46330) MAIN: Servo -> 135 degree[0m
+[0;32mI (46330) SERVO: Servo 0: angle=135, pulse=2000 us[0m
+[0;32mI (48330) MAIN: Servo -> 180 degree[0m
+[0;32mI (48330) SERVO: Servo 0: angle=180, pulse=2500 us[0m
+[0;32mI (50330) MAIN: Servo -> 0 degree[0m
+[0;32mI (50330) SERVO: Servo 0: angle=0, pulse=500 us[0m
+[0;32mI (52330) MAIN: Servo -> 45 degree[0m
+[0;32mI (52330) SERVO: Servo 0: angle=45, pulse=1000 us[0m
+[0;32mI (54330) MAIN: Servo -> 90 degree[0m
+[0;32mI (54330) SERVO: Servo 0: angle=90, pulse=1500 us[0m
+[0;32mI (56330) MAIN: Servo -> 135 degree[0m
+[0;32mI (56330) SERVO: Servo 0: angle=135, pulse=2000 us[0m
+[0;32mI (58330) MAIN: Servo -> 180 degree[0m
+[0;32mI (58330) SERVO: Servo 0: angle=180, pulse=2500 us[0m
+[0;32mI (60330) MAIN: Servo -> 0 degree[0m
+[0;32mI (60330) SERVO: Servo 0: angle=0, pulse=500 us[0m
+[0;32mI (62330) MAIN: Servo -> 45 degree[0m
+[0;32mI (62330) SERVO: Servo 0: angle=45, pulse=1000 us[0m
+[0;32mI (64330) MAIN: Servo -> 90 degree[0m
+[0;32mI (64330) SERVO: Servo 0: angle=90, pulse=1500 us[0m
+[0;32mI (66330) MAIN: Servo -> 135 degree[0m
+[0;32mI (66330) SERVO: Servo 0: angle=135, pulse=2000 us[0m
+[0;32mI (68330) MAIN: Servo -> 180 degree[0m
+[0;32mI (68330) SERVO: Servo 0: angle=180, pulse=2500 us[0m
+[0;32mI (70330) MAIN: Servo -> 0 degree[0m
+[0;32mI (70330) SERVO: Servo 0: angle=0, pulse=500 us[0m
+[0;32mI (72330) MAIN: Servo -> 45 degree[0m
+[0;32mI (72330) SERVO: Servo 0: angle=45, pulse=1000 us[0m
+[0;32mI (74330) MAIN: Servo -> 90 degree[0m
+[0;32mI (74330) SERVO: Servo 0: angle=90, pulse=1500 us[0m
+[0;32mI (76330) MAIN: Servo -> 135 degree[0m
+[0;32mI (76330) SERVO: Servo 0: angle=135, pulse=2000 us[0m
+[0;32mI (78330) MAIN: Servo -> 180 degree[0m
+[0;32mI (78330) SERVO: Servo 0: angle=180, pulse=2500 us[0m
+[0;32mI (80330) MAIN: Servo -> 0 degree[0m
+[0;32mI (80330) SERVO: Servo 0: angle=0, pulse=500 us[0m
+[0;32mI (82330) MAIN: Servo -> 45 degree[0m
+[0;32mI (82330) SERVO: Servo 0: angle=45, pulse=1000 us[0m
+[0;32mI (84330) MAIN: Servo -> 90 degree[0m
+[0;32mI (84330) SERVO: Servo 0: angle=90, pulse=1500 us[0m
+[0;32mI (86330) MAIN: Servo -> 135 degree[0m
+[0;32mI (86330) SERVO: Servo 0: angle=135, pulse=2000 us[0m
+[0;32mI (88330) MAIN: Servo -> 180 degree[0m
+[0;32mI (88330) SERVO: Servo 0: angle=180, pulse=2500 us[0m
+[0;32mI (90330) MAIN: Servo -> 0 degree[0m
+[0;32mI (90330) SERVO: Servo 0: angle=0, pulse=500 us[0m
+[0;32mI (92330) MAIN: Servo -> 45 degree[0m
+[0;32mI (92330) SERVO: Servo 0: angle=45, pulse=1000 us[0m
+[0;32mI (94330) MAIN: Servo -> 90 degree[0m
+[0;32mI (94330) SERVO: Servo 0: angle=90, pulse=1500 us[0m
+[0;32mI (96330) MAIN: Servo -> 135 degree[0m
+[0;32mI (96330) SERVO: Servo 0: angle=135, pulse=2000 us[0m
+[0;32mI (98330) MAIN: Servo -> 180 degree[0m
+[0;32mI (98330) SERVO: Servo 0: angle=180, pulse=2500 us[0m
+[0;32mI (100330) MAIN: Servo -> 0 degree[0m
+[0;32mI (100330) SERVO: Servo 0: angle=0, pulse=500 us[0m
+[0;32mI (102330) MAIN: Servo -> 45 degree[0m
+[0;32mI (102330) SERVO: Servo 0: angle=45, pulse=1000 us[0m
+����������������������������������������������������������������0;32mI (104330) MAIN: Servo -> 90 degree[0m
+[0;32mI (104330) SERVO: Servo 0: angle=90, pulse=1500 us[0m
+[0;32mI (106330) MAIN: Servo -> 135 degree[0m
+[0;32mI (106330) SERVO: Servo 0: angle=135, pulse=2000 us[0m
+[0;32mI (108330) MAIN: Servo -> 180 degree[0m
+[0;32mI (108330) SERVO: Servo 0: angle=180, pulse=2500 us[0m
+[0;32mI (110330) MAIN: Servo -> 0 degree[0m
+[0;32mI (110330) SERVO: Servo 0: angle=0, pulse=500 us[0m
+[0;32mI (112330) MAIN: Servo -> 45 degree[0m
+[0;32mI (112330) SERVO: Servo 0: angle=45, pulse=1000 us[0m
+[0;32mI (114330) MAIN: Servo -> 90 degree[0m
+[0;32mI (114330) SERVO: Servo 0: angle=90, pulse=1500 us[0m
+[0;32mI (116330) MAIN: Servo -> 135 degree[0m
+[0;32mI (116330) SERVO: Servo 0: angle=135, pulse=2000 us[0m
+[0;32mI (118330) MAIN: Servo -> 180 degree[0m
+[0;32mI (118330) SERVO: Servo 0: angle=180, pulse=2500 us[0m
+[0;32mI (120330) MAIN: Servo -> 0 degree[0m
+[0;32mI (120330) SERVO: Servo 0: angle=0, pulse=500 us[0m
+[0;32mI (122330) MAIN: Servo -> 45 degree[0m
+[0;32mI (122330) SERVO: Servo 0: angle=45, pulse=1000 us[0m
+[0;32mI (124330) MAIN: Servo -> 90 degree[0m
+[0;32mI (124330) SERVO: Servo 0: angle=90, pulse=1500 us[0m
+[0;32mI (126330) MAIN: Servo -> 135 degree[0m
+[0;32mI (126330) SERVO: Servo 0: angle=135, pulse=2000 us[0m
+[0;32mI (128330) MAIN: Servo -> 180 degree[0m
+[0;32mI (128330) SERVO: Servo 0: angle=180, pulse=2500 us[0m
+[0;32mI (130330) MAIN: Servo -> 0 degree[0m
+[0;32mI (130330) SERVO: Servo 0: angle=0, pulse=500 us[0m
+[0;32mI (132330) MAIN: Servo -> 45 degree[0m
+[0;32mI (132330) SERVO: Servo 0: angle=45, pulse=1000 us[0m
+[0;32mI (134330) MAIN: Servo -> 90 degree[0m
+[0;32mI (134330) SERVO: Servo 0: angle=90, pulse=1500 us[0m

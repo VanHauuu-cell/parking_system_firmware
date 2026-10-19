@@ -1,0 +1,174 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7176
+load:0x40078000,len:15644
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (31) boot: ESP-IDF v5.3.3-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Sep 25 2026 19:27:34[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v3.1[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (85) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0b6bch ( 46780) map[0m
+[0;32mI (121) esp_image: segment 1: paddr=0001b6e4 vaddr=3ffb0000 size=02428h (  9256) load[0m
+[0;32mI (125) esp_image: segment 2: paddr=0001db14 vaddr=40080000 size=02504h (  9476) load[0m
+[0;32mI (130) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=16e9ch ( 93852) map[0m
+[0;32mI (167) esp_image: segment 4: paddr=00036ec4 vaddr=40082504 size=0c0b4h ( 49332) load[0m
+[0;32mI (194) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (194) boot: Disabling RNG early entropy source...[0m
+[0;32mI (206) cpu_start: Multicore app[0m
+[0;32mI (215) cpu_start: Pro cpu start user code[0m
+[0;32mI (215) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (215) app_init: Application information:[0m
+[0;32mI (218) app_init: Project name:     smart_parking[0m
+[0;32mI (223) app_init: App version:      a6e32db-dirty[0m
+[0;32mI (229) app_init: Compile time:     Sep 27 2026 12:23:37[0m
+[0;32mI (235) app_init: ELF file SHA256:  f018576b4...[0m
+[0;32mI (240) app_init: ESP-IDF:          v5.3.3-dirty[0m
+[0;32mI (245) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (250) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (255) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (260) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (267) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (273) heap_init: At 3FFB2D28 len 0002D2D8 (180 KiB): DRAM[0m
+[0;32mI (279) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (286) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (292) heap_init: At 4008E5B8 len 00011A48 (70 KiB): IRAM[0m
+[0;32mI (300) spi_flash: detected chip: generic[0m
+[0;32mI (303) spi_flash: flash io: dio[0m
+[0;33mW (307) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (321) main_task: Started on CPU0[0m
+[0;32mI (331) main_task: Calling app_main()[0m
+[0;32mI (331) MAIN: Smart Parking Main Controller[0m
+[0;32mI (331) gpio: GPIO[4]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (351) MFRC522: MFRC522 initialized[0m
+[0;32mI (351) MAIN: MFRC522 VersionReg = 0x92[0m
+[0;32mI (351) MAIN: No card[0m
+[0;32mI (851) MAIN: No card[0m
+[0;32mI (1351) MAIN: No card[0m
+[0;32mI (1851) MAIN: No card[0m
+[0;32mI (2351) MAIN: No card[0m
+[0;32mI (2851) MAIN: No card[0m
+[0;32mI (3351) MAIN: No card[0m
+[0;32mI (3851) MAIN: No card[0m
+[0;32mI (4351) MAIN: No card[0m
+[0;32mI (4851) MAIN: No card[0m
+[0;32mI (5351) MAIN: No card[0m
+[0;32mI (5851) MAIN: No card[0m
+[0;32mI (6351) MAIN: No card[0m
+[0;32mI (6851) MAIN: No card[0m
+[0;32mI (7351) MAIN: No card[0m
+[0;32mI (7851) MAIN: No card[0m
+[0;32mI (8351) MAIN: No card[0m
+[0;32mI (8851) MAIN: No card[0m
+[0;32mI (9351) MAIN: No card[0m
+[0;32mI (9851) MAIN: No card[0m
+[0;32mI (10351) MAIN: No card[0m
+[0;32mI (10851) MAIN: No card[0m
+[0;32mI (11351) MAIN: No card[0m
+[0;32mI (11851) MAIN: No card[0m
+[0;32mI (12351) MAIN: No card[0m
+[0;32mI (12851) MAIN: No card[0m
+[0;32mI (13351) MAIN: No card[0m
+[0;32mI (13851) MAIN: No card[0m
+[0;32mI (14351) MAIN: No card[0m
+[0;32mI (14851) MAIN: No card[0m
+[0;32mI (15351) MAIN: No card[0m
+[0;32mI (15851) MAIN: No card[0m
+[0;32mI (16351) MAIN: No card[0m
+[0;32mI (16851) MAIN: No card[0m
+[0;32mI (17351) MAIN: No card[0m
+[0;32mI (17851) MAIN: No card[0m
+[0;32mI (18351) MAIN: No card[0m
+[0;32mI (18851) MAIN: No card[0m
+[0;32mI (19351) MAIN: No card[0m
+[0;32mI (19851) MAIN: No card[0m
+[0;32mI (20351) MAIN: No card[0m
+[0;32mI (20851) MAIN: No card[0m
+[0;32mI (21351) MAIN: No card[0m
+[0;32mI (21851) MAIN: No card[0m
+[0;32mI (22351) MAIN: No card[0m
+[0;32mI (22851) MAIN: No card[0m
+[0;32mI (23351) MAIN: No card[0m
+[0;32mI (23851) MAIN: No card[0m
+[0;32mI (24351) MAIN: No card[0m
+[0;32mI (24851) MAIN: No card[0m
+[0;32mI (25351) MAIN: No card[0m
+[0;32mI (25851) MAIN: No card[0m
+[0;32mI (26351) MAIN: No card[0m
+[0;32mI (26851) MAIN: No card[0m
+[0;32mI (27351) MAIN: No card[0m
+[0;32mI (27851) MAIN: No card[0m
+[0;32mI (28351) MAIN: No card[0m
+[0;32mI (28851) MAIN: No card[0m
+[0;32mI (29351) MAIN: No card[0m
+[0;32mI (29851) MAIN: No card[0m
+[0;32mI (30351) MAIN: No card[0m
+[0;32mI (30851) MAIN: No card[0m
+[0;32mI (31351) MAIN: No card[0m
+[0;32mI (31851) MAIN: No card[0m
+[0;32mI (32351) MAIN: No card[0m
+[0;32mI (32851) MAIN: No card[0m
+[0;32mI (33351) MAIN: No card[0m
+[0;32mI (33851) MAIN: No card[0m
+[0;32mI (34351) MAIN: No card[0m
+[0;32mI (34851) MAIN: No card[0m
+[0;32mI (35351) MAIN: No card[0m
+[0;32mI (35851) MAIN: No card[0m
+[0;32mI (36351) MAIN: No card[0m
+[0;32mI (36851) MAIN: No card[0m
+[0;32mI (37351) MAIN: No card[0m
+[0;32mI (37851) MAIN: No card[0m
+[0;32mI (38351) MAIN: No card[0m
+[0;32mI (38851) MAIN: No card[0m
+[0;32mI (39351) MAIN: No card[0m
+[0;32mI (39851) MAIN: No card[0m
+[0;32mI (40351) MAIN: No card[0m
+[0;32mI (40851) MAIN: No card[0m
+[0;32mI (41351) MAIN: No card[0m
+[0;32mI (41851) MAIN: No card[0m
+[0;32mI (42351) MAIN: No card[0m
+[0;32mI (42851) MAIN: No card[0m
+[0;32mI (43351) MAIN: No card[0m
+[0;32mI (43851) MAIN: No card[0m
+[0;32mI (44351) MAIN: No card[0m
+[0;32mI (44851) MAIN: No card[0m
+[0;32mI (45351) MAIN: No card[0m
+[0;32mI (45851) MAIN: No card[0m
+[0;32mI (46351) MAIN: No card[0m
+[0;32mI (46851) MAIN: No card[0m
+[0;32mI (47351) MAIN: No card[0m
+[0;32mI (47851) MAIN: No card[0m
+[0;32mI (48351) MAIN: No card[0m
+[0;32mI (48851) MAIN: No card[0m
+[0;32mI (49351) MAIN: No card[0m
+[0;32mI (49851) MAIN: No card[0m
+[0;32mI (50351) MAIN: No card[0m
+[0;32mI (50851) MAIN: No card[0m
+[0;32mI (51351) MAIN: No card[0m
+[0;32mI (51851) MAIN: No card[0m
+[0;32mI (52351) MAIN: No card[0m
+[0;32mI (52851) MAIN: No card[0m
+[0;32mI (53351) MAIN: No card[0m
+[0;32mI (53851) MAIN: No card[0m
+[0;32mI (54351) MAIN: No card[0m
+[0;32mI (54851) MAIN: No card[0m
+[0;32mI (55351) MAIN: No card[0m
+[0;32mI (55851) MAIN: No card[0m
+[0;32mI (56351) MAIN: No card[0m
+[0;32mI (56851) MAIN: No card[0m

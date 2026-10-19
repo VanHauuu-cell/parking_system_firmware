@@ -1,0 +1,2 @@
+source E:/Parking System/esp32cam_smartparking/build/gdbinit/symbols
+source E:/Parking System/esp32cam_smartparking/build/gdbinit/connect

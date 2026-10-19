@@ -1,0 +1,195 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7176
+load:0x40078000,len:15644
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (31) boot: ESP-IDF v5.3.3-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Sep 25 2026 19:27:34[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v3.1[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (85) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0ac6ch ( 44140) map[0m
+[0;32mI (120) esp_image: segment 1: paddr=0001ac94 vaddr=3ffb0000 size=02314h (  8980) load[0m
+[0;32mI (124) esp_image: segment 2: paddr=0001cfb0 vaddr=40080000 size=03068h ( 12392) load[0m
+[0;32mI (131) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=166c4h ( 91844) map[0m
+[0;32mI (166) esp_image: segment 4: paddr=000366ec vaddr=40083068 size=0ab90h ( 43920) load[0m
+[0;32mI (190) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (190) boot: Disabling RNG early entropy source...[0m
+[0;32mI (202) cpu_start: Multicore app[0m
+[0;32mI (211) cpu_start: Pro cpu start user code[0m
+[0;32mI (211) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (211) app_init: Application information:[0m
+[0;32mI (214) app_init: Project name:     smart_parking[0m
+[0;32mI (219) app_init: App version:      60078b7-dirty[0m
+[0;32mI (225) app_init: Compile time:     Sep 30 2026 11:43:18[0m
+[0;32mI (231) app_init: ELF file SHA256:  fce8b9abb...[0m
+[0;32mI (236) app_init: ESP-IDF:          v5.3.3-dirty[0m
+[0;32mI (241) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (246) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (251) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (256) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (263) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (269) heap_init: At 3FFB2BE8 len 0002D418 (181 KiB): DRAM[0m
+[0;32mI (275) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (282) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (288) heap_init: At 4008DBF8 len 00012408 (73 KiB): IRAM[0m
+[0;32mI (296) spi_flash: detected chip: generic[0m
+[0;32mI (299) spi_flash: flash io: dio[0m
+[0;33mW (303) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (317) main_task: Started on CPU0[0m
+[0;32mI (327) main_task: Calling app_main()[0m
+[0;32mI (327) UART_DRIVER: UART initialized: UART2 TX=17 RX=16 baud=115200[0m
+[0;32mI (327) UART_TEST: Message sent[0m
+[0;32mI (1327) UART_TEST: Message sent[0m
+[0;32mI (2327) UART_TEST: Message sent[0m
+[0;32mI (3327) UART_TEST: Message sent[0m
+[0;32mI (4327) UART_TEST: Message sent[0m
+[0;32mI (5327) UART_TEST: Message sent[0m
+[0;32mI (6327) UART_TEST: Message sent[0m
+[0;32mI (7327) UART_TEST: Message sent[0m
+[0;32mI (8327) UART_TEST: Message sent[0m
+[0;32mI (9327) UART_TEST: Message sent[0m
+[0;32mI (10327) UART_TEST: Message sent[0m
+[0;32mI (11327) UART_TEST: Message sent[0m
+[0;32mI (12327) UART_TEST: Message sent[0m
+[0;32mI (13327) UART_TEST: Message sent[0m
+[0;32mI (14327) UART_TEST: Message sent[0m
+[0;32mI (15327) UART_TEST: Message sent[0m
+[0;32mI (16327) UART_TEST: Message sent[0m
+[0;32mI (17327) UART_TEST: Message sent[0m
+[0;32mI (18327) UART_TEST: Message sent[0m
+[0;32mI (19327) UART_TEST: Message sent[0m
+[0;32mI (20327) UART_TEST: Message sent[0m
+[0;32mI (21327) UART_TEST: Message sent[0m
+[0;32mI (22327) UART_TEST: Message sent[0m
+[0;32mI (23327) UART_TEST: Message sent[0m
+[0;32mI (24327) UART_TEST: Message sent[0m
+[0;32mI (25327) UART_TEST: Message sent[0m
+[0;32mI (26327) UART_TEST: Message sent[0m
+[0;32mI (27327) UART_TEST: Message sent[0m
+[0;32mI (28327) UART_TEST: Message sent[0m
+[0;32mI (29327) UART_TEST: Message sent[0m
+[0;32mI (30327) UART_TEST: Message sent[0m
+[0;32mI (31327) UART_TEST: Message sent[0m
+[0;32mI (32327) UART_TEST: Message sent[0m
+[0;32mI (33327) UART_TEST: Message sent[0m
+[0;32mI (34327) UART_TEST: Message sent[0m
+[0;32mI (35327) UART_TEST: Message sent[0m
+[0;32mI (36327) UART_TEST: Message sent[0m
+[0;32mI (37327) UART_TEST: Message sent[0m
+[0;32mI (38327) UART_TEST: Message sent[0m
+[0;32mI (39327) UART_TEST: Message sent[0m
+[0;32mI (40327) UART_TEST: Message sent[0m
+[0;32mI (41327) UART_TEST: Message sent[0m
+[0;32mI (42327) UART_TEST: Message sent[0m
+[0;32mI (43327) UART_TEST: Message sent[0m
+[0;32mI (44327) UART_TEST: Message sent[0m
+[0;32mI (45327) UART_TEST: Message sent[0m
+[0;32mI (46327) UART_TEST: Message sent[0m
+[0;32mI (47327) UART_TEST: Message sent[0m
+[0;32mI (48327) UART_TEST: Message sent[0m
+[0;32mI (49327) UART_TEST: Message sent[0m
+[0;32mI (50327) UART_TEST: Message sent[0m
+[0;32mI (51327) UART_TEST: Message sent[0m
+[0;32mI (52327) UART_TEST: Message sent[0m
+[0;32mI (53327) UART_TEST: Message sent[0m
+[0;32mI (54327) UART_TEST: Message sent[0m
+[0;32mI (55327) UART_TEST: Message sent[0m
+[0;32mI (56327) UART_TEST: Message sent[0m
+[0;32mI (57327) UART_TEST: Message sent[0m
+[0;32mI (58327) UART_TEST: Message sent[0m
+[0;32mI (59327) UART_TEST: Message sent[0m
+[0;32mI (60327) UART_TEST: Message sent[0m
+[0;32mI (61327) UART_TEST: Message sent[0m
+[0;32mI (62327) UART_TEST: Message sent[0m
+[0;32mI (63327) UART_TEST: Message sent[0m
+[0;32mI (64327) UART_TEST: Message sent[0m
+[0;32mI (65327) UART_TEST: Message sent[0m
+[0;32mI (66327) UART_TEST: Message sent[0m
+[0;32mI (67327) UART_TEST: Message sent[0m
+[0;32mI (68327) UART_TEST: Message sent[0m
+[0;32mI (69327) UART_TEST: Message sent[0m
+[0;32mI (70327) UART_TEST: Message sent[0m
+[0;32mI (71327) UART_TEST: Message sent[0m
+[0;32mI (72327) UART_TEST: Message sent[0m
+[0;32mI (73327) UART_TEST: Message sent[0m
+[0;32mI (74327) UART_TEST: Message sent[0m
+[0;32mI (75327) UART_TEST: Message sent[0m
+[0;32mI (76327) UART_TEST: Message sent[0m
+[0;32mI (77327) UART_TEST: Message sent[0m
+[0;32mI (78327) UART_TEST: Message sent[0m
+[0;32mI (79327) UART_TEST: Message sent[0m
+[0;32mI (80327) UART_TEST: Message sent[0m
+[0;32mI (81327) UART_TEST: Message sent[0m
+[0;32mI (82327) UART_TEST: Message sent[0m
+[0;32mI (83327) UART_TEST: Message sent[0m
+[0;32mI (84327) UART_TEST: Message sent[0m
+[0;32mI (85327) UART_TEST: Message sent[0m
+[0;32mI (86327) UART_TEST: Message sent[0m
+[0;32mI (87327) UART_TEST: Message sent[0m
+[0;32mI (88327) UART_TEST: Message sent[0m
+[0;32mI (89327) UART_TEST: Message sent[0m
+[0;32mI (90327) UART_TEST: Message sent[0m
+[0;32mI (91327) UART_TEST: Message sent[0m
+[0;32mI (92327) UART_TEST: Message sent[0m
+[0;32mI (93327) UART_TEST: Message sent[0m
+[0;32mI (94327) UART_TEST: Message sent[0m
+[0;32mI (95327) UART_TEST: Message sent[0m
+[0;32mI (96327) UART_TEST: Message sent[0m
+[0;32mI (97327) UART_TEST: Message sent[0m
+[0;32mI (98327) UART_TEST: Message sent[0m
+[0;32mI (99327) UART_TEST: Message sent[0m
+[0;32mI (100327) UART_TEST: Message sent[0m
+[0;32mI (101327) UART_TEST: Message sent[0m
+[0;32mI (102327) UART_TEST: Message sent[0m
+[0;32mI (103327) UART_TEST: Message sent[0m
+[0;32mI (104327) UART_TEST: Message sent[0m
+[0;32mI (105327) UART_TEST: Message sent[0m
+[0;32mI (106327) UART_TEST: Message sent[0m
+[0;32mI (107327) UART_TEST: Message sent[0m
+[0;32mI (108327) UART_TEST: Message sent[0m
+[0;32mI (109327) UART_TEST: Message sent[0m
+[0;32mI (110327) UART_TEST: Message sent[0m
+[0;32mI (111327) UART_TEST: Message sent[0m
+[0;32mI (112327) UART_TEST: Message sent[0m
+[0;32mI (113327) UART_TEST: Message sent[0m
+[0;32mI (114327) UART_TEST: Message sent[0m
+[0;32mI (115327) UART_TEST: Message sent[0m
+[0;32mI (116327) UART_TEST: Message sent[0m
+[0;32mI (117327) UART_TEST: Message sent[0m
+[0;32mI (118327) UART_TEST: Message sent[0m
+[0;32mI (119327) UART_TEST: Message sent[0m
+[0;32mI (120327) UART_TEST: Message sent[0m
+[0;32mI (121327) UART_TEST: Message sent[0m
+[0;32mI (122327) UART_TEST: Message sent[0m
+[0;32mI (123327) UART_TEST: Message sent[0m
+[0;32mI (124327) UART_TEST: Message sent[0m
+[0;32mI (125327) UART_TEST: Message sent[0m
+[0;32mI (126327) UART_TEST: Message sent[0m
+[0;32mI (127327) UART_TEST: Message sent[0m
+[0;32mI (128327) UART_TEST: Message sent[0m
+[0;32mI (129327) UART_TEST: Message sent[0m
+[0;32mI (130327) UART_TEST: Message sent[0m
+[0;32mI (131327) UART_TEST: Message sent[0m
+[0;32mI (132327) UART_TEST: Message sent[0m
+[0;32mI (133327) UART_TEST: Message sent[0m
+[0;32mI (134327) UART_TEST: Message sent[0m
+[0;32mI (135327) UART_TEST: Message sent[0m
+[0;32mI (136327) UART_TEST: Message sent[0m
+[0;32mI (137327) UART_TEST: Message sent[0m

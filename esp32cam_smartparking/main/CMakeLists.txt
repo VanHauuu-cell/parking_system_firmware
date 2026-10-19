@@ -1,0 +1,18 @@
+idf_component_register(
+                SRCS 
+                    "main.c"
+                    "drivers/uart_driver.c"
+                    "protocol/uart_protocol.c"
+                    "drivers/camera_driver.c"
+                    "services/network_manager.c"
+                    "services/server_client.c"
+                    "services/stream_manager.c"
+                    "services/capture_manager.c"
+                    "services/http_server_manager.c"
+                INCLUDE_DIRS 
+                    ""
+                    "config"
+                    "drivers"
+                    "protocol"
+                    "services"
+)

@@ -1,0 +1,415 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7176
+load:0x40078000,len:15644
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (31) boot: ESP-IDF v5.3.3-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Sep 25 2026 19:27:34[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v3.1[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (85) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0ac7ch ( 44156) map[0m
+[0;32mI (120) esp_image: segment 1: paddr=0001aca4 vaddr=3ffb0000 size=02314h (  8980) load[0m
+[0;32mI (124) esp_image: segment 2: paddr=0001cfc0 vaddr=40080000 size=03058h ( 12376) load[0m
+[0;32mI (131) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=165b4h ( 91572) map[0m
+[0;32mI (166) esp_image: segment 4: paddr=000365dc vaddr=40083058 size=0abe8h ( 44008) load[0m
+[0;32mI (190) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (190) boot: Disabling RNG early entropy source...[0m
+[0;32mI (202) cpu_start: Multicore app[0m
+[0;32mI (211) cpu_start: Pro cpu start user code[0m
+[0;32mI (211) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (211) app_init: Application information:[0m
+[0;32mI (214) app_init: Project name:     smart_parking[0m
+[0;32mI (219) app_init: App version:      60078b7-dirty[0m
+[0;32mI (225) app_init: Compile time:     Sep 30 2026 11:43:18[0m
+[0;32mI (231) app_init: ELF file SHA256:  872b28c27...[0m
+[0;32mI (236) app_init: ESP-IDF:          v5.3.3-dirty[0m
+[0;32mI (241) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (246) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (251) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (256) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (263) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (269) heap_init: At 3FFB2BE8 len 0002D418 (181 KiB): DRAM[0m
+[0;32mI (275) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (281) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (288) heap_init: At 4008DC40 len 000123C0 (72 KiB): IRAM[0m
+[0;32mI (296) spi_flash: detected chip: generic[0m
+[0;32mI (299) spi_flash: flash io: dio[0m
+[0;33mW (303) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (316) main_task: Started on CPU0[0m
+[0;32mI (326) main_task: Calling app_main()[0m
+[0;32mI (326) UART_DRIVER: UART initialized: UART2 TX=17 RX=16 baud=115200[0m
+[0;32mI (1466) CAM_UART_TEST: Received: [0m
+[0;32mI (2606) CAM_UART_TEST: Received: ���"[0m
+[0;32mI (3746) CAM_UART_TEST: Received: �
+[0;32mI (4816) CAM_UART_TEST: Received: [0m
+[0;32mI (5296) CAM_UART_TEST: Received: �[0m
+[0;32mI (5456) CAM_UART_TEST: Received: [0m
+[0;32mI (5736) CAM_UART_TEST: Received: [0m
+[0;32mI (5956) CAM_UART_TEST: Received: [0m
+[0;32mI (6116) CAM_UART_TEST: Received: *[0m
+[0;32mI (6266) CAM_UART_TEST: Received: [0m
+[0;32mI (6426) CAM_UART_TEST: Received: [0m
+[0;32mI (6586) CAM_UART_TEST: Received: [0m
+[0;32mI (6726) CAM_UART_TEST: Received: [0m
+[0;32mI (6866) CAM_UART_TEST: Received: [0m
+[0;32mI (6986) CAM_UART_TEST: Received: [0m
+[0;32mI (7126) CAM_UART_TEST: Received: ��D [0m
+[0;32mI (7266) CAM_UART_TEST: Received: [0m
+[0;32mI (8036) CAM_UART_TEST: Received: @@@[0m
+[0;32mI (9006) CAM_UART_TEST: Received: �
+[0;32mI (9566) CAM_UART_TEST: Received: ��@[0m
+[0;32mI (9906) CAM_UART_TEST: Received: `*[0m
+[0;32mI (10106) CAM_UART_TEST: Received: [0m
+[0;32mI (10346) CAM_UART_TEST: Received: [0m
+[0;32mI (10566) CAM_UART_TEST: Received: [0m
+[0;32mI (10886) CAM_UART_TEST: Received: [0m
+[0;32mI (12006) CAM_UART_TEST: Received: [0m
+[0;32mI (13166) CAM_UART_TEST: Received: ���G[0m
+[0;32mI (13856) CAM_UART_TEST: Received: ��[0m
+[0;32mI (14396) CAM_UART_TEST: Received: �[[0m
+[0;32mI (14736) CAM_UART_TEST: Received: [0m
+[0;32mI (15116) CAM_UART_TEST: Received: [0m
+[0;32mI (15496) CAM_UART_TEST: Received: [0m
+[0;32mI (15616) CAM_UART_TEST: Received: [0m
+[0;32mI (15716) CAM_UART_TEST: Received: [0m
+[0;32mI (15856) CAM_UART_TEST: Received: [0m
+[0;32mI (16036) CAM_UART_TEST: Received: [0m
+[0;32mI (16156) CAM_UART_TEST: Received: �
+[0;32mI (16256) CAM_UART_TEST: Received: [0m
+[0;32mI (16336) CAM_UART_TEST: Received: [0m
+[0;32mI (16416) CAM_UART_TEST: Received: [0m
+[0;32mI (16506) CAM_UART_TEST: Received: ���[0m
+[0;32mI (16566) CAM_UART_TEST: Received: @�DXS�uw���U[0m
+[0;32mI (16606) CAM_UART_TEST: Received: [0m
+[0;32mI (16646) CAM_UART_TEST: Received: [0m
+[0;32mI (16666) CAM_UART_TEST: Received: [0m
+[0;32mI (16726) CAM_UART_TEST: Received: a���([0m
+[0;32mI (16786) CAM_UART_TEST: Received: ���wwg�
+[0;32mI (16846) CAM_UART_TEST: Received: [0m
+[0;32mI (16946) CAM_UART_TEST: Received: [0m
+[0;32mI (17006) CAM_UART_TEST: Received: ���3�?�![0m
+[0;32mI (17126) CAM_UART_TEST: Received: �ww�"([0m
+[0;32mI (17266) CAM_UART_TEST: Received: [0m
+[0;32mI (17366) CAM_UART_TEST: Received: E[0m
+[0;32mI (17486) CAM_UART_TEST: Received: [0m
+[0;32mI (17586) CAM_UART_TEST: Received: (s`  [0m
+[0;32mI (17706) CAM_UART_TEST: Received: [0m
+[0;32mI (17786) CAM_UART_TEST: Received: [0m
+[0;32mI (17866) CAM_UART_TEST: Received: ��V���ƭOkK�kkK�OC�
+[0;32mI (17956) CAM_UART_TEST: Received: @[0m
+[0;32mI (18046) CAM_UART_TEST: Received: [0m
+[0;32mI (18166) CAM_UART_TEST: Received: [0m
+[0;32mI (18286) CAM_UART_TEST: Received: [0m
+[0;32mI (18386) CAM_UART_TEST: Received: [0m
+[0;32mI (18466) CAM_UART_TEST: Received: 5�oщ�B[0m
+[0;32mI (18566) CAM_UART_TEST: Received: [0m
+[0;32mI (18666) CAM_UART_TEST: Received: [0m
+[0;32mI (18786) CAM_UART_TEST: Received: @@@@��g�[ [0m
+[0;32mI (18886) CAM_UART_TEST: Received: [0m
+[0;32mI (18966) CAM_UART_TEST: Received: �����쿷������
+[0;32mI (19046) CAM_UART_TEST: Received: [0m
+[0;32mI (19126) CAM_UART_TEST: Received: [0m
+[0;32mI (19226) CAM_UART_TEST: Received: %�W��UTP[0m
+[0;32mI (19326) CAM_UART_TEST: Received: [0m
+[0;32mI (19506) CAM_UART_TEST: Received: �oڪ*� [0m
+[0;32mI (19686) CAM_UART_TEST: Received: �G��hAB([0m
+[0;32mI (19866) CAM_UART_TEST: Received: B[0m
+[0;32mI (20026) CAM_UART_TEST: Received: [0m
+[0;32mI (20206) CAM_UART_TEST: Received: [0m
+[0;32mI (20366) CAM_UART_TEST: Received: @[0m
+[0;32mI (20526) CAM_UART_TEST: Received:  [0m
+[0;32mI (20686) CAM_UART_TEST: Received: �D[0m
+[0;32mI (20846) CAM_UART_TEST: Received: @@[0m
+[0;32mI (21006) CAM_UART_TEST: Received: [0m
+[0;32mI (21066) CAM_UART_TEST: Received: *�B [0m
+[0;32mI (21146) CAM_UART_TEST: Received: [0m
+[0;32mI (21226) CAM_UART_TEST: Received: [0m
+[0;32mI (21326) CAM_UART_TEST: Received: [0m
+[0;32mI (21426) CAM_UART_TEST: Received: B�B B[M0�ȐH[0m
+[0;32mI (21546) CAM_UART_TEST: Received: _[�{�{[0m
+[0;32mI (21686) CAM_UART_TEST: Received: [0m
+[0;32mI (21826) CAM_UART_TEST: Received: [0m
+[0;32mI (21986) CAM_UART_TEST: Received: [0m
+[0;32mI (22126) CAM_UART_TEST: Received: mI'$�
+[0;32mI (22266) CAM_UART_TEST: Received: [0m
+[0;32mI (22426) CAM_UART_TEST: Received: [0m
+[0;32mI (22566) CAM_UART_TEST: Received: [0m
+[0;32mI (22656) CAM_UART_TEST: Received: [0m
+[0;32mI (22736) CAM_UART_TEST: Received:  [0m
+[0;32mI (22816) CAM_UART_TEST: Received: D�3�S�������RD	H[0m
+[0;32mI (22916) CAM_UART_TEST: Received: P��[0m
+[0;32mI (23016) CAM_UART_TEST: Received: QTeYE$�7���ZА��P��Ґ�H��[0m
+[0;32mI (23096) CAM_UART_TEST: Received: @[0m
+[0;32mI (23176) CAM_UART_TEST: Received: [0m
+[0;32mI (23256) CAM_UART_TEST: Received: K��P����[0m
+[0;32mI (23336) CAM_UART_TEST: Received: [0m
+[0;32mI (23436) CAM_UART_TEST: Received: k�k�UT[0m
+[0;32mI (23516) CAM_UART_TEST: Received: ���@"H�t�e���j�`( [0m
+[0;32mI (23616) CAM_UART_TEST: Received: ( ����?�����Ë�����[0m
+[0;32mI (23736) CAM_UART_TEST: Received: �wwA@[0m
+[0;32mI (23796) CAM_UART_TEST: Received: �W��[0m
+[0;32mI (23876) CAM_UART_TEST: Received: �L���[0m
+[0;32mI (23936) CAM_UART_TEST: Received: ��-�e�?�^������U���%PP@PT[0m
+[0;32mI (23996) CAM_UART_TEST: Received: 6�##7'�!B����X��-��@((([0m
+[0;32mI (24036) CAM_UART_TEST: Received: A@[0m
+[0;32mI (24116) CAM_UART_TEST: Received: j�P�	[0m
+[0;32mI (24156) CAM_UART_TEST: Received:  �
+ [0m
+[0;32mI (24236) CAM_UART_TEST: Received: M��3	X�[0m
+[0;32mI (24296) CAM_UART_TEST: Received: b���00[0m
+[0;32mI (24356) CAM_UART_TEST: Received: [0m
+[0;32mI (24416) CAM_UART_TEST: Received: �ww�D@T@[0m
+[0;32mI (24476) CAM_UART_TEST: Received: [0m
+[0;32mI (24536) CAM_UART_TEST: Received: �z�i�mR[0m
+[0;32mI (24576) CAM_UART_TEST: Received: [0m
+[0;32mI (24636) CAM_UART_TEST: Received: �W|��Z$�![0m
+[0;32mI (24676) CAM_UART_TEST: Received: ����\ �[0m
+[0;32mI (24716) CAM_UART_TEST: Received: [0m
+[0;32mI (24756) CAM_UART_TEST: Received: [0m
+[0;32mI (24796) CAM_UART_TEST: Received: [0m
+[0;32mI (24856) CAM_UART_TEST: Received: �w���������6�'3'��-�H[0m
+[0;32mI (24916) CAM_UART_TEST: Received: [0m
+[0;32mI (24996) CAM_UART_TEST: Received: �{����D[0m
+[0;32mI (25076) CAM_UART_TEST: Received: ����i�[0m
+[0;32mI (25156) CAM_UART_TEST: Received: w��[��m�n [0m
+[0;32mI (25236) CAM_UART_TEST: Received: ���L%[0m
+[0;32mI (25336) CAM_UART_TEST: Received: ����csss�����eI �
+[0;32mI (25416) CAM_UART_TEST: Received: ��        [0m
+[0;32mI (25496) CAM_UART_TEST: Received: ����p�((@[0m
+[0;32mI (25576) CAM_UART_TEST: Received: �
+[0;32mI (25656) CAM_UART_TEST: Received: @[0m
+[0;32mI (25736) CAM_UART_TEST: Received:  [0m
+[0;32mI (25816) CAM_UART_TEST: Received: [0m
+[0;32mI (25896) CAM_UART_TEST: Received:    [0m
+[0;32mI (25976) CAM_UART_TEST: Received: [0m
+[0;32mI (26076) CAM_UART_TEST: Received: [0m
+[0;32mI (26166) CAM_UART_TEST: Received: [0m
+[0;32mI (26256) CAM_UART_TEST: Received: �s�&�:[0m
+[0;32mI (26336) CAM_UART_TEST: Received:  �)�� H�������H�[0m
+[0;32mI (26416) CAM_UART_TEST: Received: 0[0m
+[0;32mI (26496) CAM_UART_TEST: Received: D@@��@h�i�ݟ��[0m
+[0;32mI (26566) CAM_UART_TEST: Received: [0m
+[0;32mI (26646) CAM_UART_TEST: Received: [0m
+[0;32mI (26726) CAM_UART_TEST: Received: βvw�����bh@ [0m
+[0;32mI (26806) CAM_UART_TEST: Received: [0m
+[0;32mI (26886) CAM_UART_TEST: Received: [0m
+[0;32mI (26966) CAM_UART_TEST: Received: [0m
+[0;32mI (27036) CAM_UART_TEST: Received: D�@@@[0m
+[0;32mI (27106) CAM_UART_TEST: Received: �3[0m
+[0;32mI (27206) CAM_UART_TEST: Received: ����b�
+[0;32mI (27286) CAM_UART_TEST: Received: [0m
+[0;32mI (27366) CAM_UART_TEST: Received: [0m
+[0;32mI (27446) CAM_UART_TEST: Received:  �[0m
+[0;32mI (27506) CAM_UART_TEST: Received: [0m
+[0;32mI (27626) CAM_UART_TEST: Received: [0m
+[0;32mI (27706) CAM_UART_TEST: Received: D"�ߛD)X[0m
+[0;32mI (27786) CAM_UART_TEST: Received: ��
+A�������E-�[0m
+[0;32mI (27866) CAM_UART_TEST: Received: D@��&�s���ww׈[0m
+[0;32mI (27946) CAM_UART_TEST: Received: �
+[0;32mI (28026) CAM_UART_TEST: Received: BB"�@!��KT����@@�X��[0m
+[0;32mI (28106) CAM_UART_TEST: Received: [0m
+[0;32mI (28186) CAM_UART_TEST: Received: ����TTT[0m
+[0;32mI (28266) CAM_UART_TEST: Received: [0m
+[0;32mI (28346) CAM_UART_TEST: Received: [0m
+[0;32mI (28426) CAM_UART_TEST: Received: [0m
+[0;32mI (28506) CAM_UART_TEST: Received: D@@[0m
+[0;32mI (28586) CAM_UART_TEST: Received: [0m
+[0;32mI (28666) CAM_UART_TEST: Received: �wl ADD@@@@[0m
+[0;32mI (28746) CAM_UART_TEST: Received: [0m
+[0;32mI (28806) CAM_UART_TEST: Received: [0m
+[0;32mI (28886) CAM_UART_TEST: Received: �ڒRI"��H[0m
+[0;32mI (28966) CAM_UART_TEST: Received: ����@��C�3[0m
+[0;32mI (29036) CAM_UART_TEST: Received: [0m
+[0;32mI (29146) CAM_UART_TEST: Received: �M%8K[0m
+[0;32mI (29226) CAM_UART_TEST: Received: [0m
+[0;32mI (29326) CAM_UART_TEST: Received: [0m
+[0;32mI (29426) CAM_UART_TEST: Received: �g�w7�wW[0m
+[0;32mI (29506) CAM_UART_TEST: Received: [0m
+[0;32mI (29646) CAM_UART_TEST: Received: h�
+[0;32mI (30156) CAM_UART_TEST: Received: [0m
+[0;32mI (31156) CAM_UART_TEST: Received: �w[0m
+[0;32mI (31996) CAM_UART_TEST: Received: wV�����g�
+h�D�
+[0;32mI (32076) CAM_UART_TEST: Received: [0m
+[0;32mI (32156) CAM_UART_TEST: Received: [0m
+[0;32mI (32256) CAM_UART_TEST: Received: [0m
+[0;32mI (32356) CAM_UART_TEST: Received: @����J��w����Ze��@�[0m
+[0;32mI (32436) CAM_UART_TEST: Received: [0m
+[0;32mI (32516) CAM_UART_TEST: Received: ı�wwwwwU��EH[0m
+[0;32mI (32596) CAM_UART_TEST: Received:  [0m
+[0;32mI (32696) CAM_UART_TEST: Received: ��Fg�c�2\�&����I��M��G[0m
+[0;32mI (32776) CAM_UART_TEST: Received: [0m
+[0;32mI (32876) CAM_UART_TEST: Received: ��D"[0m
+[0;32mI (32956) CAM_UART_TEST: Received: [0m
+[0;32mI (33036) CAM_UART_TEST: Received: 1Xc�S�6r���c�'�
+[0;32mI (33116) CAM_UART_TEST: Received: %N�<�s�ww��0[0m
+[0;32mI (33176) CAM_UART_TEST: Received: [0m
+[0;32mI (33236) CAM_UART_TEST: Received: [0m
+[0;32mI (33316) CAM_UART_TEST: Received: �[@�[�{"����)���[0m
+[0;32mI (33396) CAM_UART_TEST: Received: �B"K-P����IF�T5�{��U��[0m
+[0;32mI (33456) CAM_UART_TEST: Received: w��w��[0m
+[0;32mI (33536) CAM_UART_TEST: Received: ����)����'�Tu�T����U��U[0m
+[0;32mI (33626) CAM_UART_TEST: Received: CBBBB[0m
+[0;32mI (33666) CAM_UART_TEST: Received: [0m
+[0;32mI (33706) CAM_UART_TEST: Received: [0m
+[0;32mI (33766) CAM_UART_TEST: Received: [0m
+[0;32mI (33826) CAM_UART_TEST: Received: ���mC2�M4@[0m
+[0;32mI (33866) CAM_UART_TEST: Received: [0m
+[0;32mI (34036) CAM_UART_TEST: Received: [0m
+[0;32mI (34076) CAM_UART_TEST: Received: [0m
+[0;32mI (34116) CAM_UART_TEST: Received: [0m
+[0;32mI (34236) CAM_UART_TEST: Received: �� D	6�mR����[0m
+[0;32mI (34316) CAM_UART_TEST: Received: [0m
+[0;32mI (34376) CAM_UART_TEST: Received: [0m
+[0;32mI (34436) CAM_UART_TEST: Received: [0m
+[0;32mI (34476) CAM_UART_TEST: Received: [0m
+[0;32mI (34536) CAM_UART_TEST: Received: [0m
+[0;32mI (34596) CAM_UART_TEST: Received: 
+@[0m
+[0;32mI (34656) CAM_UART_TEST: Received:  [0m
+[0;32mI (34716) CAM_UART_TEST: Received: �
+[0;32mI (34796) CAM_UART_TEST: Received: [0m
+[0;32mI (34836) CAM_UART_TEST: Received: �
+[0;32mI (34896) CAM_UART_TEST: Received: [0m
+[0;32mI (34956) CAM_UART_TEST: Received: [0m
+[0;32mI (35016) CAM_UART_TEST: Received: @[0m
+[0;32mI (35096) CAM_UART_TEST: Received: [0m
+[0;32mI (35196) CAM_UART_TEST: Received: [0m
+[0;32mI (35256) CAM_UART_TEST: Received: [0m
+[0;32mI (35296) CAM_UART_TEST: Received: [0m
+[0;32mI (35516) CAM_UART_TEST: Received: [0m
+[0;32mI (35596) CAM_UART_TEST: Received: �H���[0m
+[0;32mI (35636) CAM_UART_TEST: Received: 
+ h[0m
+[0;32mI (35676) CAM_UART_TEST: Received: �
+[0;32mI (35736) CAM_UART_TEST: Received: �f���MM���"[0m
+[0;32mI (35776) CAM_UART_TEST: Received: F[0m
+[0;32mI (35816) CAM_UART_TEST: Received: @[0m
+[0;32mI (35896) CAM_UART_TEST: Received: ����mMi�[0m
+[0;32mI (35956) CAM_UART_TEST: Received: �(%�"���[0m
+[0;32mI (36016) CAM_UART_TEST: Received: ok{4�#���# �H[0m
+[0;32mI (36076) CAM_UART_TEST: Received: @[0m
+[0;32mI (36156) CAM_UART_TEST: Received: [0m
+[0;32mI (36276) CAM_UART_TEST: Received: [0m
+[0;32mI (36376) CAM_UART_TEST: Received: �
+[0;32mI (36476) CAM_UART_TEST: Received: @@�@D[0m
+[0;32mI (36536) CAM_UART_TEST: Received: [0m
+[0;32mI (36636) CAM_UART_TEST: Received: H�WUTTUUA�P"��[0m
+[0;32mI (36696) CAM_UART_TEST: Received: {�J�%21F5@�
+[0;32mI (36796) CAM_UART_TEST: Received: #D�$'��W[0m
+[0;32mI (36876) CAM_UART_TEST: Received: [0m
+[0;32mI (36956) CAM_UART_TEST: Received: @[0m
+[0;32mI (37036) CAM_UART_TEST: Received: [0m
+[0;32mI (37116) CAM_UART_TEST: Received: ���>�[0m
+[0;32mI (37176) CAM_UART_TEST: Received: �@�[0m
+[0;32mI (37246) CAM_UART_TEST: Received: � [0m
+[0;32mI (37326) CAM_UART_TEST: Received: -�M4[��={-���P�PP@[0m
+[0;32mI (37406) CAM_UART_TEST: Received: [0m
+[0;32mI (37466) CAM_UART_TEST: Received: [0m
+[0;32mI (37566) CAM_UART_TEST: Received: !���)O�&H�[0m
+[0;32mI (37626) CAM_UART_TEST: Received: �
+[0m
+[0;32mI (37726) CAM_UART_TEST: Received: Bh�����2[0m
+[0;32mI (37806) CAM_UART_TEST: Received: [0m
+[0;32mI (37886) CAM_UART_TEST: Received: [0m
+[0;32mI (37966) CAM_UART_TEST: Received: [0m
+[0;32mI (38046) CAM_UART_TEST: Received: ��[0m
+[0;32mI (38126) CAM_UART_TEST: Received: Ok�UUD)H F[0m
+[0;32mI (38226) CAM_UART_TEST: Received: f�g�w�.[0m
+[0;32mI (38286) CAM_UART_TEST: Received: [0m
+[0;32mI (38366) CAM_UART_TEST: Received: f6���MB�
+[0;32mI (38446) CAM_UART_TEST: Received: [0m
+[0;32mI (38526) CAM_UART_TEST: Received: �Wӛ���P��
+[0;32mI (38606) CAM_UART_TEST: Received: �
+[0;32mI (38686) CAM_UART_TEST: Received: ������;��j�[0m
+[0;32mI (38786) CAM_UART_TEST: Received: 8a�sss��w�����w���E�wEUT[0m
+[0;32mI (38866) CAM_UART_TEST: Received: W��R���[0m
+[0;32mI (38946) CAM_UART_TEST: Received: [0m
+[0;32mI (39026) CAM_UART_TEST: Received: [0m
+[0;32mI (39106) CAM_UART_TEST: Received: �1�ew�s�UU���/'n��@[0m
+[0;32mI (39186) CAM_UART_TEST: Received: [0m
+[0;32mI (39266) CAM_UART_TEST: Received: ,[0m
+[0;32mI (39346) CAM_UART_TEST: Received: �E*7'�W��F��0[0m
+[0;32mI (39706) CAM_UART_TEST: Received: �u������w������[0m
+[0;32mI (39806) CAM_UART_TEST: Received: wUvwwww���[�[0m
+[0;32mI (39886) CAM_UART_TEST: Received: [0m
+[0;32mI (40026) CAM_UART_TEST: Received: ����  [0m
+[0;32mI (40316) CAM_UART_TEST: Received: ��	� �D�P[0m
+[0;32mI (40466) CAM_UART_TEST: Received: ��:��[0m
+[0;32mI (40886) CAM_UART_TEST: Received: [0m
+[0;32mI (42836) CAM_UART_TEST: Received: [0m
+[0;32mI (45536) CAM_UART_TEST: Received: <PLATE_RESULT,1,123,51A12345,95>[0m
+[0;32mI (45736) CAM_UART_TEST: Received: [0m
+[0;32mI (46736) CAM_UART_TEST: Received: @   ���
+[0;32mI (47936) CAM_UART_TEST: Received: ������*���[0m
+[0;32mI (48016) CAM_UART_TEST: Received: [0m
+[0;32mI (48096) CAM_UART_TEST: Received: "�TcC �
+@���['�@�H��[0m
+[0;32mI (48156) CAM_UART_TEST: Received: �-@P[0m
+[0;32mI (48236) CAM_UART_TEST: Received: [0m
+[0;32mI (48336) CAM_UART_TEST: Received: W`�T@[0m
+[0;32mI (48436) CAM_UART_TEST: Received: ��[0m
+[0;32mI (48516) CAM_UART_TEST: Received: [0m
+[0;32mI (48596) CAM_UART_TEST: Received:  [0m
+[0;32mI (48676) CAM_UART_TEST: Received: @cX3����M[0m
+[0;32mI (48756) CAM_UART_TEST: Received: [0m
+[0;32mI (48816) CAM_UART_TEST: Received: r�:�"��� [0m
+[0;32mI (48896) CAM_UART_TEST: Received: �g�M�#�
+[0;32mI (48976) CAM_UART_TEST: Received: [0m
+[0;32mI (49056) CAM_UART_TEST: Received:  [0m
+[0;32mI (49116) CAM_UART_TEST: Received: :���[0m
+[0;32mI (49176) CAM_UART_TEST: Received: [0m
+[0;32mI (49256) CAM_UART_TEST: Received: [0m
+[0;32mI (49336) CAM_UART_TEST: Received: [0m
+[0;32mI (49456) CAM_UART_TEST: Received: [0m
+[0;32mI (49556) CAM_UART_TEST: Received: [0m
+[0;32mI (49636) CAM_UART_TEST: Received: @  [0m
+[0;32mI (49716) CAM_UART_TEST: Received: �
+[0;32mI (49796) CAM_UART_TEST: Received: [0m
+[0;32mI (49856) CAM_UART_TEST: Received: @@@@@@@[0m
+[0;32mI (49956) CAM_UART_TEST: Received: [0m
+[0;32mI (50026) CAM_UART_TEST: Received: @ [0m
+[0;32mI (50166) CAM_UART_TEST: Received: [0m
+[0;32mI (50266) CAM_UART_TEST: Received: [0m
+[0;32mI (50386) CAM_UART_TEST: Received: @[0m
+[0;32mI (50526) CAM_UART_TEST: Received: [0m
+[0;32mI (50626) CAM_UART_TEST: Received: ���*([0m
+[0;32mI (51836) CAM_UART_TEST: Received: K2[0m
+[0;32mI (54836) CAM_UART_TEST: Received: <PLATE_RESULT,1,123,51A12345,95>[0m
+[0;32mI (57836) CAM_UART_TEST: Received: <PLATE_RESULT,1,123,51A12345,95>[0m
+[0;32mI (60836) CAM_UART_TEST: Received: <PLATE_RESULT,1,123,51A12345,95>[0m
+[0;32mI (63836) CAM_UART_TEST: Received: <PLATE_RESULT,1,123,51A12345,95>[0m
+[0;32mI (66836) CAM_UART_TEST: Received: <PLATE_RESULT,1,123,51A12345,95>[0m
+[0;32mI (69836) CAM_UART_TEST: Received: <PLATE_RESULT,1,123,51A12345,95>[0m
+[0;32mI (72106) CAM_UART_TEST: Received: <PLATE_RESULT,1,123,51A12345,95>#[0m
+[0;32mI (72166) CAM_UART_TEST: Received: ���_UUUUTT[0m
+[0;32mI (72266) CAM_UART_TEST: Received: [0m
+[0;32mI (72366) CAM_UART_TEST: Received: [0m
+[0;32mI (72446) CAM_UART_TEST: Received: B[0m
+[0;32mI (72546) CAM_UART_TEST: Received: ok�"!!BBB[0m
+[0;32mI (72626) CAM_UART_TEST: Received: [0m
+[0;32mI (72746) CAM_UART_TEST: Received: ����"�"��������K��� [0m
+[0;32mI (72846) CAM_UART_TEST: Received: [0m
+[0;32mI (73266) CAM_UART_TEST: Received: [0m
+[0;32mI (74046) CAM_UART_TEST: Received: �
+[0;32mI (74206) CAM_UART_TEST: Received: 	[0m
+[0;32mI (74326) CAM_UART_TEST: Received: �
+[0;32mI (74446) CAM_UART_TEST: Received: [0m

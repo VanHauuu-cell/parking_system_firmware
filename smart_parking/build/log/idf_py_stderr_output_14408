@@ -1,0 +1,2 @@
+Note: E:/esp/Espressif/python_env/idf5.3_py3.11_env/Scripts/python.exe;;E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esptool_py/esptool/esptool.py;--chip;esp32 will search for a serial port. To specify a port, set the ESPPORT environment variable.
+Note: E:/esp/Espressif/python_env/idf5.3_py3.11_env/Scripts/python.exe;;E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esptool_py/esptool/esptool.py;--chip;esp32 will attempt to set baud rate automatically. To specify a baud rate, set the ESPBAUD environment variable.

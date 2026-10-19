@@ -1,0 +1,84 @@
+[1/10] Performing build step for 'bootloader'
+[1/1] C:\WINDOWS\system32\cmd.exe /C "cd /D "E:\Parking System\smart_parking\build\bootloader\esp-idf\esptool_py" && E:\esp\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 "E:/Parking System/smart_parking/build/bootloader/bootloader.bin""
+Bootloader binary size 0x68d0 bytes. 0x730 bytes (6%) free.
+[2/10] No install step for 'bootloader'
+[3/10] Completed 'bootloader'
+[4/10] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj
+In file included from E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_hw_support/include/esp_intr_alloc.h:12,
+                 from E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_hw_support/include/esp_cpu.h:20,
+                 from E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_hw_support/include/spinlock.h:11,
+                 from E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:49,
+                 from E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/freertos/FreeRTOS-Kernel/include/freertos/portable.h:57,
+                 from E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h:69,
+                 from E:/Parking System/smart_parking/main/main.c:3:
+E:/Parking System/smart_parking/main/main.c: In function 'app_main':
+E:/Parking System/smart_parking/main/main.c:58:42: warning: unsigned conversion from 'int' to 'uint8_t' {aka 'unsigned char'} changes value from '270' to '14' [-Woverflow]
+   58 |             servo_set_angle(SERVO_ENTRY, 270)
+      |                                          ^~~
+E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+E:/Parking System/smart_parking/main/main.c:64:42: warning: unsigned conversion from 'int' to 'uint8_t' {aka 'unsigned char'} changes value from '315' to '59' [-Woverflow]
+   64 |             servo_set_angle(SERVO_ENTRY, 315)
+      |                                          ^~~
+E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+E:/Parking System/smart_parking/main/main.c:70:42: warning: unsigned conversion from 'int' to 'uint8_t' {aka 'unsigned char'} changes value from '360' to '104' [-Woverflow]
+   70 |             servo_set_angle(SERVO_ENTRY, 360)
+      |                                          ^~~
+E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+[5/10] Linking C static library esp-idf\main\libmain.a
+[6/10] Generating ld/sections.ld
+[7/10] Linking CXX executable smart_parking.elf
+[8/10] Generating binary image from built executable
+esptool.py v4.8.1
+Creating esp32 image...
+Merged 2 ELF sections
+Successfully created esp32 image.
+Generated E:/Parking System/smart_parking/build/smart_parking.bin
+[9/10] C:\WINDOWS\system32\cmd.exe /C "cd /D "E:\Parking System\smart_parking\build\esp-idf\esptool_py" && E:\esp\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/partition_table/check_sizes.py --offset 0x8000 partition --type app "E:/Parking System/smart_parking/build/partition_table/partition-table.bin" "E:/Parking System/smart_parking/build/smart_parking.bin""
+smart_parking.bin binary size 0x2e550 bytes. Smallest app partition is 0x100000 bytes. 0xd1ab0 bytes (82%) free.
+[9/10] C:\WINDOWS\system32\cmd.exe /C "cd /D E:\esp\Espressif\frameworks\esp-idf-v5.3.3\components\esptool_py && E:\esp\Espressif\tools\cmake\3.30.2\bin\cmake.exe -D IDF_PATH=E:/esp/Espressif/frameworks/esp-idf-v5.3.3 -D SERIAL_TOOL=E:/esp/Espressif/python_env/idf5.3_py3.11_env/Scripts/python.exe;;E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esptool_py/esptool/esptool.py;--chip;esp32 -D SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args -D "WORKING_DIRECTORY=E:/Parking System/smart_parking/build" -P E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esptool_py/run_serial_tool.cmake"
+esptool.py --chip esp32 -p COM4 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size 2MB 0x1000 bootloader/bootloader.bin 0x10000 smart_parking.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.8.1
+Serial port COM4
+Connecting.....
+Chip is ESP32-D0WD-V3 (revision v3.1)
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+MAC: b0:cb:d8:c8:3f:88
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00001000 to 0x00007fff...
+Flash will be erased from 0x00010000 to 0x0003efff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+SHA digest in image updated
+Compressed 26832 bytes to 16436...
+Writing at 0x00001000... (50 %)
+Writing at 0x00007882... (100 %)
+Wrote 26832 bytes (16436 compressed) at 0x00001000 in 0.7 seconds (effective 299.6 kbit/s)...
+Hash of data verified.
+Compressed 189776 bytes to 101167...
+Writing at 0x00010000... (14 %)
+Writing at 0x0001cb55... (28 %)
+Writing at 0x00022531... (42 %)
+Writing at 0x00028138... (57 %)
+Writing at 0x0002f993... (71 %)
+Writing at 0x00036f9c... (85 %)
+Writing at 0x0003d22e... (100 %)
+Wrote 189776 bytes (101167 compressed) at 0x00010000 in 2.9 seconds (effective 530.7 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 103...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.0 seconds (effective 660.3 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...
