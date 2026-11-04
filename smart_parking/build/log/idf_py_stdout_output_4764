@@ -1,0 +1,100 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7176
+load:0x40078000,len:15644
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (31) boot: ESP-IDF v5.3.3-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Nov  3 2026 11:15:21[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v3.1[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (85) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0b634h ( 46644) map[0m
+[0;32mI (121) esp_image: segment 1: paddr=0001b65c vaddr=3ffb0000 size=02314h (  8980) load[0m
+[0;32mI (124) esp_image: segment 2: paddr=0001d978 vaddr=40080000 size=026a0h (  9888) load[0m
+[0;32mI (131) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1ad80h (109952) map[0m
+[0;32mI (173) esp_image: segment 4: paddr=0003ada8 vaddr=400826a0 size=0aac0h ( 43712) load[0m
+[0;32mI (197) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (197) boot: Disabling RNG early entropy source...[0m
+[0;32mI (209) cpu_start: Multicore app[0m
+[0;32mI (217) cpu_start: Pro cpu start user code[0m
+[0;32mI (218) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (218) app_init: Application information:[0m
+[0;32mI (220) app_init: Project name:     smart_parking[0m
+[0;32mI (226) app_init: App version:      138dafc-dirty[0m
+[0;32mI (231) app_init: Compile time:     Nov  3 2026 11:15:07[0m
+[0;32mI (237) app_init: ELF file SHA256:  1d240f852...[0m
+[0;32mI (243) app_init: ESP-IDF:          v5.3.3-dirty[0m
+[0;32mI (248) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (253) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (258) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (263) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (270) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (276) heap_init: At 3FFB2C10 len 0002D3F0 (180 KiB): DRAM[0m
+[0;32mI (282) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (288) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (295) heap_init: At 4008D160 len 00012EA0 (75 KiB): IRAM[0m
+[0;32mI (302) spi_flash: detected chip: generic[0m
+[0;32mI (305) spi_flash: flash io: dio[0m
+[0;33mW (309) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (323) main_task: Started on CPU0[0m
+[0;32mI (333) main_task: Calling app_main()[0m
+[0;32mI (333) gpio: GPIO[32]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (333) gpio: GPIO[21]| InputEn: 1| OutputEn: 1| OpenDrain: 1| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (343) gpio: GPIO[22]| InputEn: 1| OutputEn: 1| OpenDrain: 1| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (353) LCD_I2C: I2C device found: 0x27[0m
+[0;32mI (423) LCD_I2C: LCD1602 ready: address=0x27 SDA=21 SCL=22[0m
+[0;32mI (2473) LCD_BUZZER_TEST: Row 0 must show LCD OK with no leftover characters[0m
+[0;32mI (3473) LCD_BUZZER_TEST: Beep 1 ON[0m
+[0;32mI (3623) LCD_BUZZER_TEST: Beep 1 OFF[0m
+[0;32mI (6473) LCD_BUZZER_TEST: Beep 2 ON[0m
+[0;32mI (6623) LCD_BUZZER_TEST: Beep 2 OFF[0m
+[0;32mI (9473) LCD_BUZZER_TEST: Beep 3 ON[0m
+[0;32mI (9623) LCD_BUZZER_TEST: Beep 3 OFF[0m
+[0;32mI (12473) LCD_BUZZER_TEST: Beep 4 ON[0m
+[0;32mI (12623) LCD_BUZZER_TEST: Beep 4 OFF[0m
+[0;32mI (15473) LCD_BUZZER_TEST: Beep 5 ON[0m
+[0;32mI (15623) LCD_BUZZER_TEST: Beep 5 OFF[0m
+[0;32mI (18473) LCD_BUZZER_TEST: Beep 6 ON[0m
+[0;32mI (18623) LCD_BUZZER_TEST: Beep 6 OFF[0m
+[0;32mI (21473) LCD_BUZZER_TEST: Beep 7 ON[0m
+[0;32mI (21623) LCD_BUZZER_TEST: Beep 7 OFF[0m
+[0;32mI (24473) LCD_BUZZER_TEST: Beep 8 ON[0m
+[0;32mI (24623) LCD_BUZZER_TEST: Beep 8 OFF[0m
+[0;32mI (27473) LCD_BUZZER_TEST: Beep 9 ON[0m
+[0;32mI (27623) LCD_BUZZER_TEST: Beep 9 OFF[0m
+[0;32mI (30473) LCD_BUZZER_TEST: Beep 10 ON[0m
+[0;32mI (30623) LCD_BUZZER_TEST: Beep 10 OFF[0m
+[0;32mI (33473) LCD_BUZZER_TEST: Beep 11 ON[0m
+[0;32mI (33623) LCD_BUZZER_TEST: Beep 11 OFF[0m
+[0;32mI (36473) LCD_BUZZER_TEST: Beep 12 ON[0m
+[0;32mI (36623) LCD_BUZZER_TEST: Beep 12 OFF[0m
+[0;32mI (39473) LCD_BUZZER_TEST: Beep 13 ON[0m
+[0;32mI (39623) LCD_BUZZER_TEST: Beep 13 OFF[0m
+[0;32mI (42473) LCD_BUZZER_TEST: Beep 14 ON[0m
+[0;32mI (42623) LCD_BUZZER_TEST: Beep 14 OFF[0m
+[0;32mI (45473) LCD_BUZZER_TEST: Beep 15 ON[0m
+[0;32mI (45623) LCD_BUZZER_TEST: Beep 15 OFF[0m
+[0;32mI (48473) LCD_BUZZER_TEST: Beep 16 ON[0m
+[0;32mI (48623) LCD_BUZZER_TEST: Beep 16 OFF[0m
+[0;32mI (51473) LCD_BUZZER_TEST: Beep 17 ON[0m
+[0;32mI (51623) LCD_BUZZER_TEST: Beep 17 OFF[0m
+[0;32mI (54473) LCD_BUZZER_TEST: Beep 18 ON[0m
+[0;32mI (54623) LCD_BUZZER_TEST: Beep 18 OFF[0m
+[0;32mI (57473) LCD_BUZZER_TEST: Beep 19 ON[0m
+[0;32mI (57623) LCD_BUZZER_TEST: Beep 19 OFF[0m

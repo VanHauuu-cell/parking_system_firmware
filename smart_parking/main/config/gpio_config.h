@@ -18,13 +18,15 @@
 #define GPIO_IR_SLOT_3         GPIO_NUM_36
 #define GPIO_IR_SLOT_4         GPIO_NUM_39
 
-#define GPIO_SERVO_ENTRY       GPIO_NUM_27
+#define GPIO_SERVO_ENTRY       GPIO_NUM_5
 #define GPIO_SERVO_EXIT        GPIO_NUM_14
 
 #define GPIO_CAM_ENTRY_RX      GPIO_NUM_16
 #define GPIO_CAM_ENTRY_TX      GPIO_NUM_17
 
-#define GPIO_CAM_EXIT_RX       GPIO_NUM_25
-#define GPIO_CAM_EXIT_TX       GPIO_NUM_26
+#define GPIO_CAM_EXIT_RX       GPIO_NUM_26
+#define GPIO_CAM_EXIT_TX       GPIO_NUM_25
+
+#define GPIO_BUZZER            GPIO_NUM_32
 
 #endif

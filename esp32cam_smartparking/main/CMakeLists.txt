@@ -5,10 +5,11 @@ idf_component_register(
                     "protocol/uart_protocol.c"
                     "drivers/camera_driver.c"
                     "services/network_manager.c"
-                    "services/server_client.c"
                     "services/stream_manager.c"
                     "services/capture_manager.c"
                     "services/http_server_manager.c"
+                    "services/ocr_manager.c"
+                    "services/gate_watch_manager.c"
                 INCLUDE_DIRS 
                     ""
                     "config"

@@ -5,9 +5,6 @@
 #include "esp_http_server.h"
 
 esp_err_t http_server_manager_start(void);
-
-esp_err_t http_server_manager_register_uri(
-    const httpd_uri_t *uri
-);
+esp_err_t http_server_manager_register_uri(const httpd_uri_t *uri);
 
 #endif

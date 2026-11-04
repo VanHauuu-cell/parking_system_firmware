@@ -1,4 +1,5 @@
 #include "camera_driver.h"
+#include "parking_link_config.h"
 
 #include "esp_log.h"
 
@@ -59,7 +60,15 @@ esp_err_t camera_driver_init(void)
 
     sensor_t *sensor = esp_camera_sensor_get();
 
-    sensor->set_hmirror(sensor, 1);
+    #if PARKING_CAMERA_ID == 1
+    // ENTRY: sua anh bi dao tren-duoi
+    sensor->set_hmirror(sensor, 0);
+    sensor->set_vflip(sensor, 1);
+#elif PARKING_CAMERA_ID == 2
+    // EXIT: sua anh bi dao trai-phai
+    sensor->set_hmirror(sensor, 0);
+    sensor->set_vflip(sensor, 0);
+#endif
 
     ESP_LOGI(TAG, "Camera initialized successfully");
 

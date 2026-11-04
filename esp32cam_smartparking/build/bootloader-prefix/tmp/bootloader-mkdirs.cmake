@@ -10,18 +10,18 @@ if(NOT EXISTS "E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/bootloader/
   file(MAKE_DIRECTORY "E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/bootloader/subproject")
 endif()
 file(MAKE_DIRECTORY
-  "E:/Parking System/esp32cam_smartparking/build/bootloader"
-  "E:/Parking System/esp32cam_smartparking/build/bootloader-prefix"
-  "E:/Parking System/esp32cam_smartparking/build/bootloader-prefix/tmp"
-  "E:/Parking System/esp32cam_smartparking/build/bootloader-prefix/src/bootloader-stamp"
-  "E:/Parking System/esp32cam_smartparking/build/bootloader-prefix/src"
-  "E:/Parking System/esp32cam_smartparking/build/bootloader-prefix/src/bootloader-stamp"
+  "E:/Parking System/parking_system_firmware/esp32cam_smartparking/build/bootloader"
+  "E:/Parking System/parking_system_firmware/esp32cam_smartparking/build/bootloader-prefix"
+  "E:/Parking System/parking_system_firmware/esp32cam_smartparking/build/bootloader-prefix/tmp"
+  "E:/Parking System/parking_system_firmware/esp32cam_smartparking/build/bootloader-prefix/src/bootloader-stamp"
+  "E:/Parking System/parking_system_firmware/esp32cam_smartparking/build/bootloader-prefix/src"
+  "E:/Parking System/parking_system_firmware/esp32cam_smartparking/build/bootloader-prefix/src/bootloader-stamp"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "E:/Parking System/esp32cam_smartparking/build/bootloader-prefix/src/bootloader-stamp/${subDir}")
+    file(MAKE_DIRECTORY "E:/Parking System/parking_system_firmware/esp32cam_smartparking/build/bootloader-prefix/src/bootloader-stamp/${subDir}")
 endforeach()
 if(cfgdir)
-  file(MAKE_DIRECTORY "E:/Parking System/esp32cam_smartparking/build/bootloader-prefix/src/bootloader-stamp${cfgdir}") # cfgdir has leading slash
+  file(MAKE_DIRECTORY "E:/Parking System/parking_system_firmware/esp32cam_smartparking/build/bootloader-prefix/src/bootloader-stamp${cfgdir}") # cfgdir has leading slash
 endif()

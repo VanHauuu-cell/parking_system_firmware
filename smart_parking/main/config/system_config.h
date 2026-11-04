@@ -11,5 +11,6 @@
 #define SERVO_MIN_ANGLE         0
 #define SERVO_MAX_ANGLE         180
 
+#define BUZZER_ACTIVE_LEVEL       0
 
 #endif

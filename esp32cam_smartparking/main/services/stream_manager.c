@@ -153,7 +153,7 @@ static void stream_task(
         }
 
         vTaskDelay(
-            pdMS_TO_TICKS(30)
+            1
         );
     }
 

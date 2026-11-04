@@ -1,0 +1,29 @@
+[1/11] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/services/gate_watch_manager.c.obj
+[2/11] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/services/ocr_manager.c.obj
+[3/11] Linking C static library esp-idf\main\libmain.a
+[4/11] Performing build step for 'bootloader'
+[1/1] C:\WINDOWS\system32\cmd.exe /C "cd /D "E:\Parking System\parking_system_firmware\esp32cam_smartparking\build\bootloader\esp-idf\esptool_py" && E:\esp\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 "E:/Parking System/parking_system_firmware/esp32cam_smartparking/build/bootloader/bootloader.bin""
+Bootloader binary size 0x68d0 bytes. 0x730 bytes (6%) free.
+[5/11] No install step for 'bootloader'
+[6/11] Completed 'bootloader'
+[7/11] Generating ld/sections.ld
+[8/11] Linking CXX executable esp32cam_smartparking.elf
+[9/11] Generating binary image from built executable
+esptool.py v4.8.1
+Creating esp32 image...
+Merged 2 ELF sections
+Successfully created esp32 image.
+Generated E:/Parking System/parking_system_firmware/esp32cam_smartparking/build/esp32cam_smartparking.bin
+[10/11] C:\WINDOWS\system32\cmd.exe /C "cd /D "E:\Parking System\parking_system_firmware\esp32cam_smartparking\build\esp-idf\esptool_py" && E:\esp\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/partition_table/check_sizes.py --offset 0x8000 partition --type app "E:/Parking System/parking_system_firmware/esp32cam_smartparking/build/partition_table/partition-table.bin" "E:/Parking System/parking_system_firmware/esp32cam_smartparking/build/esp32cam_smartparking.bin""
+esp32cam_smartparking.bin binary size 0xfa780 bytes. Smallest app partition is 0x200000 bytes. 0x105880 bytes (51%) free.
+[10/11] C:\WINDOWS\system32\cmd.exe /C "cd /D E:\esp\Espressif\frameworks\esp-idf-v5.3.3\components\esptool_py && E:\esp\Espressif\tools\cmake\3.30.2\bin\cmake.exe -D IDF_PATH=E:/esp/Espressif/frameworks/esp-idf-v5.3.3 -D SERIAL_TOOL=E:/esp/Espressif/python_env/idf5.3_py3.11_env/Scripts/python.exe;;E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esptool_py/esptool/esptool.py;--chip;esp32 -D SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args -D "WORKING_DIRECTORY=E:/Parking System/parking_system_firmware/esp32cam_smartparking/build" -P E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esptool_py/run_serial_tool.cmake"
+esptool.py --chip esp32 -p COM5 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size 4MB 0x1000 bootloader/bootloader.bin 0x10000 esp32cam_smartparking.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.8.1
+Serial port COM5
+Connecting......................................
+
+A fatal error occurred: Failed to connect to ESP32: No serial data received.
+For troubleshooting steps visit: https://docs.espressif.com/projects/esptool/en/latest/troubleshooting.html
+FAILED: CMakeFiles/flash E:/Parking System/parking_system_firmware/esp32cam_smartparking/build/CMakeFiles/flash 
+C:\WINDOWS\system32\cmd.exe /C "cd /D E:\esp\Espressif\frameworks\esp-idf-v5.3.3\components\esptool_py && E:\esp\Espressif\tools\cmake\3.30.2\bin\cmake.exe -D IDF_PATH=E:/esp/Espressif/frameworks/esp-idf-v5.3.3 -D SERIAL_TOOL=E:/esp/Espressif/python_env/idf5.3_py3.11_env/Scripts/python.exe;;E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esptool_py/esptool/esptool.py;--chip;esp32 -D SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args -D "WORKING_DIRECTORY=E:/Parking System/parking_system_firmware/esp32cam_smartparking/build" -P E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esptool_py/run_serial_tool.cmake"
+ninja: build stopped: subcommand failed.

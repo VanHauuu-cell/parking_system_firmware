@@ -39,10 +39,10 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("E:/Parking System/smart_parking/build/esp-idf/mbedtls/mbedtls/include/cmake_install.cmake")
-  include("E:/Parking System/smart_parking/build/esp-idf/mbedtls/mbedtls/3rdparty/cmake_install.cmake")
-  include("E:/Parking System/smart_parking/build/esp-idf/mbedtls/mbedtls/library/cmake_install.cmake")
-  include("E:/Parking System/smart_parking/build/esp-idf/mbedtls/mbedtls/pkgconfig/cmake_install.cmake")
+  include("E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/mbedtls/mbedtls/include/cmake_install.cmake")
+  include("E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/mbedtls/mbedtls/3rdparty/cmake_install.cmake")
+  include("E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/mbedtls/mbedtls/library/cmake_install.cmake")
+  include("E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/mbedtls/mbedtls/pkgconfig/cmake_install.cmake")
 
 endif()
 

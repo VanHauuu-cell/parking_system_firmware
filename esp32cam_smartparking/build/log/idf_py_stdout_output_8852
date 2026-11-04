@@ -1,0 +1,997 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x12 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7176
+load:0x40078000,len:15644
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (31) boot: ESP-IDF v5.3.3-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Oct 31 2026 20:45:37[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v3.1[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (85) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=267dch (157660) map[0m
+[0;32mI (159) esp_image: segment 1: paddr=00036804 vaddr=3ffb0000 size=069bch ( 27068) load[0m
+[0;32mI (169) esp_image: segment 2: paddr=0003d1c8 vaddr=40080000 size=02e50h ( 11856) load[0m
+[0;32mI (174) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=af85ch (718940) map[0m
+[0;32mI (422) esp_image: segment 4: paddr=000ef884 vaddr=40082e50 size=1aecch (110284) load[0m
+[0;32mI (480) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (480) boot: Disabling RNG early entropy source...[0m
+[0;32mI (493) quad_psram: This chip is ESP32-D0WD[0m
+[0;32mI (495) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (495) esp_psram: Speed: 40MHz[0m
+[0;32m[0;32mI (496) esp_psram: PSRAM initialized, cache is in low/high (2-core) mode.[0m[0m
+[0;33mW (504) esp_psram: Virtual address not enough for PSRAM, map as much as we can. 4MB is mapped[0m
+[0;32mI (513) cpu_start: Multicore app[0m
+[0;32mI (1422) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (1431) cpu_start: Pro cpu start user code[0m
+[0;32mI (1431) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (1431) app_init: Application information:[0m
+[0;32mI (1434) app_init: Project name:     esp32cam_smartparking[0m
+[0;32mI (1440) app_init: App version:      138dafc-dirty[0m
+[0;32mI (1445) app_init: Compile time:     Oct 31 2026 20:44:55[0m
+[0;32mI (1452) app_init: ELF file SHA256:  4833e548e...[0m
+[0;32mI (1457) app_init: ESP-IDF:          v5.3.3-dirty[0m
+[0;32mI (1462) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (1467) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (1472) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (1477) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1485) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (1491) heap_init: At 3FFBAE08 len 000251F8 (148 KiB): DRAM[0m
+[0;32mI (1497) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (1503) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (1510) heap_init: At 4009DD1C len 000022E4 (8 KiB): IRAM[0m
+[0;32mI (1516) esp_psram: Adding pool of 4096K of PSRAM memory to heap allocator[0m
+[0;32mI (1525) spi_flash: detected chip: generic[0m
+[0;32mI (1528) spi_flash: flash io: dio[0m
+[0;33mW (1533) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (1544) main_task: Started on CPU0[0m
+[0;32mI (1554) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1554) main_task: Calling app_main()[0m
+[0;32mI (1584) gpio: GPIO[25]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:2 [0m
+[0;32mI (1594) cam_hal: cam init ok[0m
+[0;32mI (1594) sccb: pin_sda 26 pin_scl 27[0m
+[0;32mI (1594) sccb: sccb_i2c_port=1[0m
+[0;32mI (1604) gpio: GPIO[32]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (1634) ov3640: Mismatch PID=0x3660[0m
+[0;32mI (1634) camera: Camera PID=0x3660 VER=0x00 MIDL=0x00 MIDH=0x00[0m
+[0;32mI (1634) camera: Detected OV3660 camera[0m
+[0;32mI (1634) camera: Detected camera at address=0x3c[0m
+[0;32mI (1974) cam_hal: PSRAM DMA mode disabled[0m
+[0;32mI (1974) cam_hal: buffer_size: 32768, half_buffer_size: 4096, node_buffer_size: 2048, node_cnt: 16, total_cnt: 15[0m
+[0;32mI (1974) cam_hal: Allocating 61440 Byte frame buffer in PSRAM[0m
+[0;32mI (1984) cam_hal: Allocating 61440 Byte frame buffer in PSRAM[0m
+[0;32mI (1984) cam_hal: cam config ok[0m
+[0;32mI (2004) ov3660: Calculated VCO: 200000000 Hz, PLLCLK: 200000000 Hz, SYSCLK: 50000000 Hz, PCLK: 10000000 Hz[0m
+[0;32mI (2034) CAMERA_DRIVER: Camera initialized successfully[0m
+[0;32mI (2054) wifi:wifi driver task: 3ffd4264, prio:23, stack:6656, core=0[0m
+[0;32mI (2064) wifi:wifi firmware version: b0b320f[0m
+[0;32mI (2064) wifi:wifi certification version: v7.0[0m
+[0;32mI (2064) wifi:config NVS flash: enabled[0m
+[0;32mI (2064) wifi:config nano formating: disabled[0m
+[0;32mI (2064) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (2074) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (2074) wifi:Init management short buffer num: 32[0m
+[0;32mI (2084) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (2084) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (2094) wifi:Init static rx buffer num: 10[0m
+[0;32mI (2094) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (2104) wifi_init: rx ba win: 6[0m
+[0;32mI (2104) wifi_init: accept mbox: 6[0m
+[0;32mI (2104) wifi_init: tcpip mbox: 32[0m
+[0;32mI (2114) wifi_init: udp mbox: 6[0m
+[0;32mI (2114) wifi_init: tcp mbox: 6[0m
+[0;32mI (2114) wifi_init: tcp tx win: 5760[0m
+[0;32mI (2124) wifi_init: tcp rx win: 5760[0m
+[0;32mI (2124) wifi_init: tcp mss: 1440[0m
+[0;32mI (2134) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (2134) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (2144) NETWORK_MANAGER: Network manager initialized[0m
+[0;32mI (2144) phy_init: phy_version 4860,6b7a6e5,Feb  6 2025,14:47:07[0m
+cam_hal: EV-EOF-OVF
+cam_hal: NO-SOI - JPEG start marker missing
+cam_hal: NO-SOI - JPEG start marker missing
+[0;32mI (2244) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (2264) wifi:mode : sta (70:4b:ca:69:69:d4)[0m
+[0;32mI (2264) wifi:enable tsf[0m
+[0;32mI (2274) wifi:Set ps type: 0, coexist: 0[0m
+
+[0;32mI (2274) NETWORK_MANAGER: Wi-Fi connecting...[0m
+[0;32mI (2274) UART_DRIVER: UART initialized: TX=14 RX=15 baud=115200[0m
+[0;32mI (2284) HTTP_SERVER: HTTP server started on port 80[0m
+[0;32mI (2284) GATE_WATCH: Ready: camera=1 GET /gate-watch POST /gate-status[0m
+[0;32mI (2294) OCR_MANAGER: Ready: camera=1 UART CAPTURE_REQ/GATE_WATCH/GATE_STOP, OCR and gate HTTP[0m
+[0;32mI (2294) STREAM_MANAGER: Registered /stream[0m
+[0;32mI (2304) CAPTURE_MANAGER: Registered /capture[0m
+[0;32mI (2304) CAM_MAIN: ESP32-CAM application started[0m
+[0;32mI (2314) main_task: Returned from app_main()[0m
+[0;32mI (2354) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (2354) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (2364) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (2374) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (2444) wifi:connected with H4u, aid = 1, channel 6, BW20, bssid = fa:e4:e3:5c:9d:e2[0m
+[0;32mI (2444) wifi:security: WPA2-PSK, phy: bgn, rssi: -50[0m
+[0;32mI (2444) wifi:pm start, type: 0[0m
+
+[0;32mI (2454) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (2554) wifi:AP's beacon interval = 102400 us, DTIM period = 3[0m
+[0;32mI (3464) esp_netif_handlers: sta ip: 192.168.137.64, mask: 255.255.255.0, gw: 192.168.137.1[0m
+[0;32mI (3464) NETWORK_MANAGER: Wi-Fi connected[0m
+[0;32mI (3464) NETWORK_MANAGER: IP: 192.168.137.64[0m
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+[0;32mI (111644) STREAM_MANAGER: Stream client connected[0m
+[0;32mI (117524) wifi:<ba-add>idx:0 (ifx:0, fa:e4:e3:5c:9d:e2), tid:0, ssn:96, winSize:64[0m
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+[0;32mI (135604) OCR_MANAGER: [OCR REQUEST] camera=1 request=4035550049[0m
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+[0;32mI (141974) OCR_MANAGER: [UART FORWARDED] request=4035550049 status=OCR_FAILED plate=[0m
+[0;33mW (186254) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;32mI (186254) STREAM_MANAGER: Failed to send frame[0m
+[0;33mW (186254) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;32mI (186254) STREAM_MANAGER: Stream task finished[0m
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+[0;33mW (199804) httpd_txrx: httpd_sock_err: error in recv : 104[0m
+[0;32mI (199834) STREAM_MANAGER: Stream client connected[0m
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+[0;32mI (244994) OCR_MANAGER: [OCR REQUEST] camera=1 request=2618941561[0m
+[0;32mI (252384) OCR_MANAGER: [UART FORWARDED] request=2618941561 status=OK plate=51H24873[0m
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+[0;32mI (293914) OCR_MANAGER: [OCR REQUEST] camera=1 request=1269496626[0m
+[0;32mI (297234) OCR_MANAGER: [UART FORWARDED] request=1269496626 status=OK plate=60K33286[0m
+[0;32mI (306604) OCR_MANAGER: [OCR REQUEST] camera=1 request=246099968[0m
+[0;32mI (309704) OCR_MANAGER: [UART FORWARDED] request=246099968 status=OK plate=60K33286[0m
+[0;32mI (309784) GATE_WATCH: ARM request=246099968[0m
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+[0;33mW (708444) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;32mI (708444) STREAM_MANAGER: Failed to send frame[0m
+[0;33mW (708444) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;32mI (708454) STREAM_MANAGER: Stream task finished[0m
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+[0;33mW (748034) httpd_txrx: httpd_sock_err: error in recv : 104[0m
+[0;32mI (748064) STREAM_MANAGER: Stream client connected[0m
+[0;33mW (760194) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;32mI (760194) STREAM_MANAGER: Failed to send frame[0m
+[0;33mW (760194) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;32mI (760204) STREAM_MANAGER: Stream task finished[0m
+[0;33mW (760204) httpd_txrx: httpd_sock_err: error in recv : 104[0m
+[0;32mI (762204) STREAM_MANAGER: Stream client connected[0m
+[0;32mI (765444) GATE_WATCH: FORWARDED request=246099968 sequence=1 state=CLEAR[0m
+[0;32mI (768384) GATE_WATCH: FORWARDED request=246099968 sequence=2 state=CLEAR[0m
+[0;32mI (772194) GATE_WATCH: FORWARDED request=246099968 sequence=3 state=PRESENT[0m
+[0;32mI (774314) GATE_WATCH: FORWARDED request=246099968 sequence=4 state=PRESENT[0m
+[0;32mI (776844) GATE_WATCH: FORWARDED request=246099968 sequence=5 state=PRESENT[0m
+[0;32mI (779704) GATE_WATCH: FORWARDED request=246099968 sequence=6 state=PRESENT[0m
+[0;32mI (782064) GATE_WATCH: FORWARDED request=246099968 sequence=7 state=PRESENT[0m
+[0;32mI (783954) GATE_WATCH: FORWARDED request=246099968 sequence=8 state=PRESENT[0m
+[0;32mI (785334) GATE_WATCH: FORWARDED request=246099968 sequence=9 state=PRESENT[0m
+[0;32mI (787794) GATE_WATCH: FORWARDED request=246099968 sequence=10 state=PRESENT[0m
+[0;32mI (790774) GATE_WATCH: FORWARDED request=246099968 sequence=11 state=CLEAR[0m
+[0;32mI (793054) GATE_WATCH: FORWARDED request=246099968 sequence=12 state=CLEAR[0m
+[0;32mI (795794) GATE_WATCH: FORWARDED request=246099968 sequence=13 state=CLEAR[0m
+[0;32mI (798094) GATE_WATCH: FORWARDED request=246099968 sequence=14 state=CLEAR[0m
+[0;32mI (800254) GATE_WATCH: FORWARDED request=246099968 sequence=15 state=CLEAR[0m
+[0;32mI (802274) GATE_WATCH: FORWARDED request=246099968 sequence=16 state=CLEAR[0m
+[0;32mI (805204) GATE_WATCH: FORWARDED request=246099968 sequence=17 state=CLEAR[0m
+[0;32mI (807344) GATE_WATCH: FORWARDED request=246099968 sequence=18 state=CLEAR[0m
+[0;32mI (811894) GATE_WATCH: FORWARDED request=246099968 sequence=19 state=CLEAR[0m
+[0;32mI (814624) GATE_WATCH: FORWARDED request=246099968 sequence=20 state=CLEAR[0m
+[0;32mI (818624) GATE_WATCH: FORWARDED request=246099968 sequence=21 state=CLEAR[0m
+[0;32mI (820844) GATE_WATCH: FORWARDED request=246099968 sequence=22 state=CLEAR[0m
+[0;32mI (823044) GATE_WATCH: FORWARDED request=246099968 sequence=23 state=CLEAR[0m
+cam_hal: FB-OVF
+[0;32mI (825004) GATE_WATCH: FORWARDED request=246099968 sequence=24 state=CLEAR[0m
+cam_hal: FB-OVF
+[0;32mI (826444) GATE_WATCH: FORWARDED request=246099968 sequence=25 state=CLEAR[0m
+[0;32mI (829324) GATE_WATCH: FORWARDED request=246099968 sequence=26 state=CLEAR[0m
+[0;32mI (830924) GATE_WATCH: FORWARDED request=246099968 sequence=27 state=CLEAR[0m
+[0;32mI (837214) GATE_WATCH: FORWARDED request=246099968 sequence=28 state=CLEAR[0m
+[0;32mI (839054) GATE_WATCH: FORWARDED request=246099968 sequence=29 state=CLEAR[0m
+[0;32mI (840394) GATE_WATCH: FORWARDED request=246099968 sequence=30 state=CLEAR[0m
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+[0;32mI (841844) GATE_WATCH: FORWARDED request=246099968 sequence=31 state=CLEAR[0m
+[0;32mI (843814) GATE_WATCH: FORWARDED request=246099968 sequence=32 state=CLEAR[0m
+[0;33mW (853564) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;32mI (853564) STREAM_MANAGER: Failed to send frame[0m
+[0;33mW (853564) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;32mI (853564) STREAM_MANAGER: Stream task finished[0m
+[0;33mW (854564) httpd_txrx: httpd_sock_err: error in recv : 104[0m
+[0;32mI (855484) STREAM_MANAGER: Stream client connected[0m
+[0;32mI (860794) GATE_WATCH: FORWARDED request=246099968 sequence=33 state=CLEAR[0m
+[0;32mI (864224) GATE_WATCH: FORWARDED request=246099968 sequence=34 state=CLEAR[0m
+[0;32mI (868074) GATE_WATCH: FORWARDED request=246099968 sequence=35 state=CLEAR[0m
+[0;32mI (870324) GATE_WATCH: FORWARDED request=246099968 sequence=36 state=CLEAR[0m
+[0;32mI (871954) GATE_WATCH: FORWARDED request=246099968 sequence=37 state=CLEAR[0m
+[0;32mI (873054) GATE_WATCH: FORWARDED request=246099968 sequence=38 state=CLEAR[0m
+[0;32mI (874994) GATE_WATCH: FORWARDED request=246099968 sequence=39 state=CLEAR[0m
+[0;32mI (876814) GATE_WATCH: FORWARDED request=246099968 sequence=40 state=CLEAR[0m
+[0;32mI (880674) GATE_WATCH: FORWARDED request=246099968 sequence=41 state=CLEAR[0m
+[0;32mI (882704) GATE_WATCH: FORWARDED request=246099968 sequence=42 state=CLEAR[0m
+[0;32mI (884764) GATE_WATCH: FORWARDED request=246099968 sequence=43 state=CLEAR[0m
+[0;32mI (887354) GATE_WATCH: FORWARDED request=246099968 sequence=44 state=CLEAR[0m
+[0;32mI (891004) GATE_WATCH: FORWARDED request=246099968 sequence=45 state=CLEAR[0m
+[0;32mI (893084) GATE_WATCH: FORWARDED request=246099968 sequence=46 state=CLEAR[0m
+[0;32mI (895364) GATE_WATCH: FORWARDED request=246099968 sequence=47 state=CLEAR[0m
+[0;32mI (901744) GATE_WATCH: FORWARDED request=246099968 sequence=48 state=CLEAR[0m
+[0;32mI (910294) GATE_WATCH: FORWARDED request=246099968 sequence=49 state=CLEAR[0m
+[0;32mI (913254) GATE_WATCH: FORWARDED request=246099968 sequence=50 state=CLEAR[0m
+[0;32mI (915294) GATE_WATCH: FORWARDED request=246099968 sequence=51 state=CLEAR[0m
+[0;32mI (917784) GATE_WATCH: FORWARDED request=246099968 sequence=52 state=CLEAR[0m
+[0;33mW (923214) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;32mI (923214) STREAM_MANAGER: Failed to send frame[0m
+[0;33mW (923214) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;32mI (923214) STREAM_MANAGER: Stream task finished[0m
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+[0;33mW (1054564) httpd_txrx: httpd_sock_err: error in recv : 104[0m
+[0;32mI (1054584) STREAM_MANAGER: Stream client connected[0m
+[0;32mI (1064204) GATE_WATCH: FORWARDED request=246099968 sequence=53 state=CLEAR[0m
+[0;32mI (1067234) GATE_WATCH: FORWARDED request=246099968 sequence=54 state=CLEAR[0m
+[0;32mI (1069574) GATE_WATCH: FORWARDED request=246099968 sequence=55 state=CLEAR[0m
+[0;32mI (1071114) GATE_WATCH: FORWARDED request=246099968 sequence=56 state=CLEAR[0m
+[0;32mI (1072394) GATE_WATCH: FORWARDED request=246099968 sequence=57 state=CLEAR[0m
+[0;32mI (1078264) GATE_WATCH: FORWARDED request=246099968 sequence=58 state=CLEAR[0m
+[0;32mI (1080624) GATE_WATCH: FORWARDED request=246099968 sequence=59 state=CLEAR[0m
+[0;32mI (1083084) GATE_WATCH: FORWARDED request=246099968 sequence=60 state=CLEAR[0m
+[0;32mI (1085074) GATE_WATCH: FORWARDED request=246099968 sequence=61 state=CLEAR[0m
+[0;32mI (1086704) GATE_WATCH: FORWARDED request=246099968 sequence=62 state=CLEAR[0m
+[0;32mI (1089224) GATE_WATCH: FORWARDED request=246099968 sequence=63 state=CLEAR[0m
+[0;32mI (1091554) GATE_WATCH: FORWARDED request=246099968 sequence=64 state=CLEAR[0m
+[0;32mI (1094184) GATE_WATCH: FORWARDED request=246099968 sequence=65 state=PRESENT[0m
+[0;32mI (1097674) GATE_WATCH: FORWARDED request=246099968 sequence=66 state=PRESENT[0m
+[0;32mI (1099254) GATE_WATCH: FORWARDED request=246099968 sequence=67 state=PRESENT[0m
+[0;32mI (1102844) GATE_WATCH: FORWARDED request=246099968 sequence=68 state=PRESENT[0m
+[0;32mI (1104004) GATE_WATCH: FORWARDED request=246099968 sequence=69 state=PRESENT[0m
+[0;32mI (1105304) GATE_WATCH: FORWARDED request=246099968 sequence=70 state=PRESENT[0m
+[0;32mI (1107094) GATE_WATCH: FORWARDED request=246099968 sequence=71 state=PRESENT[0m
+[0;32mI (1107314) OCR_MANAGER: [OCR REQUEST] camera=1 request=4036816701[0m
+[0;32mI (1110764) OCR_MANAGER: [UART FORWARDED] request=4036816701 status=OK plate=60K33286[0m
+[0;32mI (1111854) GATE_WATCH: FORWARDED request=246099968 sequence=72 state=PRESENT[0m
+[0;32mI (1113074) GATE_WATCH: FORWARDED request=246099968 sequence=73 state=PRESENT[0m
+[0;32mI (1114174) GATE_WATCH: FORWARDED request=246099968 sequence=74 state=PRESENT[0m
+[0;32mI (1115484) GATE_WATCH: FORWARDED request=246099968 sequence=75 state=PRESENT[0m
+[0;32mI (1117084) GATE_WATCH: FORWARDED request=246099968 sequence=76 state=PRESENT[0m
+[0;32mI (1118394) GATE_WATCH: FORWARDED request=246099968 sequence=77 state=PRESENT[0m
+[0;32mI (1119654) GATE_WATCH: FORWARDED request=246099968 sequence=78 state=PRESENT[0m
+[0;32mI (1121154) GATE_WATCH: FORWARDED request=246099968 sequence=79 state=PRESENT[0m
+[0;32mI (1122284) GATE_WATCH: FORWARDED request=246099968 sequence=80 state=PRESENT[0m
+[0;32mI (1124054) GATE_WATCH: FORWARDED request=246099968 sequence=81 state=PRESENT[0m
+[0;32mI (1125644) GATE_WATCH: FORWARDED request=246099968 sequence=82 state=PRESENT[0m
+[0;32mI (1126944) GATE_WATCH: FORWARDED request=246099968 sequence=83 state=PRESENT[0m
+[0;32mI (1128354) GATE_WATCH: FORWARDED request=246099968 sequence=84 state=PRESENT[0m
+[0;32mI (1129544) GATE_WATCH: FORWARDED request=246099968 sequence=85 state=PRESENT[0m
+[0;32mI (1130794) GATE_WATCH: FORWARDED request=246099968 sequence=86 state=PRESENT[0m
+[0;32mI (1132714) GATE_WATCH: FORWARDED request=246099968 sequence=87 state=PRESENT[0m
+[0;32mI (1133874) GATE_WATCH: FORWARDED request=246099968 sequence=88 state=PRESENT[0m
+[0;32mI (1135184) GATE_WATCH: FORWARDED request=246099968 sequence=89 state=PRESENT[0m
+[0;32mI (1136354) GATE_WATCH: FORWARDED request=246099968 sequence=90 state=PRESENT[0m
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+[0;32mI (1138114) GATE_WATCH: FORWARDED request=246099968 sequence=91 state=CLEAR[0m
+[0;32mI (1139394) GATE_WATCH: FORWARDED request=246099968 sequence=92 state=CLEAR[0m
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+[0;32mI (1140514) GATE_WATCH: FORWARDED request=246099968 sequence=93 state=CLEAR[0m
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+[0;32mI (1142864) GATE_WATCH: FORWARDED request=246099968 sequence=94 state=CLEAR[0m
+[0;32mI (1143884) GATE_WATCH: FORWARDED request=246099968 sequence=95 state=CLEAR[0m
+cam_hal: FB-OVF
+[0;32mI (1145054) GATE_WATCH: FORWARDED request=246099968 sequence=96 state=CLEAR[0m
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+[0;32mI (1146794) GATE_WATCH: FORWARDED request=246099968 sequence=97 state=CLEAR[0m
+[0;32mI (1149244) GATE_WATCH: FORWARDED request=246099968 sequence=98 state=CLEAR[0m
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+[0;32mI (1150984) GATE_WATCH: FORWARDED request=246099968 sequence=99 state=CLEAR[0m
+[0;32mI (1152494) GATE_WATCH: FORWARDED request=246099968 sequence=100 state=CLEAR[0m
+[0;32mI (1154374) GATE_WATCH: FORWARDED request=246099968 sequence=101 state=CLEAR[0m
+[0;32mI (1157724) GATE_WATCH: FORWARDED request=246099968 sequence=102 state=CLEAR[0m
+[0;32mI (1159374) GATE_WATCH: FORWARDED request=246099968 sequence=103 state=CLEAR[0m
+[0;32mI (1160904) GATE_WATCH: FORWARDED request=246099968 sequence=104 state=CLEAR[0m
+[0;32mI (1163944) GATE_WATCH: FORWARDED request=246099968 sequence=105 state=CLEAR[0m
+[0;32mI (1165334) GATE_WATCH: FORWARDED request=246099968 sequence=106 state=CLEAR[0m
+[0;32mI (1167044) GATE_WATCH: FORWARDED request=246099968 sequence=107 state=CLEAR[0m
+[0;32mI (1168994) GATE_WATCH: FORWARDED request=246099968 sequence=108 state=PRESENT[0m
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+[0;32mI (1170164) GATE_WATCH: FORWARDED request=246099968 sequence=109 state=PRESENT[0m
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+[0;32mI (1171164) GATE_WATCH: FORWARDED request=246099968 sequence=110 state=PRESENT[0m
+[0;32mI (1171274) OCR_MANAGER: [OCR REQUEST] camera=1 request=3600951701[0m
+[0;32mI (1175634) OCR_MANAGER: [UART FORWARDED] request=3600951701 status=OCR_FAILED plate=[0m
+[0;32mI (1176954) GATE_WATCH: FORWARDED request=246099968 sequence=111 state=PRESENT[0m
+[0;32mI (1178554) GATE_WATCH: FORWARDED request=246099968 sequence=112 state=PRESENT[0m
+[0;32mI (1179704) GATE_WATCH: FORWARDED request=246099968 sequence=113 state=PRESENT[0m
+[0;32mI (1180914) GATE_WATCH: FORWARDED request=246099968 sequence=114 state=CLEAR[0m
+[0;32mI (1182794) GATE_WATCH: FORWARDED request=246099968 sequence=115 state=CLEAR[0m
+[0;32mI (1185394) GATE_WATCH: FORWARDED request=246099968 sequence=116 state=CLEAR[0m
+[0;32mI (1187394) GATE_WATCH: FORWARDED request=246099968 sequence=117 state=CLEAR[0m
+[0;32mI (1188724) GATE_WATCH: FORWARDED request=246099968 sequence=118 state=CLEAR[0m
+[0;32mI (1191594) GATE_WATCH: FORWARDED request=246099968 sequence=119 state=CLEAR[0m
+[0;32mI (1196124) GATE_WATCH: FORWARDED request=246099968 sequence=120 state=PRESENT[0m
+[0;32mI (1197924) GATE_WATCH: FORWARDED request=246099968 sequence=121 state=PRESENT[0m
+[0;32mI (1199614) GATE_WATCH: FORWARDED request=246099968 sequence=122 state=PRESENT[0m
+[0;32mI (1199654) OCR_MANAGER: [OCR REQUEST] camera=1 request=334014904[0m
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+[0;32mI (1203844) OCR_MANAGER: [UART FORWARDED] request=334014904 status=OK plate=60K33286[0m
+[0;32mI (1203924) GATE_WATCH: ARM request=334014904[0m
+[0;32mI (1206644) GATE_WATCH: FORWARDED request=334014904 sequence=1 state=PRESENT[0m
+[0;32mI (1208454) GATE_WATCH: FORWARDED request=334014904 sequence=2 state=PRESENT[0m
+[0;32mI (1210864) GATE_WATCH: FORWARDED request=334014904 sequence=3 state=CLEAR[0m
+[0;32mI (1212524) GATE_WATCH: FORWARDED request=334014904 sequence=4 state=CLEAR[0m
+[0;32mI (1214084) GATE_WATCH: FORWARDED request=334014904 sequence=5 state=CLEAR[0m
+[0;32mI (1215554) GATE_WATCH: FORWARDED request=334014904 sequence=6 state=CLEAR[0m
+[0;32mI (1217904) GATE_WATCH: FORWARDED request=334014904 sequence=7 state=CLEAR[0m
+[0;32mI (1223204) GATE_WATCH: FORWARDED request=334014904 sequence=8 state=CLEAR[0m
+[0;32mI (1225904) GATE_WATCH: FORWARDED request=334014904 sequence=9 state=CLEAR[0m
+[0;32mI (1227284) GATE_WATCH: FORWARDED request=334014904 sequence=10 state=CLEAR[0m
+[0;32mI (1229414) GATE_WATCH: FORWARDED request=334014904 sequence=11 state=CLEAR[0m
+[0;32mI (1230924) GATE_WATCH: FORWARDED request=334014904 sequence=12 state=CLEAR[0m
+[0;32mI (1232274) GATE_WATCH: FORWARDED request=334014904 sequence=13 state=CLEAR[0m
+[0;32mI (1233624) GATE_WATCH: FORWARDED request=334014904 sequence=14 state=CLEAR[0m
+[0;32mI (1235084) GATE_WATCH: FORWARDED request=334014904 sequence=15 state=CLEAR[0m
+[0;32mI (1236404) GATE_WATCH: FORWARDED request=334014904 sequence=16 state=CLEAR[0m
+[0;32mI (1236414) GATE_WATCH: STOP request=334014904[0m
+[0;32mI (1326484) OCR_MANAGER: [OCR REQUEST] camera=1 request=4292670510[0m
+[0;32mI (1334704) OCR_MANAGER: [UART FORWARDED] request=4292670510 status=OK plate=18C71450[0m
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+[0;32mI (1373984) OCR_MANAGER: [OCR REQUEST] camera=1 request=1897240794[0m
+[0;32mI (1377564) OCR_MANAGER: [UART FORWARDED] request=1897240794 status=OK plate=18C71450[0m
+[0;32mI (1377644) GATE_WATCH: ARM request=1897240794[0m
+[0;32mI (1383354) GATE_WATCH: FORWARDED request=1897240794 sequence=1 state=PRESENT[0m
+[0;32mI (1385174) GATE_WATCH: FORWARDED request=1897240794 sequence=2 state=CLEAR[0m
+[0;32mI (1386904) GATE_WATCH: FORWARDED request=1897240794 sequence=3 state=CLEAR[0m
+[0;32mI (1389144) GATE_WATCH: FORWARDED request=1897240794 sequence=4 state=CLEAR[0m
+[0;32mI (1394434) GATE_WATCH: FORWARDED request=1897240794 sequence=5 state=CLEAR[0m
+[0;32mI (1398954) GATE_WATCH: FORWARDED request=1897240794 sequence=6 state=CLEAR[0m
+[0;32mI (1401214) GATE_WATCH: FORWARDED request=1897240794 sequence=7 state=CLEAR[0m
+[0;32mI (1403354) GATE_WATCH: FORWARDED request=1897240794 sequence=8 state=CLEAR[0m
+[0;32mI (1405764) GATE_WATCH: FORWARDED request=1897240794 sequence=9 state=CLEAR[0m
+[0;32mI (1407574) GATE_WATCH: FORWARDED request=1897240794 sequence=10 state=CLEAR[0m
+[0;32mI (1409224) GATE_WATCH: FORWARDED request=1897240794 sequence=11 state=CLEAR[0m
+[0;32mI (1411004) GATE_WATCH: FORWARDED request=1897240794 sequence=12 state=CLEAR[0m
+[0;32mI (1412424) GATE_WATCH: FORWARDED request=1897240794 sequence=13 state=CLEAR[0m
+[0;32mI (1413344) GATE_WATCH: STOP request=1897240794[0m
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+[0;33mW (1709854) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;32mI (1709854) STREAM_MANAGER: Failed to send frame[0m
+[0;33mW (1709864) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;32mI (1709864) STREAM_MANAGER: Stream task finished[0m
+[0;33mW (1710864) httpd_txrx: httpd_sock_err: error in recv : 104[0m
+[0;32mI (1711784) STREAM_MANAGER: Stream client connected[0m
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+[0;33mW (1947474) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;32mI (1947474) STREAM_MANAGER: Failed to send frame[0m
+[0;33mW (1947474) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;32mI (1947484) STREAM_MANAGER: Stream task finished[0m
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+[0;33mW (2116984) httpd_txrx: httpd_sock_err: error in recv : 104[0m
+[0;32mI (2116984) STREAM_MANAGER: Stream client connected[0m
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+[0;33mW (2517884) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;32mI (2517884) STREAM_MANAGER: Failed to send frame[0m
+[0;33mW (2517884) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;32mI (2517884) STREAM_MANAGER: Stream task finished[0m
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF
+cam_hal: FB-OVF

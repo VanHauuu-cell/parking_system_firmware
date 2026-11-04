@@ -1,4 +1,4 @@
-/* * Data converted from E:/Parking System/smart_parking/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 #if !defined (__APPLE__) && !defined (__linux__)

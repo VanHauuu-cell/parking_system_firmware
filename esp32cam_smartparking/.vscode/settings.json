@@ -1,3 +1,5 @@
 {
-    "idf.currentSetup": "E:/esp/Espressif/frameworks/esp-idf-v5.3.3/"
+    "idf.currentSetup": "E:/esp/Espressif/frameworks/esp-idf-v5.3.3/",
+    "idf.port": "COM5",
+    "idf.flashType": "JTAG"
 }

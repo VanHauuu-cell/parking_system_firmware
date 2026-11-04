@@ -18,8 +18,8 @@ end
 
 # Load bootloader symbols
 set confirm off
-    add-symbol-file E:/Parking System/esp32cam_smartparking/build/bootloader/bootloader.elf
+    add-symbol-file E:/Parking System/parking_system_firmware/esp32cam_smartparking/build/bootloader/bootloader.elf
 set confirm on
 
 # Load application symbols
-file E:/Parking System/esp32cam_smartparking/build/esp32cam_smartparking.elf
+file E:/Parking System/parking_system_firmware/esp32cam_smartparking/build/esp32cam_smartparking.elf

@@ -1,2 +1,2 @@
-source E:/Parking System/smart_parking/build/gdbinit/symbols
-source E:/Parking System/smart_parking/build/gdbinit/connect
+source E:/Parking System/parking_system_firmware/smart_parking/build/gdbinit/symbols
+source E:/Parking System/parking_system_firmware/smart_parking/build/gdbinit/connect

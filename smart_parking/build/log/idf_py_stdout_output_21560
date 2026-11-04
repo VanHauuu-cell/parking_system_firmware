@@ -1,0 +1,270 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7176
+load:0x40078000,len:15644
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (31) boot: ESP-IDF v5.3.3-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Nov  3 2026 11:15:21[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v3.1[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (85) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=10598h ( 66968) map[0m
+[0;32mI (128) esp_image: segment 1: paddr=000205c0 vaddr=3ffb0000 size=02574h (  9588) load[0m
+[0;32mI (132) esp_image: segment 2: paddr=00022b3c vaddr=40080000 size=0d4dch ( 54492) load[0m
+[0;32mI (155) esp_image: segment 3: paddr=00030020 vaddr=400d0020 size=2cf78h (184184) map[0m
+[0;32mI (218) esp_image: segment 4: paddr=0005cfa0 vaddr=4008d4dc size=03368h ( 13160) load[0m
+[0;32mI (232) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (232) boot: Disabling RNG early entropy source...[0m
+[0;32mI (244) cpu_start: Multicore app[0m
+[0;32mI (253) cpu_start: Pro cpu start user code[0m
+[0;32mI (253) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (253) app_init: Application information:[0m
+[0;32mI (256) app_init: Project name:     smart_parking[0m
+[0;32mI (261) app_init: App version:      138dafc-dirty[0m
+[0;32mI (266) app_init: Compile time:     Nov  3 2026 11:15:07[0m
+[0;32mI (272) app_init: ELF file SHA256:  2380a6283...[0m
+[0;32mI (278) app_init: ESP-IDF:          v5.3.3-dirty[0m
+[0;32mI (283) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (288) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (293) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (298) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (305) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (311) heap_init: At 3FFB3EB8 len 0002C148 (176 KiB): DRAM[0m
+[0;32mI (317) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (323) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (330) heap_init: At 40090844 len 0000F7BC (61 KiB): IRAM[0m
+[0;32mI (338) spi_flash: detected chip: generic[0m
+[0;32mI (341) spi_flash: flash io: dio[0m
+[0;33mW (345) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (358) main_task: Started on CPU0[0m
+[0;32mI (368) main_task: Calling app_main()[0m
+[0;32mI (368) gpio: GPIO[21]| InputEn: 1| OutputEn: 1| OpenDrain: 1| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (368) gpio: GPIO[22]| InputEn: 1| OutputEn: 1| OpenDrain: 1| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (378) main_task: Returned from app_main()[0m
+[0;32mI (378) LCD_I2C: I2C device found: 0x27[0m
+[0;32mI (498) LCD_I2C: LCD1602 ready: address=0x27 SDA=21 SCL=22[0m
+[0;32mI (498) gpio: GPIO[34]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (498) gpio: GPIO[35]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (508) gpio: GPIO[36]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (518) gpio: GPIO[39]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (528) IR_SENSOR: IR sensors initialized[0m
+[0;32mI (548) PARKING_MANAGER: Ledger ready: 5 registered, 2 inside, pending=0[0m
+[0;32mI (548) SERVO: Servo driver initialized[0m
+[0;32mI (548) gpio: GPIO[32]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (558) UART_DRIVER: ENTRY UART2 TX=17 RX=16 baud=115200[0m
+[0;32mI (558) UART_DRIVER: EXIT UART1 TX=26 RX=25 baud=115200[0m
+[0;32mI (568) gpio: GPIO[4]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (678) MFRC522: MFRC522 SPI Khoi tao thanh cong[0m
+[0;32mI (678) PARKING_APP: RC522 version=0x92[0m
+[0;32mI (678) SERVO: Servo 0 -> 0 deg (540 us)[0m
+[0;32mI (678) BARRIER_MANAGER: ENTRY CLOSE; travel time is an estimate, no position feedback[0m
+[0;32mI (688) SERVO: Servo 1 -> 0 deg (540 us)[0m
+[0;32mI (688) BARRIER_MANAGER: EXIT CLOSE; travel time is an estimate, no position feedback[0m
+[0;32mI (758) PARKING_APP: Type help / status then Enter in Serial Monitor[0m
+[0;32mI (1698) PARKING_FSM: INIT -> IDLE[0m
+[0;32mI (1758) PARKING_FSM: [READY] mode=AUTO; remove card, then tap[0m
+[0;32mI (35798) PARKING_APP: [RFID] uid=72B3B25B[0m
+[0;32mI (35798) UART_MANAGER: TX EXIT <CAPTURE_REQ,2,1982567440>[0m
+[0;32mI (35798) PARKING_FSM: IDLE -> WAIT_OCR[0m
+[0;32mI (35858) PARKING_FSM: [OCR REQUEST] uid=72B3B25B camera=2 request=1982567440 expected=60K33286[0m
+[0;32mI (48938) PARKING_APP: [RFID] uid=72B3B25B[0m
+[0;33mW (48938) PARKING_FSM: [BUSY] ignore uid=72B3B25B while WAIT_OCR[0m
+[0;32mI (70748) PARKING_APP: [RFID] uid=72B3B25B[0m
+[0;33mW (70748) PARKING_FSM: [BUSY] ignore uid=72B3B25B while WAIT_OCR[0m
+[0;32mI (71708) PARKING_APP: [RFID] uid=72B3B25B[0m
+[0;33mW (71708) PARKING_FSM: [BUSY] ignore uid=72B3B25B while WAIT_OCR[0m
+[0;32mI (95808) PARKING_FSM: WAIT_OCR -> NOTICE[0m
+[0;33mW (95808) PARKING_FSM: [DENIED] uid=72B3B25B reason=OCR TIMEOUT[0m
+[0;32mI (98308) PARKING_FSM: NOTICE -> IDLE[0m
+[0;32mI (98358) PARKING_FSM: [READY] mode=AUTO; remove card, then tap[0m
+[0;32mI (270758) PARKING_APP: [RFID] uid=72B3B25B[0m
+[0;32mI (270758) UART_MANAGER: TX EXIT <CAPTURE_REQ,2,1026570301>[0m
+[0;32mI (270758) PARKING_FSM: IDLE -> WAIT_OCR[0m
+[0;32mI (270818) PARKING_FSM: [OCR REQUEST] uid=72B3B25B camera=2 request=1026570301 expected=60K33286[0m
+[0;32mI (330768) PARKING_FSM: WAIT_OCR -> NOTICE[0m
+[0;33mW (330768) PARKING_FSM: [DENIED] uid=72B3B25B reason=OCR TIMEOUT[0m
+[0;32mI (333278) PARKING_FSM: NOTICE -> IDLE[0m
+[0;32mI (333328) PARKING_FSM: [READY] mode=AUTO; remove card, then tap[0m
+[0;32mI (482638) PARKING_APP: [RFID] uid=72B3B25B[0m
+[0;32mI (482638) UART_MANAGER: TX EXIT <CAPTURE_REQ,2,317817184>[0m
+[0;32mI (482638) PARKING_FSM: IDLE -> WAIT_OCR[0m
+[0;32mI (482698) PARKING_FSM: [OCR REQUEST] uid=72B3B25B camera=2 request=317817184 expected=60K33286[0m
+[0;32mI (542648) PARKING_FSM: WAIT_OCR -> NOTICE[0m
+[0;33mW (542648) PARKING_FSM: [DENIED] uid=72B3B25B reason=OCR TIMEOUT[0m
+[0;32mI (545148) PARKING_FSM: NOTICE -> IDLE[0m
+[0;32mI (545198) PARKING_FSM: [READY] mode=AUTO; remove card, then tap[0m
+[0;32mI (561068) PARKING_APP: [RFID] uid=72B3B25B[0m
+[0;32mI (561068) UART_MANAGER: TX EXIT <CAPTURE_REQ,2,304550032>[0m
+[0;32mI (561068) PARKING_FSM: IDLE -> WAIT_OCR[0m
+[0;32mI (561128) PARKING_FSM: [OCR REQUEST] uid=72B3B25B camera=2 request=304550032 expected=60K33286[0m
+[0;32mI (578408) PARKING_APP: [RFID] uid=72B3B25B[0m
+[0;33mW (578408) PARKING_FSM: [BUSY] ignore uid=72B3B25B while WAIT_OCR[0m
+[0;32mI (621108) PARKING_FSM: WAIT_OCR -> NOTICE[0m
+[0;33mW (621108) PARKING_FSM: [DENIED] uid=72B3B25B reason=OCR TIMEOUT[0m
+[0;32mI (623628) PARKING_FSM: NOTICE -> IDLE[0m
+[0;32mI (623678) PARKING_FSM: [READY] mode=AUTO; remove card, then tap[0m
+[0;32mI (623888) PARKING_APP: [RFID] uid=72B3B25B[0m
+[0;32mI (623888) UART_MANAGER: TX EXIT <CAPTURE_REQ,2,3868336570>[0m
+[0;32mI (623888) PARKING_FSM: IDLE -> WAIT_OCR[0m
+[0;32mI (623948) PARKING_FSM: [OCR REQUEST] uid=72B3B25B camera=2 request=3868336570 expected=60K33286[0m
+[0;32mI (683898) PARKING_FSM: WAIT_OCR -> NOTICE[0m
+[0;33mW (683898) PARKING_FSM: [DENIED] uid=72B3B25B reason=OCR TIMEOUT[0m
+[0;32mI (686398) PARKING_FSM: NOTICE -> IDLE[0m
+[0;32mI (686448) PARKING_FSM: [READY] mode=AUTO; remove card, then tap[0m
+[0;32mI (689318) PARKING_APP: [RFID] uid=B32E0F05[0m
+[0;32mI (689318) UART_MANAGER: TX ENTRY <CAPTURE_REQ,1,1759921166>[0m
+[0;32mI (689318) PARKING_FSM: IDLE -> WAIT_OCR[0m
+[0;32mI (689378) PARKING_FSM: [OCR REQUEST] uid=B32E0F05 camera=1 request=1759921166 expected=43A90518[0m
+[0;32mI (693448) UART_MANAGER: RX camera=1 request=1759921166 error=NO_PLATE confidence=0[0m
+[0;32mI (693448) PARKING_FSM: WAIT_OCR -> NOTICE[0m
+[0;33mW (693448) PARKING_FSM: [DENIED] uid=B32E0F05 reason=NO_PLATE[0m
+[0;32mI (695958) PARKING_FSM: NOTICE -> IDLE[0m
+[0;32mI (696008) PARKING_FSM: [READY] mode=AUTO; remove card, then tap[0m
+[0;32mI (742528) PARKING_APP: [RFID] uid=B32E0F05[0m
+[0;32mI (742528) PARKING_FSM: IDLE -> NOTICE[0m
+[0;33mW (742528) PARKING_FSM: [DENIED] uid=B32E0F05 reason=SENSORS WAIT[0m
+[0;32mI (745048) PARKING_FSM: NOTICE -> IDLE[0m
+[0;32mI (745098) PARKING_FSM: [READY] mode=AUTO; remove card, then tap[0m
+[0;32mI (775688) PARKING_APP: [RFID] uid=B32E0F05[0m
+[0;32mI (775688) PARKING_FSM: IDLE -> NOTICE[0m
+[0;33mW (775688) PARKING_FSM: [DENIED] uid=B32E0F05 reason=SENSORS WAIT[0m
+[0;32mI (778198) PARKING_FSM: NOTICE -> IDLE[0m
+[0;32mI (778248) PARKING_FSM: [READY] mode=AUTO; remove card, then tap[0m
+[0;32mI (785878) PARKING_APP: [RFID] uid=72B3B25B[0m
+[0;32mI (785878) UART_MANAGER: TX EXIT <CAPTURE_REQ,2,1307517622>[0m
+[0;32mI (785878) PARKING_FSM: IDLE -> WAIT_OCR[0m
+[0;32mI (785938) PARKING_FSM: [OCR REQUEST] uid=72B3B25B camera=2 request=1307517622 expected=60K33286[0m
+[0;32mI (827428) PARKING_APP: [RFID] uid=B32E0F05[0m
+[0;33mW (827428) PARKING_FSM: [BUSY] ignore uid=B32E0F05 while WAIT_OCR[0m
+[0;32mI (829488) PARKING_APP: [RFID] uid=B32E0F05[0m
+[0;33mW (829488) PARKING_FSM: [BUSY] ignore uid=B32E0F05 while WAIT_OCR[0m
+[0;32mI (837948) PARKING_APP: [RFID] uid=B32E0F05[0m
+[0;33mW (837948) PARKING_FSM: [BUSY] ignore uid=B32E0F05 while WAIT_OCR[0m
+[0;32mI (845888) PARKING_FSM: WAIT_OCR -> NOTICE[0m
+[0;33mW (845888) PARKING_FSM: [DENIED] uid=72B3B25B reason=OCR TIMEOUT[0m
+[0;32mI (848388) PARKING_FSM: NOTICE -> IDLE[0m
+[0;32mI (848438) PARKING_FSM: [READY] mode=AUTO; remove card, then tap[0m
+[0;32mI (862488) PARKING_APP: [RFID] uid=B32E0F05[0m
+[0;32mI (862488) PARKING_FSM: IDLE -> NOTICE[0m
+[0;33mW (862488) PARKING_FSM: [DENIED] uid=B32E0F05 reason=SENSORS WAIT[0m
+[0;32mI (864988) PARKING_APP: [RFID] uid=B32E0F05[0m
+[0;33mW (864988) PARKING_FSM: [BUSY] ignore uid=B32E0F05 while NOTICE[0m
+[0;32mI (864998) PARKING_FSM: NOTICE -> IDLE[0m
+[0;32mI (865048) PARKING_FSM: [READY] mode=AUTO; remove card, then tap[0m
+[0;32mI (866238) PARKING_APP: [RFID] uid=B32E0F05[0m
+[0;32mI (866238) UART_MANAGER: TX ENTRY <CAPTURE_REQ,1,2437668359>[0m
+[0;32mI (866238) PARKING_FSM: IDLE -> WAIT_OCR[0m
+[0;32mI (866298) PARKING_FSM: [OCR REQUEST] uid=B32E0F05 camera=1 request=2437668359 expected=43A90518[0m
+[0;32mI (872358) UART_MANAGER: RX camera=1 request=2437668359 plate=43A30518 confidence=100[0m
+[0;32mI (872358) PARKING_FSM: WAIT_OCR -> NOTICE[0m
+[0;33mW (872358) PARKING_FSM: [DENIED] uid=B32E0F05 reason=WRONG PLATE[0m
+[0;32mI (874868) PARKING_FSM: NOTICE -> IDLE[0m
+[0;32mI (874918) PARKING_FSM: [READY] mode=AUTO; remove card, then tap[0m
+[0;32mI (890948) PARKING_APP: [RFID] uid=B32E0F05[0m
+[0;32mI (890948) PARKING_FSM: IDLE -> NOTICE[0m
+[0;33mW (890948) PARKING_FSM: [DENIED] uid=B32E0F05 reason=SENSORS WAIT[0m
+[0;32mI (893468) PARKING_FSM: NOTICE -> IDLE[0m
+[0;32mI (893518) PARKING_FSM: [READY] mode=AUTO; remove card, then tap[0m
+[0;32mI (895268) PARKING_APP: [RFID] uid=B32E0F05[0m
+[0;32mI (895268) PARKING_FSM: IDLE -> NOTICE[0m
+[0;33mW (895268) PARKING_FSM: [DENIED] uid=B32E0F05 reason=SENSORS WAIT[0m
+[0;32mI (897778) PARKING_FSM: NOTICE -> IDLE[0m
+[0;32mI (897828) PARKING_FSM: [READY] mode=AUTO; remove card, then tap[0m
+[0;32mI (919698) PARKING_APP: [RFID] uid=72B3B25B[0m
+[0;32mI (919698) UART_MANAGER: TX EXIT <CAPTURE_REQ,2,133097268>[0m
+[0;32mI (919698) PARKING_FSM: IDLE -> WAIT_OCR[0m
+[0;32mI (919758) PARKING_FSM: [OCR REQUEST] uid=72B3B25B camera=2 request=133097268 expected=60K33286[0m
+[0;32mI (926398) PARKING_APP: [RFID] uid=72B3B25B[0m
+[0;33mW (926398) PARKING_FSM: [BUSY] ignore uid=72B3B25B while WAIT_OCR[0m
+[0;32mI (979738) PARKING_FSM: WAIT_OCR -> NOTICE[0m
+[0;33mW (979738) PARKING_FSM: [DENIED] uid=72B3B25B reason=OCR TIMEOUT[0m
+[0;32mI (982258) PARKING_FSM: NOTICE -> IDLE[0m
+[0;32mI (982308) PARKING_FSM: [READY] mode=AUTO; remove card, then tap[0m
+[0;32mI (1132318) PARKING_APP: [RFID] uid=CA5DCA35[0m
+[0;32mI (1132318) UART_MANAGER: TX ENTRY <CAPTURE_REQ,1,3266745484>[0m
+[0;32mI (1132318) PARKING_FSM: IDLE -> WAIT_OCR[0m
+[0;32mI (1132378) PARKING_FSM: [OCR REQUEST] uid=CA5DCA35 camera=1 request=3266745484 expected=29B67124[0m
+[0;32mI (1139358) UART_MANAGER: RX camera=1 request=3266745484 plate=29B67124 confidence=100[0m
+[0;32mI (1139368) UART_MANAGER: TX ENTRY <GATE_WATCH,1,3266745484>[0m
+[0;32mI (1139368) SERVO: Servo 0 -> 90 deg (1540 us)[0m
+[0;32mI (1139368) BARRIER_MANAGER: ENTRY OPEN; travel time is an estimate, no position feedback[0m
+[0;32mI (1139378) PARKING_FSM: WAIT_OCR -> OPENING[0m
+[0;32mI (1139448) PARKING_FSM: [GRANTED] uid=CA5DCA35 plate=29B67124 confidence=100 request=3266745484[0m
+[0;32mI (1140378) PARKING_FSM: OPENING -> WAIT_PASSAGE[0m
+[0;32mI (1140428) PARKING_FSM: [WAIT_PASSAGE] Wait for stable CLEAR after matching OCR; manual pass/cancel available[0m
+[0;32mI (1148548) PARKING_FSM: WAIT_PASSAGE -> CLOSE_DELAY[0m
+[0;32mI (1148598) PARKING_FSM: [CLOSE_DELAY] Plate absent, wait another 3000 ms[0m
+[0;32mI (1153208) SERVO: Servo 0 -> 0 deg (540 us)[0m
+[0;32mI (1153208) BARRIER_MANAGER: ENTRY CLOSE; travel time is an estimate, no position feedback[0m
+[0;32mI (1153208) PARKING_FSM: CLOSE_DELAY -> CLOSING[0m
+[0;32mI (1154238) UART_MANAGER: TX ENTRY <GATE_STOP,1,3266745484>[0m
+[0;32mI (1154238) PARKING_FSM: [COMPLETED] uid=CA5DCA35 mode=ENTRY active=3[0m
+[0;32mI (1154238) PARKING_FSM: CLOSING -> IDLE[0m
+[0;32mI (1154308) PARKING_FSM: [READY] mode=AUTO; remove card, then tap[0m
+[0;32mI (1170288) PARKING_APP: [RFID] uid=CA5DCA35[0m
+[0;32mI (1170288) UART_MANAGER: TX EXIT <CAPTURE_REQ,2,3815984881>[0m
+[0;32mI (1170288) PARKING_FSM: IDLE -> WAIT_OCR[0m
+[0;32mI (1170348) PARKING_FSM: [OCR REQUEST] uid=CA5DCA35 camera=2 request=3815984881 expected=29B67124[0m
+[0;32mI (1230298) PARKING_FSM: WAIT_OCR -> NOTICE[0m
+[0;33mW (1230298) PARKING_FSM: [DENIED] uid=CA5DCA35 reason=OCR TIMEOUT[0m
+[0;32mI (1232798) PARKING_FSM: NOTICE -> IDLE[0m
+[0;32mI (1232848) PARKING_FSM: [READY] mode=AUTO; remove card, then tap[0m
+[0;32mI (1240198) PARKING_APP: [RFID] uid=CA5DCA35[0m
+[0;32mI (1240198) UART_MANAGER: TX EXIT <CAPTURE_REQ,2,4023489433>[0m
+[0;32mI (1240198) PARKING_FSM: IDLE -> WAIT_OCR[0m
+[0;32mI (1240258) PARKING_FSM: [OCR REQUEST] uid=CA5DCA35 camera=2 request=4023489433 expected=29B67124[0m
+[0;32mI (1300208) PARKING_FSM: WAIT_OCR -> NOTICE[0m
+[0;33mW (1300208) PARKING_FSM: [DENIED] uid=CA5DCA35 reason=OCR TIMEOUT[0m
+[0;32mI (1302718) PARKING_FSM: NOTICE -> IDLE[0m
+[0;32mI (1302768) PARKING_FSM: [READY] mode=AUTO; remove card, then tap[0m
+[0;32mI (1459888) PARKING_APP: [RFID] uid=CA5DCA35[0m
+[0;32mI (1459888) UART_MANAGER: TX EXIT <CAPTURE_REQ,2,3842150115>[0m
+[0;32mI (1459888) PARKING_FSM: IDLE -> WAIT_OCR[0m
+[0;32mI (1459948) PARKING_FSM: [OCR REQUEST] uid=CA5DCA35 camera=2 request=3842150115 expected=29B67124[0m
+[0;32mI (1470088) PARKING_APP: [RFID] uid=CA5DCA35[0m
+[0;33mW (1470088) PARKING_FSM: [BUSY] ignore uid=CA5DCA35 while WAIT_OCR[0m
+[0;32mI (1519898) PARKING_FSM: WAIT_OCR -> NOTICE[0m
+[0;33mW (1519898) PARKING_FSM: [DENIED] uid=CA5DCA35 reason=OCR TIMEOUT[0m
+[0;32mI (1522398) PARKING_FSM: NOTICE -> IDLE[0m
+[0;32mI (1522448) PARKING_FSM: [READY] mode=AUTO; remove card, then tap[0m
+[0;32mI (1554298) PARKING_APP: [RFID] uid=CA5DCA35[0m
+[0;32mI (1554298) UART_MANAGER: TX EXIT <CAPTURE_REQ,2,1112475>[0m
+[0;32mI (1554298) PARKING_FSM: IDLE -> WAIT_OCR[0m
+[0;32mI (1554358) PARKING_FSM: [OCR REQUEST] uid=CA5DCA35 camera=2 request=1112475 expected=29B67124[0m
+[0;32mI (1614338) PARKING_FSM: WAIT_OCR -> NOTICE[0m
+[0;33mW (1614338) PARKING_FSM: [DENIED] uid=CA5DCA35 reason=OCR TIMEOUT[0m
+[0;32mI (1616858) PARKING_FSM: NOTICE -> IDLE[0m
+[0;32mI (1616908) PARKING_FSM: [READY] mode=AUTO; remove card, then tap[0m
+[0;32mI (1702938) PARKING_APP: [RFID] uid=CA5DCA35[0m
+[0;32mI (1702938) UART_MANAGER: TX EXIT <CAPTURE_REQ,2,3209627572>[0m
+[0;32mI (1702938) PARKING_FSM: IDLE -> WAIT_OCR[0m
+[0;32mI (1702998) PARKING_FSM: [OCR REQUEST] uid=CA5DCA35 camera=2 request=3209627572 expected=29B67124[0m
+[0;32mI (1704158) PARKING_APP: [RFID] uid=CA5DCA35[0m
+[0;33mW (1704158) PARKING_FSM: [BUSY] ignore uid=CA5DCA35 while WAIT_OCR[0m
+[0;32mI (1705288) UART_MANAGER: RX camera=2 request=3209627572 plate=29B67124 confidence=100[0m
+[0;32mI (1705298) UART_MANAGER: TX EXIT <GATE_WATCH,2,3209627572>[0m
+[0;32mI (1705298) SERVO: Servo 1 -> 90 deg (1540 us)[0m
+[0;32mI (1705298) BARRIER_MANAGER: EXIT OPEN; travel time is an estimate, no position feedback[0m
+[0;32mI (1705308) PARKING_FSM: WAIT_OCR -> OPENING[0m
+[0;32mI (1705378) PARKING_FSM: [GRANTED] uid=CA5DCA35 plate=29B67124 confidence=100 request=3209627572[0m
+[0;32mI (1706308) PARKING_FSM: OPENING -> WAIT_PASSAGE[0m
+[0;32mI (1706358) PARKING_FSM: [WAIT_PASSAGE] Wait for stable CLEAR after matching OCR; manual pass/cancel available[0m
+[0;33mW (1721358) PARKING_FSM: Passage not confirmed: hold gate position and reservation; NO auto-close[0m
+[0;32mI (1806078) PARKING_APP: [RFID] uid=CA5DCA35[0m
+[0;33mW (1806078) PARKING_FSM: [BUSY] ignore uid=CA5DCA35 while WAIT_PASSAGE[0m

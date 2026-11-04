@@ -1,0 +1,104 @@
+[0;33m--- Warning: GDB cannot open serial ports accessed as COMx[0m
+[0;33m--- Using \\.\COM4 instead...[0m
+[0;33m--- esp-idf-monitor 1.6.2 on \\.\COM4 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d6472: app_main at E:/Parking System/parking_system_firmware/smart_parking/main/main.c:13 (discriminator 1)
+[0m
+[0;33m--- 0x400859cf: _esp_error_check_failed at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x400818c6: panic_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/panic.c:463
+--- 0x400859d9: esp_system_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/esp_system_chip.c:87
+--- 0x4008ba25: abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/newlib/abort.c:38
+--- 0x400859cf: _esp_error_check_failed at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/esp_err.c:49
+--- 0x400d6472: app_main at E:/Parking System/parking_system_firmware/smart_parking/main/main.c:13 (discriminator 1)
+--- 0x400ea11c: main_task at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/freertos/app_startup.c:208
+--- 0x400864c9: vPortTaskWrapper at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d6472: app_main at E:/Parking System/parking_system_firmware/smart_parking/main/main.c:13 (discriminator 1)
+[0m
+[0;33m--- 0x400859cf: _esp_error_check_failed at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x400818c6: panic_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/panic.c:463
+--- 0x400859d9: esp_system_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/esp_system_chip.c:87
+--- 0x4008ba25: abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/newlib/abort.c:38
+--- 0x400859cf: _esp_error_check_failed at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/esp_err.c:49
+--- 0x400d6472: app_main at E:/Parking System/parking_system_firmware/smart_parking/main/main.c:13 (discriminator 1)
+--- 0x400ea11c: main_task at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/freertos/app_startup.c:208
+--- 0x400864c9: vPortTaskWrapper at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d6472: app_main at E:/Parking System/parking_system_firmware/smart_parking/main/main.c:13 (discriminator 1)
+[0m
+[0;33m--- 0x400859cf: _esp_error_check_failed at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x400818c6: panic_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/panic.c:463
+--- 0x400859d9: esp_system_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/esp_system_chip.c:87
+--- 0x4008ba25: abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/newlib/abort.c:38
+--- 0x400859cf: _esp_error_check_failed at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d6472: app_main at E:/Parking System/parking_system_firmware/smart_parking/main/main.c:13 (discriminator 1)
+[0m
+[0;33m--- 0x400859cf: _esp_error_check_failed at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x400818c6: panic_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/panic.c:463
+--- 0x400859d9: esp_system_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/esp_system_chip.c:87
+--- 0x4008ba25: abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/newlib/abort.c:38
+--- 0x400859cf: _esp_error_check_failed at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/esp_err.c:49
+--- 0x400d6472: app_main at E:/Parking System/parking_system_firmware/smart_parking/main/main.c:13 (discriminator 1)
+--- 0x400ea11c: main_task at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/freertos/app_startup.c:208
+--- 0x400864c9: vPortTaskWrapper at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d6472: app_main at E:/Parking System/parking_system_firmware/smart_parking/main/main.c:13 (discriminator 1)
+[0m
+[0;33m--- 0x400859cf: _esp_error_check_failed at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x400818c6: panic_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/panic.c:463
+--- 0x400859d9: esp_system_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/esp_system_chip.c:87
+--- 0x4008ba25: abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/newlib/abort.c:38
+--- 0x400859cf: _esp_error_check_failed at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/esp_err.c:49
+--- 0x400d6472: app_main at E:/Parking System/parking_system_firmware/smart_parking/main/main.c:13 (discriminator 1)
+--- 0x400ea11c: main_task at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/freertos/app_startup.c:208
+--- 0x400864c9: vPortTaskWrapper at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d6472: app_main at E:/Parking System/parking_system_firmware/smart_parking/main/main.c:13 (discriminator 1)
+[0m
+[0;33m--- 0x400859cf: _esp_error_check_failed at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x400818c6: panic_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/panic.c:463
+--- 0x400859d9: esp_system_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/esp_system_chip.c:87
+--- 0x4008ba25: abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/newlib/abort.c:38
+--- 0x400859cf: _esp_error_check_failed at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/esp_err.c:49
+--- 0x400d6472: app_main at E:/Parking System/parking_system_firmware/smart_parking/main/main.c:13 (discriminator 1)
+--- 0x400ea11c: main_task at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/freertos/app_startup.c:208
+--- 0x400864c9: vPortTaskWrapper at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d6472: app_main at E:/Parking System/parking_system_firmware/smart_parking/main/main.c:13 (discriminator 1)
+[0m
+[0;33m--- 0x400859cf: _esp_error_check_failed at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/esp_err.c:49
+[0m
+[0;33m--- 0x400818c6: panic_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/panic.c:463
+--- 0x400859d9: esp_system_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/esp_system_chip.c:87
+--- 0x4008ba25: abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/newlib/abort.c:38
+--- 0x400859cf: _esp_error_check_failed at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/esp_err.c:49
+--- 0x400d6472: app_main at E:/Parking System/parking_system_firmware/smart_parking/main/main.c:13 (discriminator 1)
+--- 0x400ea11c: main_task at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/freertos/app_startup.c:208
+--- 0x400864c9: vPortTaskWrapper at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d6472: app_main at E:/Parking System/parking_system_firmware/smart_parking/main/main.c:13 (discriminator 1)
+[0m
+[0;33m--- 0x400859cf: _esp_error_check_failed at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_

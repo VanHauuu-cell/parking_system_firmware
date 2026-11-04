@@ -1,12 +1,26 @@
 idf_component_register(
     SRCS
         "main.c"
+        "app/app_main.c"
+        "app/state_machine.c"
+        "services/parking_manager.c"
+        "services/access_manager.c"
+        "services/barrier_manager.c"
+        "services/display_manager.c"
+        "services/uart_manager.c"
+        "protocol/uart_protocol.c"
+        "config/registered_vehicles.c"
         "drivers/ir_sensor.c"
         "drivers/servo.c"
         "drivers/mfrc522.c"
         "drivers/uart_driver.c"
+        "drivers/lcd_i2c.c"
+        "drivers/buzzer.c"
     INCLUDE_DIRS
         "."
+        "app"
+        "services"
         "config"
         "drivers"
+        "protocol"
 )

@@ -1828,7 +1828,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_main_
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = E:\esp\Espressif\tools\cmake\3.30.2\bin\cmake.exe --regenerate-during-build -S"E:\Parking System\esp32cam_smartparking" -B"E:\Parking System\esp32cam_smartparking\build"
+  command = E:\esp\Espressif\tools\cmake\3.30.2\bin\cmake.exe --regenerate-during-build -S"E:\Parking System\parking_system_firmware\esp32cam_smartparking" -B"E:\Parking System\parking_system_firmware\esp32cam_smartparking\build"
   description = Re-running CMake...
   generator = 1
 

@@ -1,4 +1,4 @@
-# Install script for directory: E:/Parking System/esp32cam_smartparking/managed_components/espressif__esp32-camera
+# Install script for directory: E:/Parking System/parking_system_firmware/esp32cam_smartparking/managed_components/espressif__esp32-camera
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

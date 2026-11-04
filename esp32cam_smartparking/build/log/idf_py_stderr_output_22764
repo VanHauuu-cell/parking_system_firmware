@@ -1,0 +1,187 @@
+[0;33m--- Warning: GDB cannot open serial ports accessed as COMx[0m
+[0;33m--- Using \\.\COM4 instead...[0m
+[0;33m--- esp-idf-monitor 1.6.2 on \\.\COM4 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40082105: panic_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/panic.c:463
+--- 0x4008f551: esp_system_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/esp_system_chip.c:87
+--- 0x40097901: abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/newlib/abort.c:38
+--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40082105: panic_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/panic.c:463
+--- 0x4008f551: esp_system_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/esp_system_chip.c:87
+--- 0x40097901: abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/newlib/abort.c:38
+--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40082105: panic_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/panic.c:463
+--- 0x4008f551: esp_system_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/esp_system_chip.c:87
+--- 0x40097901: abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/newlib/abort.c:38
+--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40082105: panic_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/panic.c:463
+--- 0x4008f551: esp_system_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/esp_system_chip.c:87
+--- 0x40097901: abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/newlib/abort.c:38
+--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40082105: panic_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/panic.c:463
+--- 0x4008f551: esp_system_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/esp_system_chip.c:87
+--- 0x40097901: abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/newlib/abort.c:38
+--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40082105: panic_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/panic.c:463
+--- 0x4008f551: esp_system_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/esp_system_chip.c:87
+--- 0x40097901: abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/newlib/abort.c:38
+--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40082105: panic_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/panic.c:463
+--- 0x4008f551: esp_system_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/esp_system_chip.c:87
+--- 0x40097901: abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/newlib/abort.c:38
+--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40082105: panic_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/panic.c:463
+--- 0x4008f551: esp_system_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/esp_system_chip.c:87
+--- 0x40097901: abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/newlib/abort.c:38
+--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40082105: panic_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/panic.c:463
+--- 0x4008f551: esp_system_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/esp_system_chip.c:87
+--- 0x40097901: abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/newlib/abort.c:38
+--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40082105: panic_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/panic.c:463
+--- 0x4008f551: esp_system_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/esp_system_chip.c:87
+--- 0x40097901: abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/newlib/abort.c:38
+--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40082105: panic_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/panic.c:463
+--- 0x4008f551: esp_system_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/esp_system_chip.c:87
+--- 0x40097901: abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/newlib/abort.c:38
+--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40082105: panic_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/panic.c:463
+--- 0x4008f551: esp_system_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/esp_system_chip.c:87
+--- 0x40097901: abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/newlib/abort.c:38
+--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40082105: panic_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/panic.c:463
+--- 0x4008f551: esp_system_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/esp_system_chip.c:87
+--- 0x40097901: abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/newlib/abort.c:38
+--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40082105: panic_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/panic.c:463
+--- 0x4008f551: esp_system_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/esp_system_chip.c:87
+--- 0x40097901: abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/newlib/abort.c:38
+--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40082105: panic_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/panic.c:463
+--- 0x4008f551: esp_system_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/esp_system_chip.c:87
+--- 0x40097901: abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/newlib/abort.c:38
+--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40082105: panic_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/panic.c:463
+--- 0x4008f551: esp_system_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/esp_system_chip.c:87
+--- 0x40097901: abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/newlib/abort.c:38
+--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40082105: panic_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/panic.c:463
+--- 0x4008f551: esp_system_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/esp_system_chip.c:87
+--- 0x40097901: abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/newlib/abort.c:38
+--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40082105: panic_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/panic.c:463
+--- 0x4008f551: esp_system_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/esp_system_chip.c:87
+--- 0x40097901: abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/newlib/abort.c:38
+--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40082105: panic_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/panic.c:463
+--- 0x4008f551: esp_system_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/esp_system_chip.c:87
+--- 0x40097901: abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/newlib/abort.c:38
+--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40082105: panic_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/panic.c:463
+--- 0x4008f551: esp_system_abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/esp_system_chip.c:87
+--- 0x40097901: abort at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/newlib/abort.c:38
+--- 0x4008187d: call_start_cpu0 at E:/esp/Espressif/frameworks/esp-idf-v5.3.3/components/esp_system/port/cpu_start.c:605
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0m

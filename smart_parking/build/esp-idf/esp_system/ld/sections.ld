@@ -1,6 +1,6 @@
 /* Automatically generated file; DO NOT EDIT */
 /* Espressif IoT Development Framework Linker Script */
-/* Generated from: E:\Parking System\smart_parking\build\esp-idf\esp_system\ld\sections.ld.in */
+/* Generated from: E:\Parking System\parking_system_firmware\smart_parking\build\esp-idf\esp_system\ld\sections.ld.in */
 
 /*
 

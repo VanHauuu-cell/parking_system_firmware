@@ -1,4 +1,4 @@
-# Install script for directory: E:/Parking System/smart_parking/main
+# Install script for directory: E:/Parking System/parking_system_firmware/smart_parking/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

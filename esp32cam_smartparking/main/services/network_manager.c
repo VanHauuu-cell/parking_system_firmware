@@ -157,6 +157,8 @@ esp_err_t network_manager_connect(void)
         esp_wifi_start()
     );
 
+    ESP_ERROR_CHECK(esp_wifi_set_ps(WIFI_PS_NONE));
+
     return ESP_OK;
 }
 
