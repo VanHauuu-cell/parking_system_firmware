@@ -22,39 +22,11 @@ typedef struct {
     char reason[24];
 } uart_ocr_result_t;
 
-typedef struct {
-    uint8_t camera_id;
-    uint32_t request_id;
-    uint32_t sequence;
-    bool present;
-} uart_gate_status_t;
-
-typedef enum {
-    UART_MESSAGE_OCR = 0,
-    UART_MESSAGE_GATE_STATUS
-} uart_message_type_t;
-
-typedef struct {
-    uart_message_type_t type;
-    union {
-        uart_ocr_result_t ocr;
-        uart_gate_status_t gate;
-    } data;
-} uart_message_t;
-
 // Return frame length, or -1 on invalid arguments / insufficient space.
 int uart_protocol_build_capture_request(
     char *frame, size_t capacity, uint8_t camera_id, uint32_t request_id);
-int uart_protocol_build_watch_start(
-    char *frame, size_t capacity, uint8_t camera_id, uint32_t request_id);
-int uart_protocol_build_watch_stop(
-    char *frame, size_t capacity, uint8_t camera_id, uint32_t request_id);
 
-// One shared byte framer; use this API when both message types are needed.
-bool uart_protocol_feed_message(
-    uart_frame_parser_t *parser, uint8_t byte, uart_message_t *message);
-
-// Compatibility API: consumes all frames but returns only OCR results.
+// Consume one UART byte and return true when a complete OCR result is decoded.
 bool uart_protocol_feed(
     uart_frame_parser_t *parser, uint8_t byte, uart_ocr_result_t *result);
 

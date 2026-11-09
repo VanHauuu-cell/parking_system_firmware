@@ -6,6 +6,7 @@ idf_component_register(
         "services/parking_manager.c"
         "services/access_manager.c"
         "services/barrier_manager.c"
+        "services/gate_ir_manager.c"
         "services/display_manager.c"
         "services/uart_manager.c"
         "protocol/uart_protocol.c"
@@ -14,7 +15,7 @@ idf_component_register(
         "drivers/servo.c"
         "drivers/mfrc522.c"
         "drivers/uart_driver.c"
-        "drivers/lcd_i2c.c"
+        "drivers/oled_ssd1306.c"
         "drivers/buzzer.c"
     INCLUDE_DIRS
         "."

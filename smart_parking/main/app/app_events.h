@@ -19,8 +19,6 @@ typedef enum {
 typedef enum {
     APP_EVENT_CARD = 0,
     APP_EVENT_OCR,
-    APP_EVENT_GATE_STATUS,
-    APP_EVENT_PASSAGE_CONFIRMED,
     APP_EVENT_COMMAND
 } app_event_type_t;
 
@@ -30,8 +28,6 @@ typedef struct {
     union {
         char uid[PARKING_UID_SIZE];
         uart_ocr_result_t ocr;
-        uart_gate_status_t gate;
-        struct { uint8_t camera_id; uint32_t request_id; } passage;
         app_command_t command;
     } data;
 } app_event_t;

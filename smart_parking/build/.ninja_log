@@ -59,10 +59,11 @@
 254	328	8153824992135323	esp-idf/esp_http_client/CMakeFiles/__idf_esp_http_client.dir/lib/http_utils.c.obj	92beff16bea4faa0
 16681	16756	8153825156397190	esp-idf/perfmon/CMakeFiles/__idf_perfmon.dir/xtensa_perfmon_apis.c.obj	4738734995fca25c
 262	362	8153824992215305	esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/transport_ssl.c.obj	adcd6713c4a7d7f2
+11338	12457	8155555743979872	smart_parking.elf	9ea5cd89a3cab6fb
 5901	5985	8153825048608335	esp-idf/hal/CMakeFiles/__idf_hal.dir/mcpwm_hal.c.obj	dd83d3c0ec60fb3d
 243	368	8153824992015687	esp-idf/esp_http_client/CMakeFiles/__idf_esp_http_client.dir/lib/http_auth.c.obj	6317c1724ea16ca3
-731	857	8153824996895595	esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/src/port/xtensa/gdbstub-entry.S.obj	abed0eb04ebc80bb
 4771	4925	8153825037295134	esp-idf/freertos/CMakeFiles/__idf_freertos.dir/FreeRTOS-Kernel/portable/xtensa/xtensa_overlay_os_hook.c.obj	2c31cb0d576523f4
+731	857	8153824996895595	esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/src/port/xtensa/gdbstub-entry.S.obj	abed0eb04ebc80bb
 183	372	8153824991417311	esp-idf/esp_http_client/CMakeFiles/__idf_esp_http_client.dir/esp_http_client.c.obj	3ebe08b1f730f802
 8172	8252	8153825071311891	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/ecp_curves.c.obj	763ebd03b995fe16
 249	378	8153824992080415	esp-idf/esp_http_client/CMakeFiles/__idf_esp_http_client.dir/lib/http_header.c.obj	65535cc94862097
@@ -75,7 +76,7 @@
 391	449	8153824993498582	esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/src/mac/esp_eth_mac_esp_dma.c.obj	284dce52f19c50c2
 6129	6193	8153825050881079	esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_crc.c.obj	fde9b125ce11c61
 1422	1553	8153825003816435	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/rsn_supp/wpa_ie.c.obj	ace873f942a8ba1
-16957	17035	8153825159149796	esp-idf/main/CMakeFiles/__idf_main.dir/app/app_main.c.obj	e5401df788dcc81e
+131	1107	8153860745951788	esp-idf/main/CMakeFiles/__idf_main.dir/app/app_main.c.obj	e5401df788dcc81e
 363	458	8153824993220477	esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/src/esp_eth.c.obj	663202f765be41c0
 454	504	8153824994123349	esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/src/phy/esp_eth_phy_lan87xx.c.obj	204c9913cc7a586d
 7699	7773	8153825066576720	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/x509write.c.obj	1e0ff1a58186e829
@@ -100,7 +101,7 @@
 490	553	8153824994493476	esp-idf/esp_adc/CMakeFiles/__idf_esp_adc.dir/adc_cali_curve_fitting.c.obj	e5290bbe8afa589b
 2228	2341	8153825011876378	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/core/ipv4/autoip.c.obj	71661dd7681a6886
 5618	5708	8153825045773838	esp-idf/heap/CMakeFiles/__idf_heap.dir/heap_caps_init.c.obj	5bd7119693ca78a3
-18386	18608	8153825173450408	esp-idf/main/libmain.a	fa4dea1679cf6f9f
+922	1109	8155555639822883	esp-idf/main/libmain.a	cc8725739b184808
 858	929	8153824998167163	esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/wifi_default_ap.c.obj	1754b4ec9a0941dd
 846	925	8153824998044598	esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/wifi_default.c.obj	f6a120339c6ed8ab
 473	560	8153824994313543	esp-idf/esp_adc/CMakeFiles/__idf_esp_adc.dir/adc_oneshot.c.obj	a247277a9927ed1f
@@ -157,10 +158,11 @@
 1006	1110	8153824999642599	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/common/sae.c.obj	99a8ab4a77da746f
 7171	7255	8153825061294561	esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/bootloader_flash/src/flash_qio_mode.c.obj	921195c44cfae5ff
 5300	5351	8153825042597282	esp-idf/soc/CMakeFiles/__idf_soc.dir/dport_access_common.c.obj	96c24af5583f30a5
-20475	25429	8153825194341864	bootloader/bootloader.map	dd35b3b7a3361bca
+307	495	8155555633668349	bootloader/bootloader.map	dd35b3b7a3361bca
 788	900	8153824997464258	esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/src/mesh_event.c.obj	ae2365a5cd0ed970
 900	967	8153824998589317	esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/coexist_debug_diagram.c.obj	7368b8a9ab06e5db
 3180	3306	8153825021389370	esp-idf/driver/CMakeFiles/__idf_driver.dir/deprecated/i2s_legacy.c.obj	2ecd6bbb3230dd8d
+12755	12876	8155555758152200	E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
 909	972	8153824998674698	esp-idf/esp_coex/CMakeFiles/__idf_esp_coex.dir/src/coexist_debug.c.obj	702ce6696df156a4
 4664	4771	8153825036228658	esp-idf/freertos/CMakeFiles/__idf_freertos.dir/FreeRTOS-Kernel/list.c.obj	e20d0d856b4f07c8
 15942	16018	8153825149013053	esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/proto-c/sec0.pb-c.c.obj	f3e985b7973e8a7f
@@ -176,7 +178,7 @@
 6074	6202	8153825050323437	esp-idf/hal/CMakeFiles/__idf_hal.dir/sdio_slave_hal.c.obj	dbb627134d89cf05
 940	1029	8153824998982577	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/ap/ieee802_1x.c.obj	4246880f77bf9ba7
 929	1035	8153824998877738	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/ap/ap_config.c.obj	f84c3c6f0e0862a0
-17078	17144	8153825160371335	esp-idf/main/CMakeFiles/__idf_main.dir/drivers/uart_driver.c.obj	7945e936bd1cb4f2
+379	2279	8153972546560200	esp-idf/main/CMakeFiles/__idf_main.dir/drivers/uart_driver.c.obj	7945e936bd1cb4f2
 972	1058	8153824999312461	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/ap/wpa_auth_ie.c.obj	717aa8b9a43e157b
 1002	1075	8153824999607659	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/ap/comeback_token.c.obj	db98a5296ef32d2a
 5448	5597	8153825044062034	esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32/mpi_periph.c.obj	c7e29984304827b
@@ -201,7 +203,7 @@
 3682	3775	8153825026409233	esp-idf/esp_driver_mcpwm/CMakeFiles/__idf_esp_driver_mcpwm.dir/src/mcpwm_oper.c.obj	a52f019994449946
 7773	7882	8153825067316172	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/aesni.c.obj	d0a384562707c0b0
 1098	1179	8153825000574313	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/crypto_ops.c.obj	29e906575ac751d2
-20475	25429	8153825194341864	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
+307	495	8155555633668349	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
 1089	1190	8153825000479309	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/crypto/ccmp.c.obj	fc171ac24b4c72bf
 3345	3449	8153825023038420	esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir/src/rmt_common.c.obj	8e074c740ecbbbef
 6292	6387	8153825052502963	esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/startup.c.obj	30497b529b6fef13
@@ -263,7 +265,7 @@
 3321	3467	8153825022793524	esp-idf/esp_driver_i2c/CMakeFiles/__idf_esp_driver_i2c.dir/i2c_common.c.obj	9f9d2cf92e2511c6
 1359	1524	8153825003176905	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/eap_peer/mschapv2.c.obj	502ebea6735e06e6
 1398	1538	8153825003566616	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/rsn_supp/pmksa_cache.c.obj	9f1f7842e4bb0b3a
-17035	17097	8153825159939883	esp-idf/main/CMakeFiles/__idf_main.dir/drivers/ir_sensor.c.obj	ad57fcd1b9c8ea48
+366	1056	8153972546417513	esp-idf/main/CMakeFiles/__idf_main.dir/drivers/ir_sensor.c.obj	ad57fcd1b9c8ea48
 6538	6679	8153825054971363	esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/port/arch/xtensa/debug_helpers.c.obj	1dba71837dd3099a
 1468	1548	8153825004276802	esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/src/utils/ext_password.c.obj	419b84e8d05dfa64
 16329	16414	8153825152882023	esp-idf/esp_local_ctrl/CMakeFiles/__idf_esp_local_ctrl.dir/src/esp_local_ctrl.c.obj	75b74616992176a7
@@ -349,7 +351,7 @@
 2004	2088	8153825009628338	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/api/netdb.c.obj	9dfccb67018ee8cb
 3516	3607	8153825024756996	esp-idf/esp_driver_sdmmc/CMakeFiles/__idf_esp_driver_sdmmc.dir/src/sdmmc_host.c.obj	748b4aba8e731f5
 2008	2098	8153825009673314	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/api/netifapi.c.obj	71cd616586ae7d5d
-25430	25475	8153825243884681	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
+495	540	8155555635560662	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
 7409	7499	8153825063676754	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/ssl_debug_helpers_generated.c.obj	f6e029743407e157
 5883	5936	8153825048422566	esp-idf/hal/CMakeFiles/__idf_hal.dir/rmt_hal.c.obj	f0028302d63dabe4
 6897	7073	8153825058563957	esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/spi_flash_os_func_noos.c.obj	b097fd803fbbc36d
@@ -384,7 +386,7 @@
 5344	5426	8153825043029961	esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32/adc_periph.c.obj	89ae544dea7e4110
 2244	2326	8153825012025183	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/core/ipv4/etharp.c.obj	7cf843e6265a7c1a
 2536	2625	8153825014955510	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/netif/ppp/chap_ms.c.obj	46d7009397507790
-20475	25429	8153825194341864	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.elf	dd35b3b7a3361bca
+307	495	8155555633668349	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.elf	dd35b3b7a3361bca
 2728	2854	8153825016868298	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/netif/ppp/pppoe.c.obj	3adaf94fc3c78d7f
 5355	5401	8153825043140187	esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32/spi_periph.c.obj	96a5fd7ad21e5317
 2234	2331	8153825011930112	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/core/ipv4/dhcp.c.obj	179fa54ad73fe9bf
@@ -431,7 +433,7 @@
 2612	2717	8153825015705455	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/netif/ppp/fsm.c.obj	c952a76b5770547d
 3861	4001	8153825028201821	esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/src/nvs_page.cpp.obj	4f28816e94fde653
 5206	5322	8153825041645102	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32/rtc_time.c.obj	3638e95de2b03ce
-20475	25429	8153825194341864	bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
+307	495	8155555633668349	bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
 7532	7613	8153825064911600	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/ssl_tls13_server.c.obj	581e4a8950ad1618
 7069	7116	8153825060279597	esp-idf/esp_mm/CMakeFiles/__idf_esp_mm.dir/cache_esp32.c.obj	1b910e3c042166ab
 2620	2724	8153825015793374	esp-idf/lwip/CMakeFiles/__idf_lwip.dir/lwip/src/netif/ppp/ipv6cp.c.obj	e0ff045703a70e4a
@@ -506,9 +508,9 @@
 3306	3415	8153825022647702	esp-idf/esp_driver_i2c/CMakeFiles/__idf_esp_driver_i2c.dir/i2c_master.c.obj	2b8e86bfb490c563
 8918	9002	8153825078769956	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/E_/esp/Espressif/frameworks/esp-idf-v5.3.3/components/mbedtls/port/aes/esp_aes_gcm.c.obj	14335403c9c7d3d0
 3329	3457	8153825022878732	esp-idf/esp_driver_sdm/CMakeFiles/__idf_esp_driver_sdm.dir/src/sdm.c.obj	cb5b39efe8acdb27
+5187	5274	8153825041455039	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32/rtc_clk_init.c.obj	2b30113e45915eb3
 8344	8484	8153825073036673	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/pkcs12.c.obj	69b2cfb45baad68a
 3365	3471	8153825023235788	esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir/src/rmt_rx.c.obj	aea758c7f2c0c326
-5187	5274	8153825041455039	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32/rtc_clk_init.c.obj	2b30113e45915eb3
 4701	4805	8153825036599852	esp-idf/freertos/CMakeFiles/__idf_freertos.dir/FreeRTOS-Kernel/portable/xtensa/port.c.obj	88a05fc33fd08772
 3372	3476	8153825023305842	esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir/src/rmt_tx.c.obj	cc4038c11ed9dfb6
 7844	8018	8153825068035815	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/bignum.c.obj	1b41a25e5456c37
@@ -530,7 +532,7 @@
 5783	5871	8153825047420079	esp-idf/hal/CMakeFiles/__idf_hal.dir/spi_flash_encrypt_hal_iram.c.obj	4ab9feb71aecd8ad
 5969	6103	8153825049274470	esp-idf/hal/CMakeFiles/__idf_hal.dir/adc_oneshot_hal.c.obj	11f5e28b2f425a43
 3476	3549	8153825024347088	esp-idf/esp_driver_sdspi/CMakeFiles/__idf_esp_driver_sdspi.dir/src/sdspi_transaction.c.obj	441a28e6c32807db
-17015	17136	8153825159739593	esp-idf/main/CMakeFiles/__idf_main.dir/services/barrier_manager.c.obj	ad171e9fe526c795
+192	521	8153847655036370	esp-idf/main/CMakeFiles/__idf_main.dir/services/barrier_manager.c.obj	ad171e9fe526c795
 15602	15670	8153825145602026	esp-idf/esp_driver_gpio/CMakeFiles/__idf_esp_driver_gpio.dir/src/rtc_io.c.obj	78f74bbb2f27b8c3
 6672	6828	8153825056308488	esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/port/soc/esp32/cache_err_int.c.obj	2dd3ab953095e233
 3520	3599	8153825024796900	esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/sdmmc_cmd.c.obj	5b4cb15981bac8bd
@@ -558,7 +560,7 @@
 5229	5355	8153825041870511	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32/chip_info.c.obj	30f767ec6c4997c4
 3907	3991	8153825028655654	esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/src/nvs_partition.cpp.obj	45d1c551d05db3d7
 4236	4412	8153825031951247	esp-idf/esp_driver_gptimer/CMakeFiles/__idf_esp_driver_gptimer.dir/src/gptimer_common.c.obj	6aea5fd7fe7a024e
-25475	25563	8153825245137218	CMakeFiles/bootloader-complete	3dfe38758a941b37
+540	638	8155555636885943	CMakeFiles/bootloader-complete	3dfe38758a941b37
 16902	17010	8153825158609792	esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/proto-c/wifi_scan.pb-c.c.obj	bb6e405899425bcf
 3776	3996	8153825027345794	esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/src/nvs_cxx_api.cpp.obj	c136fb01735186cb
 3877	4005	8153825028355772	esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/src/nvs_pagemanager.cpp.obj	eed6cd8d127c8123
@@ -578,7 +580,7 @@
 17697	18022	8153825166558322	esp-idf/espcoredump/libespcoredump.a	db5a3a46a4c02972
 8808	8937	8153825077669150	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/E_/esp/Espressif/frameworks/esp-idf-v5.3.3/components/mbedtls/port/aes/block/esp_aes.c.obj	f327af72012807c4
 3512	4254	8153825024701461	esp-idf/esp-tls/libesp-tls.a	b494e596d7ce82da
-20475	25429	8153825194341864	bootloader/bootloader.elf	dd35b3b7a3361bca
+307	495	8155555633668349	bootloader/bootloader.elf	dd35b3b7a3361bca
 4001	4273	8153825029600328	esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/src/nvs_types.cpp.obj	6fe644ae21de3f6f
 5950	6057	8153825049088352	esp-idf/hal/CMakeFiles/__idf_hal.dir/sdm_hal.c.obj	90e378c004e2a24
 16868	16956	8153825158263535	esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/src/handlers.c.obj	fd96ef1b32068c96
@@ -591,11 +593,11 @@
 4224	4335	8153825031821197	esp-idf/esp_ringbuf/CMakeFiles/__idf_esp_ringbuf.dir/ringbuf.c.obj	f358833c3ae3b16
 12631	12817	8153825115900910	esp-idf/hal/libhal.a	5620e69b93c897a5
 4327	4401	8153825032855774	esp-idf/cxx/CMakeFiles/__idf_cxx.dir/cxx_exception_stubs.cpp.obj	9e8c16eb2c51dbcb
-17046	17169	8153825160054651	esp-idf/main/CMakeFiles/__idf_main.dir/drivers/servo.c.obj	b77e52a20ff51f9
+372	1105	8153972546477858	esp-idf/main/CMakeFiles/__idf_main.dir/drivers/servo.c.obj	b77e52a20ff51f9
 4273	4404	8153825032314182	esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/src/system_time.c.obj	35176b53020dcf7e
 4269	4448	8153825032274295	esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/src/ets_timer_legacy.c.obj	4ae168d337aef08e
 5244	5911	8153825042026913	esp-idf/esp_wifi/libesp_wifi.a	6acfe179de11612f
-17020	17078	8153825159779829	esp-idf/main/CMakeFiles/__idf_main.dir/services/display_manager.c.obj	f8a551b70d0cb06d
+196	528	8153847655066985	esp-idf/main/CMakeFiles/__idf_main.dir/services/display_manager.c.obj	f8a551b70d0cb06d
 4335	4494	8153825032940577	esp-idf/cxx/CMakeFiles/__idf_cxx.dir/cxx_init.cpp.obj	b2a940de23312c8d
 9462	9584	8153825084203972	esp-idf/esp_vfs_console/libesp_vfs_console.a	3d8cfa0613c3b41c
 4397	4500	8153825033557258	esp-idf/pthread/CMakeFiles/__idf_pthread.dir/pthread_cond_var.c.obj	7340beb4e6629e5c
@@ -619,7 +621,7 @@
 4612	4701	8153825035701036	esp-idf/freertos/CMakeFiles/__idf_freertos.dir/app_startup.c.obj	6dcc4944b4b3a347
 4981	5095	8153825039392582	esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/sleep_modes.c.obj	c5b091b0f8e25d30
 16532	16604	8153825154917576	esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/port/freertos/ffsystem.c.obj	29c6b4d77f4137ff
-14155	14270	8153825131139845	esp-idf/esp_app_format/libesp_app_format.a	ec216ca1d7c919f8
+694	820	8155537707938996	esp-idf/esp_app_format/libesp_app_format.a	ec216ca1d7c919f8
 4624	4710	8153825035834939	esp-idf/freertos/CMakeFiles/__idf_freertos.dir/port_common.c.obj	3a6de42ee2dc2ad0
 4679	4782	8153825036382279	esp-idf/freertos/CMakeFiles/__idf_freertos.dir/FreeRTOS-Kernel/tasks.c.obj	d37c70c9a793837d
 4691	4813	8153825036494919	esp-idf/freertos/CMakeFiles/__idf_freertos.dir/FreeRTOS-Kernel/event_groups.c.obj	648f582273fcc724
@@ -677,7 +679,7 @@
 5629	5704	8153825045876827	esp-idf/heap/CMakeFiles/__idf_heap.dir/tlsf/tlsf.c.obj	97c07da782bf1083
 8113	8183	8153825070715918	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/ecdh.c.obj	39539da1458aa415
 5597	5712	8153825045560918	esp-idf/heap/CMakeFiles/__idf_heap.dir/heap_caps.c.obj	e69bd489d4503850
-20475	25429	8153825194341864	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.map	dd35b3b7a3361bca
+307	495	8155555633668349	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.map	dd35b3b7a3361bca
 15624	15687	8153825145826851	esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/xtensa_context.S.obj	5727688236e8837f
 5679	5721	8153825046378267	esp-idf/log/CMakeFiles/__idf_log.dir/log_buffers.c.obj	ec9968213d546251
 5639	5747	8153825045980386	esp-idf/heap/CMakeFiles/__idf_heap.dir/port/memory_layout_utils.c.obj	531937856ec1a920
@@ -704,7 +706,7 @@
 15709	15772	8153825146678100	esp-idf/console/CMakeFiles/__idf_console.dir/argtable3/arg_dbl.c.obj	f85d7e35bf290afd
 7309	7409	8153825062681388	esp-idf/app_update/CMakeFiles/__idf_app_update.dir/esp_ota_ops.c.obj	1dc282dcce4bed72
 5955	6021	8153825049139571	esp-idf/hal/CMakeFiles/__idf_hal.dir/sdmmc_hal.c.obj	b08d9274da37bc9
-17023	17084	8153825159819695	esp-idf/main/CMakeFiles/__idf_main.dir/services/uart_manager.c.obj	7539c032e69c3246
+199	536	8153847655098272	esp-idf/main/CMakeFiles/__idf_main.dir/services/uart_manager.c.obj	7539c032e69c3246
 5964	6026	8153825049234222	esp-idf/hal/CMakeFiles/__idf_hal.dir/adc_hal_common.c.obj	6eb46dfa1d87f9da
 5981	6070	8153825049402248	esp-idf/hal/CMakeFiles/__idf_hal.dir/adc_hal.c.obj	bb55c5d30444876c
 6021	6125	8153825049804249	esp-idf/hal/CMakeFiles/__idf_hal.dir/brownout_hal.c.obj	cc9ff10351bd020b
@@ -719,7 +721,7 @@
 6070	6176	8153825050290293	esp-idf/hal/CMakeFiles/__idf_hal.dir/spi_slave_hal_iram.c.obj	c7f1a4c702a455e2
 6103	6181	8153825050619924	esp-idf/hal/CMakeFiles/__idf_hal.dir/esp32/touch_sensor_hal.c.obj	8f3b3b6a29a116c9
 6109	6185	8153825050683071	esp-idf/hal/CMakeFiles/__idf_hal.dir/touch_sensor_hal.c.obj	d389047e3de878cd
-25475	25563	8153825245137218	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
+540	638	8155555636885943	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
 6126	6189	8153825050848444	esp-idf/hal/CMakeFiles/__idf_hal.dir/esp32/gpio_hal_workaround.c.obj	a3cff5f2b8f2960a
 6133	6198	8153825050926578	esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_sys.c.obj	3e630316d3066d5a
 6137	6272	8153825050960565	esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_uart.c.obj	3d2c227663b88ed
@@ -757,7 +759,7 @@
 7594	8265	8153825065526224	esp-idf/esp_netif/libesp_netif.a	c5c88c0fe9007ec1
 6588	6800	8153825055472871	esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/port/soc/esp32/reset_reason.c.obj	197cb053016915cd
 6675	6811	8153825056343466	esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/flash_brownout_hook.c.obj	fe3e7336c5dc9a8a
-25430	25475	8153825243884681	bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
+495	540	8155555635560662	bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
 6746	6861	8153825057048651	esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/spi_flash_chip_mxic.c.obj	e5384df28894a958
 8085	8186	8153825070446029	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/cmac.c.obj	8c66552b06b2a676
 7903	8113	8153825068616591	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/camellia.c.obj	54c686e15db8c587
@@ -803,6 +805,7 @@
 8407	8508	8153825073652674	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/platform_util.c.obj	e6b14298ca2ae8ad
 7375	7435	8153825063341740	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/ssl_cache.c.obj	74b03813130089ee
 7378	7488	8153825063371725	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/ssl_ciphersuites.c.obj	91d598b055381d3e
+12457	12755	8155555758005150	.bin_timestamp	3b87831c6b5119f3
 7388	7491	8153825063466755	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/ssl_client.c.obj	926e289e60b497d5
 10240	10339	8153825091991905	esp-idf/esp_driver_dac/libesp_driver_dac.a	d8f2dcbf235dd4cd
 8927	9022	8153825078855338	esp-idf/mbedtls/mbedtls/3rdparty/p256-m/CMakeFiles/p256m.dir/p256-m_driver_entrypoints.c.obj	61a8fb269842d2a3
@@ -842,7 +845,7 @@
 8252	8311	8153825072107459	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/lmots.c.obj	abbc73d1de7c3ac6
 8248	8318	8153825072062477	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/hmac_drbg.c.obj	22b74d63d018643d
 8261	8340	8153825072202261	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/md.c.obj	63879bcfa2b3ed0f
-7356	8322	8153825063151422	esp-idf/esp_app_format/CMakeFiles/__idf_esp_app_format.dir/esp_app_desc.c.obj	f41c0ff2d2d5297e
+121	693	8155537702208103	esp-idf/esp_app_format/CMakeFiles/__idf_esp_app_format.dir/esp_app_desc.c.obj	c3dc57399774a170
 8273	8326	8153825072317276	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/memory_buffer_alloc.c.obj	a7d002fbdd5834f2
 15599	15647	8153825145572129	esp-idf/esp_driver_gpio/CMakeFiles/__idf_esp_driver_gpio.dir/src/gpio_glitch_filter_ops.c.obj	1871bb9a951bfa9e
 8256	8344	8153825072142368	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/lms.c.obj	73e2286cd62bb0b
@@ -862,7 +865,7 @@
 8433	8538	8153825073922724	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/psa_crypto_aead.c.obj	e0e49b6adced3efd
 8478	8565	8153825074366648	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/psa_crypto_client.c.obj	678b4b0111419ccf
 8416	8574	8153825073748095	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/psa_crypto.c.obj	735377c78b947843
-25475	25563	8153825245137218	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/bootloader-complete	3dfe38758a941b37
+540	638	8155555636885943	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/bootloader-complete	3dfe38758a941b37
 8491	8602	8153825074501179	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/psa_crypto_ecp.c.obj	f9e492e442fe445
 17347	17700	8153825163066039	esp-idf/unity/libunity.a	7be88e73530f2e12
 8538	8672	8153825074967510	esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/psa_crypto_pake.c.obj	acc5a894b371301e
@@ -982,18 +985,19 @@
 16805	16943	8153825157638083	esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/src/wifi_config.c.obj	368578902482e3f5
 16819	16949	8153825157778461	esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/src/manager.c.obj	355b301eba575899
 16877	16975	8153825158358738	esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_console.c.obj	14cef9bd59c44d1b
-16949	17019	8153825159084701	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	2b151eb5537d88a2
+302	921	8155555633622815	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	2b151eb5537d88a2
 16940	17023	8153825158989644	esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/proto-c/wifi_constants.pb-c.c.obj	75423603c49aa4b8
 16943	17031	8153825159019539	esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/src/scheme_softap.c.obj	5c642b478e0fef0d
-16975	17046	8153825159339698	esp-idf/main/CMakeFiles/__idf_main.dir/services/parking_manager.c.obj	519ed024ca23dd1
-16969	17055	8153825159284826	esp-idf/main/CMakeFiles/__idf_main.dir/app/state_machine.c.obj	c8d29420613f09b5
+154	944	8153860746185327	esp-idf/main/CMakeFiles/__idf_main.dir/services/parking_manager.c.obj	519ed024ca23dd1
+178	11906	8159101306074749	build.ninja	ba53be33c638f654
+134	938	8153860745976642	esp-idf/main/CMakeFiles/__idf_main.dir/app/state_machine.c.obj	c8d29420613f09b5
 17032	17091	8153825159904938	esp-idf/main/CMakeFiles/__idf_main.dir/protocol/uart_protocol.c.obj	10885d0557ba3bb0
-17010	17096	8153825159694632	esp-idf/main/CMakeFiles/__idf_main.dir/services/access_manager.c.obj	37f3ee403e2d3782
-17084	17171	8153825160421185	esp-idf/main/CMakeFiles/__idf_main.dir/drivers/lcd_i2c.c.obj	bce23bda79b0eade
-17092	17173	8153825160506241	esp-idf/main/CMakeFiles/__idf_main.dir/drivers/buzzer.c.obj	abc8017132a0fe9d
-17055	17191	8153825160139523	esp-idf/main/CMakeFiles/__idf_main.dir/drivers/mfrc522.c.obj	388c43fb9003d2b4
+158	809	8153860746215273	esp-idf/main/CMakeFiles/__idf_main.dir/services/access_manager.c.obj	37f3ee403e2d3782
+383	1477	8153972546591260	esp-idf/main/CMakeFiles/__idf_main.dir/drivers/lcd_i2c.c.obj	bce23bda79b0eade
+387	1036	8153972546636185	esp-idf/main/CMakeFiles/__idf_main.dir/drivers/buzzer.c.obj	abc8017132a0fe9d
+375	1410	8153972546513876	esp-idf/main/CMakeFiles/__idf_main.dir/drivers/mfrc522.c.obj	388c43fb9003d2b4
 17356	17685	8153825163153275	esp-idf/json/libjson.a	d526cce742c0d6ee
-18608	31207	8153825301146437	E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/esp_system/ld/sections.ld	65aba8ed49b668ad
+1109	11338	8155555743087305	E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/esp_system/ld/sections.ld	65aba8ed49b668ad
 17353	17707	8153825163113201	esp-idf/wear_levelling/libwear_levelling.a	b3339ae1e8ca9d31
 17362	17714	8153825163203152	esp-idf/esp_driver_cam/libesp_driver_cam.a	60cc2616dd5d2fd3
 17365	17764	8153825163238122	esp-idf/esp_hid/libesp_hid.a	9c48c4370bb06a59
@@ -1004,377 +1008,87 @@
 17704	18054	8153825166628126	esp-idf/mqtt/libmqtt.a	8aec5e45ecc927a3
 17760	18076	8153825167194422	esp-idf/perfmon/libperfmon.a	889640fc8805d72d
 17685	18084	8153825166443213	esp-idf/esp_lcd/libesp_lcd.a	5531ca7c5482be8b
-20475	25429	8153825194341864	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.bin	dd35b3b7a3361bca
+307	495	8155555633668349	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.bin	dd35b3b7a3361bca
 17780	18104	8153825167384775	esp-idf/protocomm/libprotocomm.a	b4c8353faa0e3f4a
 18104	18369	8153825170623190	esp-idf/esp_local_ctrl/libesp_local_ctrl.a	8b6fad2adb1512f
 9498	20475	8153825194259314	bootloader-prefix/src/bootloader-stamp/bootloader-configure	a02bf83fd26f3892
-20475	25429	8153825194341864	bootloader/bootloader.bin	dd35b3b7a3361bca
-25475	25563	8153825245137218	bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
-18608	31207	8153825301146437	esp-idf/esp_system/ld/sections.ld	65aba8ed49b668ad
-77	11997	8153826654417031	build.ninja	ba53be33c638f654
-101	282	8153826656138042	bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
-101	282	8153826656138042	bootloader/bootloader.elf	dd35b3b7a3361bca
-101	282	8153826656138042	bootloader/bootloader.bin	dd35b3b7a3361bca
-101	282	8153826656138042	bootloader/bootloader.map	dd35b3b7a3361bca
-101	282	8153826656138042	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
-101	282	8153826656138042	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.elf	dd35b3b7a3361bca
-101	282	8153826656138042	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.bin	dd35b3b7a3361bca
-101	282	8153826656138042	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.map	dd35b3b7a3361bca
-283	328	8153826657953114	bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
-283	328	8153826657953114	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
-328	436	8153826659406430	CMakeFiles/bootloader-complete	3dfe38758a941b37
-328	436	8153826659406430	bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
-328	436	8153826659406430	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/bootloader-complete	3dfe38758a941b37
-328	436	8153826659406430	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
+307	495	8155555633668349	bootloader/bootloader.bin	dd35b3b7a3361bca
+540	638	8155555636885943	bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
+1109	11338	8155555743087305	esp-idf/esp_system/ld/sections.ld	65aba8ed49b668ad
 97	476	8153826656094915	esp-idf/main/CMakeFiles/__idf_main.dir/config/registered_vehicles.c.obj	71fec7a39a0cb4d4
-476	602	8153826659892314	esp-idf/main/libmain.a	cc8725739b184808
-602	10745	8153826762089617	esp-idf/esp_system/ld/sections.ld	65aba8ed49b668ad
-602	10745	8153826762089617	E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/esp_system/ld/sections.ld	65aba8ed49b668ad
-10745	12010	8153826762578714	smart_parking.elf	9ea5cd89a3cab6fb
-12010	12324	8153826778281696	.bin_timestamp	3b87831c6b5119f3
-12010	12324	8153826778281696	E:/Parking System/parking_system_firmware/smart_parking/build/.bin_timestamp	3b87831c6b5119f3
-12325	12416	8153826778375949	esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
-12325	12416	8153826778375949	E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
-89	188	8153826915944497	esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
-89	188	8153826915944497	E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
-86	257	8153826915918598	bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
-86	257	8153826915918598	bootloader/bootloader.elf	dd35b3b7a3361bca
-86	257	8153826915918598	bootloader/bootloader.bin	dd35b3b7a3361bca
-86	257	8153826915918598	bootloader/bootloader.map	dd35b3b7a3361bca
-86	257	8153826915918598	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
-86	257	8153826915918598	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.elf	dd35b3b7a3361bca
-86	257	8153826915918598	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.bin	dd35b3b7a3361bca
-86	257	8153826915918598	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.map	dd35b3b7a3361bca
-258	306	8153826917639805	bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
-258	306	8153826917639805	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
-306	396	8153826918948874	CMakeFiles/bootloader-complete	3dfe38758a941b37
-306	396	8153826918948874	bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
-306	396	8153826918948874	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/bootloader-complete	3dfe38758a941b37
-306	396	8153826918948874	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
-397	7533	8153826919023520	CMakeFiles/flash	d84a814a0322c67f
-397	7533	8153826919023520	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/flash	d84a814a0322c67f
-296	388	8153835959917127	esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
-296	388	8153835959917127	E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
-293	474	8153835959887229	bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
-293	474	8153835959887229	bootloader/bootloader.elf	dd35b3b7a3361bca
-293	474	8153835959887229	bootloader/bootloader.bin	dd35b3b7a3361bca
-293	474	8153835959887229	bootloader/bootloader.map	dd35b3b7a3361bca
-293	474	8153835959887229	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
-293	474	8153835959887229	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.elf	dd35b3b7a3361bca
-293	474	8153835959887229	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.bin	dd35b3b7a3361bca
-293	474	8153835959887229	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.map	dd35b3b7a3361bca
-474	519	8153835961695700	bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
-474	519	8153835961695700	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
-519	612	8153835962992082	CMakeFiles/bootloader-complete	3dfe38758a941b37
-519	612	8153835962992082	bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
-519	612	8153835962992082	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/bootloader-complete	3dfe38758a941b37
-519	612	8153835962992082	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
-612	7973	8153835963086635	CMakeFiles/flash	d84a814a0322c67f
-612	7973	8153835963086635	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/flash	d84a814a0322c67f
-130	227	8153837329346655	esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
-130	227	8153837329346655	E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
-126	291	8153837329300293	bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
-126	291	8153837329300293	bootloader/bootloader.elf	dd35b3b7a3361bca
-126	291	8153837329300293	bootloader/bootloader.bin	dd35b3b7a3361bca
-126	291	8153837329300293	bootloader/bootloader.map	dd35b3b7a3361bca
-126	291	8153837329300293	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
-126	291	8153837329300293	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.elf	dd35b3b7a3361bca
-126	291	8153837329300293	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.bin	dd35b3b7a3361bca
-126	291	8153837329300293	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.map	dd35b3b7a3361bca
-291	335	8153837330945182	bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
-291	335	8153837330945182	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
-335	430	8153837332237646	CMakeFiles/bootloader-complete	3dfe38758a941b37
-335	430	8153837332237646	bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
-335	430	8153837332237646	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/bootloader-complete	3dfe38758a941b37
-335	430	8153837332237646	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
-430	7192	8153837332330266	CMakeFiles/flash	d84a814a0322c67f
-430	7192	8153837332330266	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/flash	d84a814a0322c67f
-202	413	8153847655123234	bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
-202	413	8153847655123234	bootloader/bootloader.elf	dd35b3b7a3361bca
-202	413	8153847655123234	bootloader/bootloader.bin	dd35b3b7a3361bca
-202	413	8153847655123234	bootloader/bootloader.map	dd35b3b7a3361bca
-202	413	8153847655123234	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
-202	413	8153847655123234	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.elf	dd35b3b7a3361bca
-202	413	8153847655123234	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.bin	dd35b3b7a3361bca
-202	413	8153847655123234	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.map	dd35b3b7a3361bca
-413	473	8153847657241104	bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
-413	473	8153847657241104	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
-192	521	8153847655036370	esp-idf/main/CMakeFiles/__idf_main.dir/services/barrier_manager.c.obj	ad171e9fe526c795
-196	528	8153847655066985	esp-idf/main/CMakeFiles/__idf_main.dir/services/display_manager.c.obj	f8a551b70d0cb06d
-199	536	8153847655098272	esp-idf/main/CMakeFiles/__idf_main.dir/services/uart_manager.c.obj	7539c032e69c3246
-187	544	8153847654980874	esp-idf/main/CMakeFiles/__idf_main.dir/services/parking_manager.c.obj	519ed024ca23dd1
-473	589	8153847658930047	CMakeFiles/bootloader-complete	3dfe38758a941b37
-473	589	8153847658930047	bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
-473	589	8153847658930047	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/bootloader-complete	3dfe38758a941b37
-473	589	8153847658930047	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
-178	717	8153847654892193	esp-idf/main/CMakeFiles/__idf_main.dir/app/app_main.c.obj	e5401df788dcc81e
-184	930	8153847654945272	esp-idf/main/CMakeFiles/__idf_main.dir/app/state_machine.c.obj	c8d29420613f09b5
-931	1065	8153847662417510	esp-idf/main/libmain.a	cc8725739b184808
-1066	12279	8153847775324322	esp-idf/esp_system/ld/sections.ld	65aba8ed49b668ad
-1066	12279	8153847775324322	E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/esp_system/ld/sections.ld	65aba8ed49b668ad
-12279	13836	8153847775894459	smart_parking.elf	9ea5cd89a3cab6fb
-13836	14088	8153847793900515	.bin_timestamp	3b87831c6b5119f3
-13836	14088	8153847793900515	E:/Parking System/parking_system_firmware/smart_parking/build/.bin_timestamp	3b87831c6b5119f3
-14088	14185	8153847793991612	esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
-14088	14185	8153847793991612	E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
-14185	21431	8153847794962226	CMakeFiles/flash	d84a814a0322c67f
-14185	21431	8153847794962226	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/flash	d84a814a0322c67f
-161	443	8153860746245174	bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
-161	443	8153860746245174	bootloader/bootloader.elf	dd35b3b7a3361bca
-161	443	8153860746245174	bootloader/bootloader.bin	dd35b3b7a3361bca
-161	443	8153860746245174	bootloader/bootloader.map	dd35b3b7a3361bca
-161	443	8153860746245174	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
-161	443	8153860746245174	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.elf	dd35b3b7a3361bca
-161	443	8153860746245174	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.bin	dd35b3b7a3361bca
-161	443	8153860746245174	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.map	dd35b3b7a3361bca
-444	510	8153860749080122	bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
-444	510	8153860749080122	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
-510	632	8153860750860703	CMakeFiles/bootloader-complete	3dfe38758a941b37
-510	632	8153860750860703	bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
-510	632	8153860750860703	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/bootloader-complete	3dfe38758a941b37
-510	632	8153860750860703	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
-158	809	8153860746215273	esp-idf/main/CMakeFiles/__idf_main.dir/services/access_manager.c.obj	37f3ee403e2d3782
-126	924	8153860745908442	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	2b151eb5537d88a2
-134	938	8153860745976642	esp-idf/main/CMakeFiles/__idf_main.dir/app/state_machine.c.obj	c8d29420613f09b5
-154	944	8153860746185327	esp-idf/main/CMakeFiles/__idf_main.dir/services/parking_manager.c.obj	519ed024ca23dd1
-131	1107	8153860745951788	esp-idf/main/CMakeFiles/__idf_main.dir/app/app_main.c.obj	e5401df788dcc81e
-1107	1242	8153860755705520	esp-idf/main/libmain.a	cc8725739b184808
-1242	10364	8153860847859623	esp-idf/esp_system/ld/sections.ld	65aba8ed49b668ad
-1242	10364	8153860847859623	E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/esp_system/ld/sections.ld	65aba8ed49b668ad
-10364	11382	8153860848286677	smart_parking.elf	9ea5cd89a3cab6fb
-11383	11784	8153860862387213	.bin_timestamp	3b87831c6b5119f3
-11383	11784	8153860862387213	E:/Parking System/parking_system_firmware/smart_parking/build/.bin_timestamp	3b87831c6b5119f3
-11784	11878	8153860862476159	esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
-11784	11878	8153860862476159	E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
-11878	17323	8153860863409595	CMakeFiles/flash	d84a814a0322c67f
-11878	17323	8153860863409595	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/flash	d84a814a0322c67f
-131	299	8153864041314357	bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
-131	299	8153864041314357	bootloader/bootloader.elf	dd35b3b7a3361bca
-131	299	8153864041314357	bootloader/bootloader.bin	dd35b3b7a3361bca
-131	299	8153864041314357	bootloader/bootloader.map	dd35b3b7a3361bca
-131	299	8153864041314357	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
-131	299	8153864041314357	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.elf	dd35b3b7a3361bca
-131	299	8153864041314357	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.bin	dd35b3b7a3361bca
-131	299	8153864041314357	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.map	dd35b3b7a3361bca
-299	338	8153864042990841	bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
-299	338	8153864042990841	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
-338	427	8153864044189707	CMakeFiles/bootloader-complete	3dfe38758a941b37
-338	427	8153864044189707	bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
-338	427	8153864044189707	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/bootloader-complete	3dfe38758a941b37
-338	427	8153864044189707	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
-127	729	8153864041269146	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	2b151eb5537d88a2
-729	888	8153864047296318	esp-idf/main/libmain.a	cc8725739b184808
-888	10814	8153864147532483	esp-idf/esp_system/ld/sections.ld	65aba8ed49b668ad
-888	10814	8153864147532483	E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/esp_system/ld/sections.ld	65aba8ed49b668ad
-10814	11772	8153864148134995	smart_parking.elf	9ea5cd89a3cab6fb
-11773	12111	8153864161033784	.bin_timestamp	3b87831c6b5119f3
-11773	12111	8153864161033784	E:/Parking System/parking_system_firmware/smart_parking/build/.bin_timestamp	3b87831c6b5119f3
-12111	12211	8153864161109830	esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
-12111	12211	8153864161109830	E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
-12211	17380	8153864162118628	CMakeFiles/flash	d84a814a0322c67f
-12211	17380	8153864162118628	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/flash	d84a814a0322c67f
-167	347	8153870847586431	bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
-167	347	8153870847586431	bootloader/bootloader.elf	dd35b3b7a3361bca
-167	347	8153870847586431	bootloader/bootloader.bin	dd35b3b7a3361bca
-167	347	8153870847586431	bootloader/bootloader.map	dd35b3b7a3361bca
-167	347	8153870847586431	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
-167	347	8153870847586431	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.elf	dd35b3b7a3361bca
-167	347	8153870847586431	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.bin	dd35b3b7a3361bca
-167	347	8153870847586431	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.map	dd35b3b7a3361bca
-347	395	8153870849388619	bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
-347	395	8153870849388619	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
-395	481	8153870850648142	CMakeFiles/bootloader-complete	3dfe38758a941b37
-395	481	8153870850648142	bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
-395	481	8153870850648142	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/bootloader-complete	3dfe38758a941b37
-395	481	8153870850648142	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
-162	899	8153870847541405	esp-idf/main/CMakeFiles/__idf_main.dir/drivers/lcd_i2c.c.obj	bce23bda79b0eade
-900	1048	8153870854908645	esp-idf/main/libmain.a	cc8725739b184808
-1048	11943	8153870964932236	esp-idf/esp_system/ld/sections.ld	65aba8ed49b668ad
-1048	11943	8153870964932236	E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/esp_system/ld/sections.ld	65aba8ed49b668ad
-11943	12922	8153870965357280	smart_parking.elf	9ea5cd89a3cab6fb
-12922	13184	8153870977684697	.bin_timestamp	3b87831c6b5119f3
-12922	13184	8153870977684697	E:/Parking System/parking_system_firmware/smart_parking/build/.bin_timestamp	3b87831c6b5119f3
-13185	13269	8153870977769493	esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
-13185	13269	8153870977769493	E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
-117	208	8153871281240857	esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
-117	208	8153871281240857	E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
-114	345	8153871281210957	bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
-114	345	8153871281210957	bootloader/bootloader.elf	dd35b3b7a3361bca
-114	345	8153871281210957	bootloader/bootloader.bin	dd35b3b7a3361bca
-114	345	8153871281210957	bootloader/bootloader.map	dd35b3b7a3361bca
-114	345	8153871281210957	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
-114	345	8153871281210957	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.elf	dd35b3b7a3361bca
-114	345	8153871281210957	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.bin	dd35b3b7a3361bca
-114	345	8153871281210957	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.map	dd35b3b7a3361bca
-346	452	8153871283530528	bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
-346	452	8153871283530528	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
-452	550	8153871285495733	CMakeFiles/bootloader-complete	3dfe38758a941b37
-452	550	8153871285495733	bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
-452	550	8153871285495733	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/bootloader-complete	3dfe38758a941b37
-452	550	8153871285495733	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
-550	5823	8153871285571733	CMakeFiles/flash	d84a814a0322c67f
-550	5823	8153871285571733	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/flash	d84a814a0322c67f
-170	354	8153873883384641	bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
-170	354	8153873883384641	bootloader/bootloader.elf	dd35b3b7a3361bca
-170	354	8153873883384641	bootloader/bootloader.bin	dd35b3b7a3361bca
-170	354	8153873883384641	bootloader/bootloader.map	dd35b3b7a3361bca
-170	354	8153873883384641	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
-170	354	8153873883384641	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.elf	dd35b3b7a3361bca
-170	354	8153873883384641	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.bin	dd35b3b7a3361bca
-170	354	8153873883384641	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.map	dd35b3b7a3361bca
-354	405	8153873885223184	bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
-354	405	8153873885223184	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
-405	495	8153873886555179	CMakeFiles/bootloader-complete	3dfe38758a941b37
-405	495	8153873886555179	bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
-405	495	8153873886555179	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/bootloader-complete	3dfe38758a941b37
-405	495	8153873886555179	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
-167	742	8153873883348417	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	2b151eb5537d88a2
-742	900	8153873889097706	esp-idf/main/libmain.a	cc8725739b184808
-900	11263	8153873993875295	esp-idf/esp_system/ld/sections.ld	65aba8ed49b668ad
-900	11263	8153873993875295	E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/esp_system/ld/sections.ld	65aba8ed49b668ad
-11263	12415	8153873994314327	smart_parking.elf	9ea5cd89a3cab6fb
-12416	12768	8153874009270670	.bin_timestamp	3b87831c6b5119f3
-12416	12768	8153874009270670	E:/Parking System/parking_system_firmware/smart_parking/build/.bin_timestamp	3b87831c6b5119f3
-12768	12872	8153874009366064	esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
-12768	12872	8153874009366064	E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
-12872	18018	8153874010399805	CMakeFiles/flash	d84a814a0322c67f
-12872	18018	8153874010399805	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/flash	d84a814a0322c67f
-153	348	8153876931438936	bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
-153	348	8153876931438936	bootloader/bootloader.elf	dd35b3b7a3361bca
-153	348	8153876931438936	bootloader/bootloader.bin	dd35b3b7a3361bca
-153	348	8153876931438936	bootloader/bootloader.map	dd35b3b7a3361bca
-153	348	8153876931438936	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
-153	348	8153876931438936	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.elf	dd35b3b7a3361bca
-153	348	8153876931438936	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.bin	dd35b3b7a3361bca
-153	348	8153876931438936	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.map	dd35b3b7a3361bca
-348	403	8153876933394401	bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
-348	403	8153876933394401	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
-404	565	8153876935486259	CMakeFiles/bootloader-complete	3dfe38758a941b37
-404	565	8153876935486259	bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
-404	565	8153876935486259	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/bootloader-complete	3dfe38758a941b37
-404	565	8153876935486259	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
-150	876	8153876931406959	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	2b151eb5537d88a2
-877	1006	8153876938677900	esp-idf/main/libmain.a	cc8725739b184808
-1006	10567	8153877034961142	esp-idf/esp_system/ld/sections.ld	65aba8ed49b668ad
-1006	10567	8153877034961142	E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/esp_system/ld/sections.ld	65aba8ed49b668ad
-10568	11928	8153877035583949	smart_parking.elf	9ea5cd89a3cab6fb
-11928	12430	8153877054107072	.bin_timestamp	3b87831c6b5119f3
-11928	12430	8153877054107072	E:/Parking System/parking_system_firmware/smart_parking/build/.bin_timestamp	3b87831c6b5119f3
-12430	12654	8153877054207532	esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
-12430	12654	8153877054207532	E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
-12654	18185	8153877056449172	CMakeFiles/flash	d84a814a0322c67f
-12654	18185	8153877056449172	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/flash	d84a814a0322c67f
-96	186	8153877402336108	esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
-96	186	8153877402336108	E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
-94	246	8153877402305467	bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
-94	246	8153877402305467	bootloader/bootloader.elf	dd35b3b7a3361bca
-94	246	8153877402305467	bootloader/bootloader.bin	dd35b3b7a3361bca
-94	246	8153877402305467	bootloader/bootloader.map	dd35b3b7a3361bca
-94	246	8153877402305467	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
-94	246	8153877402305467	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.elf	dd35b3b7a3361bca
-94	246	8153877402305467	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.bin	dd35b3b7a3361bca
-94	246	8153877402305467	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.map	dd35b3b7a3361bca
-247	285	8153877403829787	bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
-247	285	8153877403829787	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
-285	382	8153877405095446	CMakeFiles/bootloader-complete	3dfe38758a941b37
-285	382	8153877405095446	bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
-285	382	8153877405095446	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/bootloader-complete	3dfe38758a941b37
-285	382	8153877405095446	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
-118	219	8153877854127208	esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
-118	219	8153877854127208	E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
-115	277	8153877854091960	bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
-115	277	8153877854091960	bootloader/bootloader.elf	dd35b3b7a3361bca
-115	277	8153877854091960	bootloader/bootloader.bin	dd35b3b7a3361bca
-115	277	8153877854091960	bootloader/bootloader.map	dd35b3b7a3361bca
-115	277	8153877854091960	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
-115	277	8153877854091960	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.elf	dd35b3b7a3361bca
-115	277	8153877854091960	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.bin	dd35b3b7a3361bca
-115	277	8153877854091960	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.map	dd35b3b7a3361bca
-277	331	8153877855719803	bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
-277	331	8153877855719803	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
-331	420	8153877857063276	CMakeFiles/bootloader-complete	3dfe38758a941b37
-331	420	8153877857063276	bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
-331	420	8153877857063276	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/bootloader-complete	3dfe38758a941b37
-331	420	8153877857063276	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
-420	5676	8153877857136451	CMakeFiles/flash	d84a814a0322c67f
-420	5676	8153877857136451	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/flash	d84a814a0322c67f
-111	212	8153878615436628	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	2b151eb5537d88a2
-115	326	8153878615462445	bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
-115	326	8153878615462445	bootloader/bootloader.elf	dd35b3b7a3361bca
-115	326	8153878615462445	bootloader/bootloader.bin	dd35b3b7a3361bca
-115	326	8153878615462445	bootloader/bootloader.map	dd35b3b7a3361bca
-115	326	8153878615462445	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
-115	326	8153878615462445	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.elf	dd35b3b7a3361bca
-115	326	8153878615462445	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.bin	dd35b3b7a3361bca
-115	326	8153878615462445	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.map	dd35b3b7a3361bca
-213	368	8153878616451738	esp-idf/main/libmain.a	cc8725739b184808
-326	372	8153878617577704	bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
-326	372	8153878617577704	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
-372	463	8153878618851635	CMakeFiles/bootloader-complete	3dfe38758a941b37
-372	463	8153878618851635	bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
-372	463	8153878618851635	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/bootloader-complete	3dfe38758a941b37
-372	463	8153878618851635	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
-368	9915	8153878712912631	esp-idf/esp_system/ld/sections.ld	65aba8ed49b668ad
-368	9915	8153878712912631	E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/esp_system/ld/sections.ld	65aba8ed49b668ad
-9915	10839	8153878713476034	smart_parking.elf	9ea5cd89a3cab6fb
-10840	11110	8153878725339244	.bin_timestamp	3b87831c6b5119f3
-10840	11110	8153878725339244	E:/Parking System/parking_system_firmware/smart_parking/build/.bin_timestamp	3b87831c6b5119f3
-11110	11210	8153878725420066	esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
-11110	11210	8153878725420066	E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
-11211	16636	8153878726421245	CMakeFiles/flash	d84a814a0322c67f
-11211	16636	8153878726421245	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/flash	d84a814a0322c67f
-413	515	8153935076204631	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	2b151eb5537d88a2
-516	812	8153935077233198	esp-idf/main/libmain.a	cc8725739b184808
-422	825	8153935076284455	bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
-422	825	8153935076284455	bootloader/bootloader.elf	dd35b3b7a3361bca
-422	825	8153935076284455	bootloader/bootloader.bin	dd35b3b7a3361bca
-422	825	8153935076284455	bootloader/bootloader.map	dd35b3b7a3361bca
-422	825	8153935076284455	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
-422	825	8153935076284455	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.elf	dd35b3b7a3361bca
-422	825	8153935076284455	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.bin	dd35b3b7a3361bca
-422	825	8153935076284455	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.map	dd35b3b7a3361bca
-825	909	8153935080328863	bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
-825	909	8153935080328863	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
-909	1059	8153935082535712	CMakeFiles/bootloader-complete	3dfe38758a941b37
-909	1059	8153935082535712	bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
-909	1059	8153935082535712	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/bootloader-complete	3dfe38758a941b37
-909	1059	8153935082535712	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
-812	10673	8153935178306432	esp-idf/esp_system/ld/sections.ld	65aba8ed49b668ad
-812	10673	8153935178306432	E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/esp_system/ld/sections.ld	65aba8ed49b668ad
-10673	12029	8153935178801791	smart_parking.elf	9ea5cd89a3cab6fb
-12030	12494	8153935196911363	.bin_timestamp	3b87831c6b5119f3
-12030	12494	8153935196911363	E:/Parking System/parking_system_firmware/smart_parking/build/.bin_timestamp	3b87831c6b5119f3
-12494	12600	8153935197017525	esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
-12494	12600	8153935197017525	E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
-12600	19597	8153935198077400	CMakeFiles/flash	d84a814a0322c67f
-12600	19597	8153935198077400	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/flash	d84a814a0322c67f
-387	1036	8153972546636185	esp-idf/main/CMakeFiles/__idf_main.dir/drivers/buzzer.c.obj	abc8017132a0fe9d
-366	1056	8153972546417513	esp-idf/main/CMakeFiles/__idf_main.dir/drivers/ir_sensor.c.obj	ad57fcd1b9c8ea48
-391	1092	8153972546676382	bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
-391	1092	8153972546676382	bootloader/bootloader.elf	dd35b3b7a3361bca
-391	1092	8153972546676382	bootloader/bootloader.bin	dd35b3b7a3361bca
-391	1092	8153972546676382	bootloader/bootloader.map	dd35b3b7a3361bca
-391	1092	8153972546676382	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
-391	1092	8153972546676382	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.elf	dd35b3b7a3361bca
-391	1092	8153972546676382	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.bin	dd35b3b7a3361bca
-391	1092	8153972546676382	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.map	dd35b3b7a3361bca
-372	1105	8153972546477858	esp-idf/main/CMakeFiles/__idf_main.dir/drivers/servo.c.obj	b77e52a20ff51f9
-375	1410	8153972546513876	esp-idf/main/CMakeFiles/__idf_main.dir/drivers/mfrc522.c.obj	388c43fb9003d2b4
-1092	1443	8153972553684378	bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
-1092	1443	8153972553684378	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
-383	1477	8153972546591260	esp-idf/main/CMakeFiles/__idf_main.dir/drivers/lcd_i2c.c.obj	bce23bda79b0eade
-1443	1768	8153972560046140	CMakeFiles/bootloader-complete	3dfe38758a941b37
-1443	1768	8153972560046140	bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
-1443	1768	8153972560046140	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/bootloader-complete	3dfe38758a941b37
-1443	1768	8153972560046140	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
-379	2279	8153972546560200	esp-idf/main/CMakeFiles/__idf_main.dir/drivers/uart_driver.c.obj	7945e936bd1cb4f2
-2280	2582	8153972565566436	esp-idf/main/libmain.a	cc8725739b184808
-2582	16045	8153972702521969	esp-idf/esp_system/ld/sections.ld	65aba8ed49b668ad
-2582	16045	8153972702521969	E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/esp_system/ld/sections.ld	65aba8ed49b668ad
-16045	18005	8153972703209243	smart_parking.elf	9ea5cd89a3cab6fb
-18006	18540	8153972728048271	.bin_timestamp	3b87831c6b5119f3
-18006	18540	8153972728048271	E:/Parking System/parking_system_firmware/smart_parking/build/.bin_timestamp	3b87831c6b5119f3
-18540	18692	8153972728167681	esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
-18540	18692	8153972728167681	E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
-18692	25922	8153972729687057	CMakeFiles/flash	d84a814a0322c67f
-18692	25922	8153972729687057	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/flash	d84a814a0322c67f
+12457	12755	8155555758005150	E:/Parking System/parking_system_firmware/smart_parking/build/.bin_timestamp	3b87831c6b5119f3
+12755	12876	8155555758152200	esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
+12876	17838	8155555759366617	CMakeFiles/flash	d84a814a0322c67f
+12876	17838	8155555759366617	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/flash	d84a814a0322c67f
+100	14666	8159101306074749	build.ninja	ba53be33c638f654
+167	671	8159101308586104	esp-idf/main/CMakeFiles/__idf_main.dir/services/barrier_manager.c.obj	ad171e9fe526c795
+161	689	8159101308520533	esp-idf/main/CMakeFiles/__idf_main.dir/services/access_manager.c.obj	37f3ee403e2d3782
+192	1157	8159101308835228	esp-idf/main/CMakeFiles/__idf_main.dir/protocol/uart_protocol.c.obj	10885d0557ba3bb0
+136	1171	8159101308270152	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	2b151eb5537d88a2
+689	1192	8159101313804802	esp-idf/main/CMakeFiles/__idf_main.dir/drivers/servo.c.obj	b77e52a20ff51f9
+186	1199	8159101308775434	esp-idf/main/CMakeFiles/__idf_main.dir/services/uart_manager.c.obj	7539c032e69c3246
+180	1208	8159101308718156	esp-idf/main/CMakeFiles/__idf_main.dir/services/display_manager.c.obj	f8a551b70d0cb06d
+172	1227	8159101308638394	esp-idf/main/CMakeFiles/__idf_main.dir/services/gate_ir_manager.c.obj	af6217f55cfcb82b
+154	1436	8159101308458850	esp-idf/main/CMakeFiles/__idf_main.dir/services/parking_manager.c.obj	519ed024ca23dd1
+149	1500	8159101308405754	esp-idf/main/CMakeFiles/__idf_main.dir/app/state_machine.c.obj	c8d29420613f09b5
+1199	1567	8159101318904186	esp-idf/main/CMakeFiles/__idf_main.dir/drivers/buzzer.c.obj	abc8017132a0fe9d
+672	1657	8159101313635375	esp-idf/main/CMakeFiles/__idf_main.dir/drivers/ir_sensor.c.obj	ad57fcd1b9c8ea48
+1171	1712	8159101318625133	esp-idf/main/CMakeFiles/__idf_main.dir/drivers/uart_driver.c.obj	7945e936bd1cb4f2
+143	1730	8159101308348313	esp-idf/main/CMakeFiles/__idf_main.dir/app/app_main.c.obj	e5401df788dcc81e
+1158	1732	8159101318495639	esp-idf/main/CMakeFiles/__idf_main.dir/drivers/mfrc522.c.obj	388c43fb9003d2b4
+1208	1769	8159101318993894	bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
+1208	1769	8159101318993894	bootloader/bootloader.elf	dd35b3b7a3361bca
+1208	1769	8159101318993894	bootloader/bootloader.bin	dd35b3b7a3361bca
+1208	1769	8159101318993894	bootloader/bootloader.map	dd35b3b7a3361bca
+1208	1769	8159101318993894	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
+1208	1769	8159101318993894	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.elf	dd35b3b7a3361bca
+1208	1769	8159101318993894	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.bin	dd35b3b7a3361bca
+1208	1769	8159101318993894	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.map	dd35b3b7a3361bca
+1770	1873	8159101324611837	bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
+1770	1873	8159101324611837	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
+1874	2076	8159101327557073	CMakeFiles/bootloader-complete	3dfe38758a941b37
+1874	2076	8159101327557073	bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
+1874	2076	8159101327557073	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/bootloader-complete	3dfe38758a941b37
+1874	2076	8159101327557073	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
+1192	2205	8159101318834429	esp-idf/main/CMakeFiles/__idf_main.dir/drivers/oled_ssd1306.c.obj	e97a17ca479f1832
+2205	2510	8159101328966477	esp-idf/main/libmain.a	bde8119d2990f7c5
+2510	13804	8159101444459482	esp-idf/esp_system/ld/sections.ld	65aba8ed49b668ad
+2510	13804	8159101444459482	E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/esp_system/ld/sections.ld	65aba8ed49b668ad
+13804	15156	8159101444954784	smart_parking.elf	9ea5cd89a3cab6fb
+15157	15468	8159101461517821	.bin_timestamp	3b87831c6b5119f3
+15157	15468	8159101461517821	E:/Parking System/parking_system_firmware/smart_parking/build/.bin_timestamp	3b87831c6b5119f3
+15468	15566	8159101461602114	esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
+15468	15566	8159101461602114	E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
+15566	23010	8159101462576983	CMakeFiles/flash	d84a814a0322c67f
+15566	23010	8159101462576983	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/flash	d84a814a0322c67f
+428	1008	8159131349758478	esp-idf/main/CMakeFiles/__idf_main.dir/services/gate_ir_manager.c.obj	af6217f55cfcb82b
+437	1020	8159131349838410	esp-idf/main/CMakeFiles/__idf_main.dir/services/display_manager.c.obj	f8a551b70d0cb06d
+419	1022	8159131349667365	esp-idf/main/CMakeFiles/__idf_main.dir/services/barrier_manager.c.obj	ad171e9fe526c795
+446	1025	8159131349939920	esp-idf/main/CMakeFiles/__idf_main.dir/services/uart_manager.c.obj	7539c032e69c3246
+455	1061	8159131350034394	bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
+455	1061	8159131350034394	bootloader/bootloader.elf	dd35b3b7a3361bca
+455	1061	8159131350034394	bootloader/bootloader.bin	dd35b3b7a3361bca
+455	1061	8159131350034394	bootloader/bootloader.map	dd35b3b7a3361bca
+455	1061	8159131350034394	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	dd35b3b7a3361bca
+455	1061	8159131350034394	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.elf	dd35b3b7a3361bca
+455	1061	8159131350034394	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.bin	dd35b3b7a3361bca
+455	1061	8159131350034394	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader/bootloader.map	dd35b3b7a3361bca
+410	1079	8159131349571651	esp-idf/main/CMakeFiles/__idf_main.dir/services/parking_manager.c.obj	519ed024ca23dd1
+1062	1172	8159131356090410	bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
+1062	1172	8159131356090410	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	efd9a89edeebc179
+389	1353	8159131349373288	esp-idf/main/CMakeFiles/__idf_main.dir/app/app_main.c.obj	e5401df788dcc81e
+1172	1438	8159131359676555	CMakeFiles/bootloader-complete	3dfe38758a941b37
+1172	1438	8159131359676555	bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
+1172	1438	8159131359676555	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/bootloader-complete	3dfe38758a941b37
+1172	1438	8159131359676555	E:/Parking System/parking_system_firmware/smart_parking/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	3dfe38758a941b37
+401	1764	8159131349483800	esp-idf/main/CMakeFiles/__idf_main.dir/app/state_machine.c.obj	c8d29420613f09b5
+1764	2178	8159131363114241	esp-idf/main/libmain.a	bde8119d2990f7c5
+2179	16409	8159131508977199	esp-idf/esp_system/ld/sections.ld	65aba8ed49b668ad
+2179	16409	8159131508977199	E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/esp_system/ld/sections.ld	65aba8ed49b668ad
+16409	18399	8159131509556782	smart_parking.elf	9ea5cd89a3cab6fb
+18400	18897	8159131534331863	.bin_timestamp	3b87831c6b5119f3
+18400	18897	8159131534331863	E:/Parking System/parking_system_firmware/smart_parking/build/.bin_timestamp	3b87831c6b5119f3
+18897	19063	8159131534443125	esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
+18897	19063	8159131534443125	E:/Parking System/parking_system_firmware/smart_parking/build/esp-idf/esptool_py/CMakeFiles/app_check_size	6ea5a217bc01fe4c
+19063	27752	8159131536100661	CMakeFiles/flash	d84a814a0322c67f
+19063	27752	8159131536100661	E:/Parking System/parking_system_firmware/smart_parking/build/CMakeFiles/flash	d84a814a0322c67f

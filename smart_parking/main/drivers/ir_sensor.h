@@ -9,9 +9,12 @@ typedef enum
     IR_SENSOR_1 = 0,
     IR_SENSOR_2,
     IR_SENSOR_3,
-    IR_SENSOR_4,
+    IR_SENSOR_GATE_ENTRY,
+    IR_SENSOR_GATE_EXIT,
     IR_SENSOR_COUNT
 } ir_sensor_id_t;
+
+#define IR_SENSOR_SLOT_COUNT 3
 
 typedef enum
 {

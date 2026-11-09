@@ -10,13 +10,14 @@
 #define GPIO_MFRC522_CS        GPIO_NUM_13
 #define GPIO_MFRC522_RST       GPIO_NUM_4
 
-#define GPIO_LCD_SDA           GPIO_NUM_21
-#define GPIO_LCD_SCL           GPIO_NUM_22
+#define GPIO_OLED_SDA           GPIO_NUM_21
+#define GPIO_OLED_SCL           GPIO_NUM_22
 
 #define GPIO_IR_SLOT_1         GPIO_NUM_34
 #define GPIO_IR_SLOT_2         GPIO_NUM_35
 #define GPIO_IR_SLOT_3         GPIO_NUM_36
-#define GPIO_IR_SLOT_4         GPIO_NUM_39
+#define GPIO_IR_GATE_ENTRY     GPIO_NUM_39
+#define GPIO_IR_GATE_EXIT      GPIO_NUM_33
 
 #define GPIO_SERVO_ENTRY       GPIO_NUM_5
 #define GPIO_SERVO_EXIT        GPIO_NUM_14

@@ -1,0 +1,78 @@
+���������������������������������������������������������������� Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7176
+load:0x40078000,len:15644
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (31) boot: ESP-IDF v5.3.3-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Nov  3 2026 11:15:21[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v3.1[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (85) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=10598h ( 66968) map[0m
+[0;32mI (128) esp_image: segment 1: paddr=000205c0 vaddr=3ffb0000 size=02574h (  9588) load[0m
+[0;32mI (132) esp_image: segment 2: paddr=00022b3c vaddr=40080000 size=0d4dch ( 54492) load[0m
+[0;32mI (155) esp_image: segment 3: paddr=00030020 vaddr=400d0020 size=2cf78h (184184) map[0m
+[0;32mI (218) esp_image: segment 4: paddr=0005cfa0 vaddr=4008d4dc size=03368h ( 13160) load[0m
+[0;32mI (232) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (232) boot: Disabling RNG early entropy source...[0m
+[0;32mI (244) cpu_start: Multicore app[0m
+[0;32mI (253) cpu_start: Pro cpu start user code[0m
+[0;32mI (253) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (253) app_init: Application information:[0m
+[0;32mI (256) app_init: Project name:     smart_parking[0m
+[0;32mI (261) app_init: App version:      210b903-dirty[0m
+[0;32mI (266) app_init: Compile time:     Nov  5 2026 10:49:30[0m
+[0;32mI (272) app_init: ELF file SHA256:  234f2cfdb...[0m
+[0;32mI (278) app_init: ESP-IDF:          v5.3.3-dirty[0m
+[0;32mI (283) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (288) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (293) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (298) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (305) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (311) heap_init: At 3FFB3EB8 len 0002C148 (176 KiB): DRAM[0m
+[0;32mI (317) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (323) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (330) heap_init: At 40090844 len 0000F7BC (61 KiB): IRAM[0m
+[0;32mI (338) spi_flash: detected chip: generic[0m
+[0;32mI (341) spi_flash: flash io: dio[0m
+[0;33mW (345) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (358) main_task: Started on CPU0[0m
+[0;32mI (368) main_task: Calling app_main()[0m
+[0;32mI (368) gpio: GPIO[21]| InputEn: 1| OutputEn: 1| OpenDrain: 1| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (368) gpio: GPIO[22]| InputEn: 1| OutputEn: 1| OpenDrain: 1| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (378) main_task: Returned from app_main()[0m
+[0;31mE (378) LCD_I2C: No PCF8574 found; check power, level shifting and SDA/SCL[0m
+[0;33mW (388) DISPLAY_MANAGER: LCD unavailable: ESP_ERR_NOT_FOUND; continuing with serial logs[0m
+[0;32mI (398) gpio: GPIO[34]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (408) gpio: GPIO[35]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (418) gpio: GPIO[36]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (428) gpio: GPIO[39]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (438) IR_SENSOR: IR sensors initialized[0m
+[0;32mI (488) PARKING_MANAGER: Ledger ready: 5 registered, 0 inside, pending=0[0m
+[0;32mI (488) SERVO: Servo driver initialized[0m
+[0;32mI (488) gpio: GPIO[32]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (498) UART_DRIVER: ENTRY UART2 TX=17 RX=16 baud=115200[0m
+[0;32mI (508) UART_DRIVER: EXIT UART1 TX=25 RX=26 baud=115200[0m
+[0;32mI (508) gpio: GPIO[4]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (618) MFRC522: MFRC522 SPI Khoi tao thanh cong[0m
+[0;32mI (618) PARKING_APP: RC522 version=0x00[0m
+[0;31mE (618) PARKING_APP: RFID init failed: ESP_FAIL[0m
+[0;32mI (618) PARKING_FSM: INIT -> FAULT[0m
+[0;31mE (618) PARKING_FSM: [FAULT] RFID; pending is preserved; no automatic gate movement[0m
+[0;32mI (628) PARKING_APP: Type help / status then Enter in Serial Monitor[0m

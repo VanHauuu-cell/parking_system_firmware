@@ -11,6 +11,8 @@
 #include "barrier_manager.h"
 #include "display_manager.h"
 #include "uart_manager.h"
+#include "gate_ir_manager.h"
+#include "system_config.h"
 
 static const char *TAG = "PARKING_FSM";
 
@@ -41,8 +43,8 @@ static void display_idle(const state_machine_t *fsm)
     if (FSM_AUTO_DIRECTION) {
         char line[17];
         unsigned free_count = parking_manager_free_count();
-        if (free_count > 4) { free_count = 4; }
-        snprintf(line, sizeof(line), "FREE:%c TAP CARD", '0' + (int)free_count);
+        if (free_count > PARKING_SLOT_COUNT) { free_count = PARKING_SLOT_COUNT; }
+        snprintf(line, sizeof(line), "FREE:%u/%u TAP", free_count, (unsigned)PARKING_SLOT_COUNT);
         display_manager_show("READY AUTO", line);
     } else { display_manager_idle(fsm->direction, parking_manager_free_count()); }
 }
@@ -84,14 +86,15 @@ void state_machine_fault(state_machine_t *fsm, const char *reason)
     ESP_LOGE(TAG, "[FAULT] %s; pending is preserved; no automatic gate movement", reason);
 }
 
-static void start_closing(state_machine_t *fsm, bool cancelled, bool from_camera, int64_t now_us)
+static void start_closing(state_machine_t *fsm, bool cancelled, bool manual)
 {
-    // A camera departure candidate, a passage event, or an operator's explicit
-    // no-crossing/clear assertion selected this closing phase.
+    int64_t now_us = esp_timer_get_time();
+    if (!gate_ir_manager_clear(fsm->direction, now_us)) {
+        ESP_LOGW(TAG, "[HOLD] Gate IR must be stably CLEAR before closing");
+        return;
+    }
     fsm->cancelled = cancelled;
-    fsm->closing_from_camera = from_camera;
-    // NVS operations may have taken time; movement starts at the command now.
-    now_us = esp_timer_get_time();
+    fsm->manual_closing = manual;
     if (barrier_manager_close(fsm->direction, now_us) != ESP_OK) {
         state_machine_fault(fsm, "CLOSE ERROR");
         return;
@@ -100,87 +103,28 @@ static void start_closing(state_machine_t *fsm, bool cancelled, bool from_camera
     display_manager_show(cancelled ? "CANCEL / CLOSING" : "CLOSING", fsm->uid);
 }
 
-static void passage_done(state_machine_t *fsm, int64_t now_us)
-{
-    // Commit the ledger after the closing phase, so a camera-triggered reopen
-    // still has an AUTHORIZED transaction rather than a prematurely counted car.
-    start_closing(fsm, false, false, now_us);
-}
-
-static bool camera_fresh(const state_machine_t *fsm, int64_t now_us)
-{
-    return fsm->camera_status_valid &&
-           now_us - fsm->last_camera_status_us <= (int64_t)FSM_CAMERA_STATUS_STALE_MS * 1000;
-}
-
-static bool camera_samples_continuous(const state_machine_t *fsm, int64_t now_us)
-{
-    return fsm->camera_status_valid &&
-           now_us - fsm->last_camera_status_us <= (int64_t)FSM_CAMERA_SAMPLE_GAP_MS * 1000;
-}
-
 static void wait_passage(state_machine_t *fsm, int64_t now_us)
 {
     change_state(fsm, APP_STATE_WAIT_PASSAGE, now_us);
     fsm->deadline_us = now_us + (int64_t)FSM_PASSAGE_WARNING_MS * 1000;
     fsm->passage_warning = false;
-    display_manager_show("WAIT CAR LEAVE", "Camera monitoring");
+    display_manager_show("WAIT CAR PASS", "IR after barrier");
 }
 
-static void reopen(state_machine_t *fsm, int64_t now_us, const char *reason)
+static void reopen(state_machine_t *fsm, int64_t now_us)
 {
-    ESP_LOGW(TAG, "[REOPEN] %s; retain pending transaction", reason);
-    fsm->clear_samples = 0;
-    fsm->clear_since_us = 0;
+    ESP_LOGW(TAG, "[REOPEN] Gate IR blocked or unsettled");
     if (barrier_manager_open(fsm->direction, now_us) != ESP_OK) {
-        state_machine_fault(fsm, "REOPEN ERROR"); return;
-    }
-    change_state(fsm, APP_STATE_OPENING, now_us);
-    display_manager_show("REOPEN / HOLD", reason);
-}
-
-static void gate_status(state_machine_t *fsm, const uart_gate_status_t *gate, int64_t now_us)
-{
-    bool watching = fsm->state == APP_STATE_OPENING || fsm->state == APP_STATE_WAIT_PASSAGE ||
-                    fsm->state == APP_STATE_CLOSE_DELAY || fsm->state == APP_STATE_CLOSING;
-    if (!FSM_CAMERA_CONFIRMATION || !watching || gate->camera_id != fsm->camera_id ||
-        gate->request_id != fsm->request_id || gate->sequence <= fsm->last_camera_sequence) {
+        state_machine_fault(fsm, "REOPEN ERROR");
         return;
     }
-    // A delayed packet must not bridge a gap by refreshing the clock before
-    // tick() notices the missing heartbeat.
-    bool continuous = fsm->state == APP_STATE_CLOSING
-        ? camera_fresh(fsm, now_us) : camera_samples_continuous(fsm, now_us);
-    bool discontinuity = fsm->camera_status_valid &&
-        (!continuous || gate->sequence != fsm->last_camera_sequence + 1);
-    if (discontinuity) {
-        fsm->clear_samples = 0;
-        fsm->clear_since_us = 0;
-        if (fsm->state == APP_STATE_CLOSE_DELAY) {
-            ESP_LOGW(TAG, "[HOLD] Missing camera observations; restart the full delay");
-            wait_passage(fsm, now_us);
-        } else if (fsm->state == APP_STATE_CLOSING && fsm->closing_from_camera) {
-            reopen(fsm, now_us, "MISSING STATUS");
-        }
+    if (fsm->manual_closing) {
+        // The operator must reassess a cancelled/recovered passage after an obstruction.
+        state_machine_fault(fsm, "RECHECK PASSAGE");
+        return;
     }
-    fsm->last_camera_sequence = gate->sequence;
-    fsm->last_camera_status_us = now_us;
-    fsm->camera_status_valid = true;
-    fsm->camera_present = gate->present;
-    if (gate->present) {
-        fsm->camera_seen_present = true;
-        fsm->clear_samples = 0;
-        fsm->clear_since_us = 0;
-        if (fsm->state == APP_STATE_CLOSE_DELAY) {
-            ESP_LOGI(TAG, "[HOLD] Plate reappeared; cancel close delay");
-            wait_passage(fsm, now_us);
-        } else if (fsm->state == APP_STATE_CLOSING && fsm->closing_from_camera) {
-            reopen(fsm, now_us, "PLATE PRESENT");
-        }
-    } else if (fsm->camera_seen_present) {
-        if (fsm->clear_since_us == 0) { fsm->clear_since_us = now_us; }
-        if (fsm->clear_samples < FSM_CAMERA_MIN_CLEAR_SAMPLES) { ++fsm->clear_samples; }
-    }
+    change_state(fsm, APP_STATE_OPENING, now_us);
+    display_manager_show("REOPEN / HOLD", "Gate IR blocked");
 }
 
 static void new_card(state_machine_t *fsm, const char *uid, int64_t now_us)
@@ -196,12 +140,8 @@ static void new_card(state_machine_t *fsm, const char *uid, int64_t now_us)
         fsm->direction = parking_manager_is_inside(uid) ? PARKING_EXIT : PARKING_ENTRY;
     }
     fsm->camera_id = camera_for_direction(fsm->direction);
-    fsm->camera_seen_present = false;
-    fsm->camera_status_valid = false;
-    fsm->camera_present = true;
-    fsm->last_camera_sequence = 0;
-    fsm->clear_samples = 0;
-    fsm->clear_since_us = 0;
+    fsm->gate_seen_active = false;
+    fsm->manual_closing = false;
     if (fsm->direction == PARKING_ENTRY && parking_manager_is_inside(uid)) {
         notice(fsm, "ALREADY INSIDE", now_us); return;
     }
@@ -249,16 +189,15 @@ static void ocr_result(state_machine_t *fsm, const uart_ocr_result_t *result,
     if (decision != ACCESS_ALLOWED) {
         notice(fsm, access_manager_reason(decision), now_us); return;
     }
+    if (!gate_ir_manager_clear(fsm->direction, esp_timer_get_time())) {
+        notice(fsm, "GATE IR BUSY", esp_timer_get_time());
+        return;
+    }
     // Grant is durable before the physical barrier can start moving.
     if (parking_manager_begin(fsm->uid, fsm->direction, fsm->request_id) != ESP_OK) {
         state_machine_fault(fsm, "SAVE GRANT ERROR"); return;
     }
-    if (FSM_CAMERA_CONFIRMATION && uart_manager_watch_start(fsm->camera_id, fsm->request_id) != ESP_OK) {
-        state_machine_fault(fsm, "WATCH SEND ERROR"); return;
-    }
-    // This camera already recognized the matching plate for this request.
-    // Count only new CLEAR observations from the watch toward closing.
-    fsm->camera_seen_present = true;
+    fsm->gate_seen_active = false;
     now_us = esp_timer_get_time();
     if (barrier_manager_open(fsm->direction, now_us) != ESP_OK) {
         state_machine_fault(fsm, "OPEN ERROR"); return;
@@ -276,6 +215,13 @@ static void status(const state_machine_t *fsm)
              fsm->direction == PARKING_ENTRY ? "ENTRY" : "EXIT", fsm->uid,
              (unsigned long)fsm->request_id);
     parking_manager_dump();
+    for (unsigned i = 0; i < 2; ++i) {
+        gate_ir_state_t ir = gate_ir_manager_state((parking_direction_t)i);
+        ESP_LOGI(TAG, "[IR %s] raw=%s stable=%s clear_for_close=%s",
+                 i == 0 ? "ENTRY" : "EXIT", ir.raw_present ? "PRESENT" : "CLEAR",
+                 !ir.ready ? "SETTLING" : ir.present ? "PRESENT" : "CLEAR",
+                 gate_ir_manager_clear((parking_direction_t)i, esp_timer_get_time()) ? "YES" : "NO");
+    }
 }
 
 static void command(state_machine_t *fsm, app_command_t cmd, int64_t issued_us,
@@ -320,9 +266,7 @@ static void command(state_machine_t *fsm, app_command_t cmd, int64_t issued_us,
         }
         fsm->direction = cmd == APP_COMMAND_ENTRY ? PARKING_ENTRY : PARKING_EXIT;
         fsm->camera_id = camera_for_direction(fsm->direction);
-        if (barrier_manager_close(fsm->direction, now_us) != ESP_OK) {
-            state_machine_fault(fsm, "MODE GATE ERROR"); return;
-        }
+        fsm->init_close_started = false;
         change_state(fsm, APP_STATE_INIT, now_us);
         display_manager_show("PREPARING GATE", fsm->direction == PARKING_ENTRY ? "ENTRY" : "EXIT");
         return;
@@ -331,8 +275,7 @@ static void command(state_machine_t *fsm, app_command_t cmd, int64_t issued_us,
         if (fsm->state != APP_STATE_WAIT_PASSAGE) {
             ESP_LOGW(TAG, "pass/cancel requires WAIT_PASSAGE"); return;
         }
-        if (cmd == APP_COMMAND_PASS) { passage_done(fsm, now_us); }
-        else { start_closing(fsm, true, false, now_us); }
+        start_closing(fsm, cmd == APP_COMMAND_CANCEL, true);
         return;
     }
     if (cmd == APP_COMMAND_RECOVER_PASSED || cmd == APP_COMMAND_RECOVER_CANCEL) {
@@ -349,9 +292,9 @@ static void command(state_machine_t *fsm, app_command_t cmd, int64_t issued_us,
             if (pending.stage != PARKING_PENDING_AUTHORIZED) {
                 ESP_LOGW(TAG, "Already PASSED: cannot cancel a recorded passage"); return;
             }
-            start_closing(fsm, true, false, now_us);
+            start_closing(fsm, true, true);
         } else {
-            passage_done(fsm, now_us); // PASSED is idempotent in parking_manager.
+            start_closing(fsm, false, true);
         }
     }
 }
@@ -378,10 +321,6 @@ void state_machine_init(state_machine_t *fsm, bool core_ready, const char *boot_
         ESP_LOGW(TAG, "No startup close: inspect gate/car then recover_passed or recover_cancel");
         return;
     }
-    if (barrier_manager_close(PARKING_ENTRY, now_us) != ESP_OK ||
-        barrier_manager_close(PARKING_EXIT, esp_timer_get_time()) != ESP_OK) {
-        state_machine_fault(fsm, "INIT GATE ERROR"); return;
-    }
     display_manager_show("INITIALIZING", "Gate / sensors");
 }
 
@@ -391,15 +330,7 @@ void state_machine_handle(state_machine_t *fsm, const app_event_t *event)
     switch (event->type) {
     case APP_EVENT_CARD: new_card(fsm, event->data.uid, now_us); break;
     case APP_EVENT_OCR: ocr_result(fsm, &event->data.ocr, now_us); break;
-    case APP_EVENT_GATE_STATUS: gate_status(fsm, &event->data.gate, now_us); break;
     case APP_EVENT_COMMAND: command(fsm, event->data.command, event->created_at_us, now_us); break;
-    case APP_EVENT_PASSAGE_CONFIRMED:
-        if (fsm->state == APP_STATE_WAIT_PASSAGE && event->created_at_us >= fsm->state_since_us &&
-            event->data.passage.camera_id == fsm->camera_id &&
-            event->data.passage.request_id == fsm->request_id) {
-            passage_done(fsm, now_us);
-        } else { ESP_LOGW(TAG, "[IGNORED PASSAGE] Wrong phase/request"); }
-        break;
     default: break;
     }
 }
@@ -407,12 +338,40 @@ void state_machine_handle(state_machine_t *fsm, const app_event_t *event)
 void state_machine_tick(state_machine_t *fsm, int64_t now_us)
 {
     barrier_manager_tick(now_us);
+    gate_ir_state_t ir = gate_ir_manager_state(fsm->direction);
+    bool gate_clear = gate_ir_manager_clear(fsm->direction, now_us);
+    bool watching = fsm->state == APP_STATE_OPENING || fsm->state == APP_STATE_WAIT_PASSAGE ||
+                    fsm->state == APP_STATE_CLOSE_DELAY || fsm->state == APP_STATE_CLOSING;
+    if (watching && ir.ready && ir.present && !fsm->gate_seen_active &&
+        now_us - ir.sampled_at_us <= FSM_GATE_IR_MAX_GAP_MS * 1000LL) {
+        fsm->gate_seen_active = true;
+        ESP_LOGI(TAG, "[PASSAGE IR] %s PRESENT after grant",
+                 fsm->direction == PARKING_ENTRY ? "ENTRY" : "EXIT");
+    }
     switch (fsm->state) {
-    case APP_STATE_INIT:
+    case APP_STATE_INIT: {
+        bool both_clear = gate_ir_manager_clear(PARKING_ENTRY, now_us) &&
+                          gate_ir_manager_clear(PARKING_EXIT, now_us);
+        if (!fsm->init_close_started) {
+            if (!both_clear) { break; }
+            if (barrier_manager_close(PARKING_ENTRY, now_us) != ESP_OK ||
+                barrier_manager_close(PARKING_EXIT, esp_timer_get_time()) != ESP_OK) {
+                state_machine_fault(fsm, "INIT GATE ERROR");
+                break;
+            }
+            fsm->init_close_started = true;
+        } else if (!both_clear) {
+            esp_err_t entry_ret = barrier_manager_open(PARKING_ENTRY, now_us);
+            esp_err_t exit_ret = barrier_manager_open(PARKING_EXIT, esp_timer_get_time());
+            state_machine_fault(fsm, entry_ret == ESP_OK && exit_ret == ESP_OK
+                                      ? "INIT IR BLOCKED" : "INIT OPEN ERROR");
+            break;
+        }
         if (fsm->core_ready && barrier_manager_motion_done(now_us) && parking_manager_slots_ready()) {
             idle(fsm, now_us);
         }
         break;
+    }
     case APP_STATE_IDLE:
         display_idle(fsm); break;
     case APP_STATE_WAIT_OCR:
@@ -421,46 +380,32 @@ void state_machine_tick(state_machine_t *fsm, int64_t now_us)
     case APP_STATE_OPENING:
         if (barrier_manager_motion_done(now_us)) {
             wait_passage(fsm, now_us);
-            ESP_LOGI(TAG, "[WAIT_PASSAGE] Wait for stable CLEAR after matching OCR; manual pass/cancel available");
+            ESP_LOGI(TAG, "[WAIT_PASSAGE] Gate IR must detect PRESENT then stable CLEAR");
         }
         break;
     case APP_STATE_WAIT_PASSAGE:
-        if (FSM_CAMERA_CONFIRMATION) {
-            if (!camera_samples_continuous(fsm, now_us)) {
-                fsm->clear_samples = 0;
-                fsm->clear_since_us = 0;
-            } else if (camera_fresh(fsm, now_us) && fsm->camera_seen_present && !fsm->camera_present &&
-                       fsm->clear_samples >= FSM_CAMERA_MIN_CLEAR_SAMPLES &&
-                       fsm->clear_since_us != 0 &&
-                       now_us - fsm->clear_since_us >= (int64_t)FSM_CAMERA_CLEAR_STABLE_MS * 1000) {
-                change_state(fsm, APP_STATE_CLOSE_DELAY, now_us);
-                fsm->deadline_us = now_us + (int64_t)FSM_CLOSE_DELAY_MS * 1000;
-                display_manager_show("CAR LEFT ROI", "Wait before close");
-                ESP_LOGI(TAG, "[CLOSE_DELAY] Plate absent, wait another %u ms",
-                         (unsigned)FSM_CLOSE_DELAY_MS);
-                break;
-            }
-        }
-        if (!fsm->passage_warning && now_us >= fsm->deadline_us) {
+        if (fsm->gate_seen_active && gate_clear) {
+            change_state(fsm, APP_STATE_CLOSE_DELAY, now_us);
+            fsm->deadline_us = now_us + FSM_CLOSE_DELAY_MS * 1000LL;
+            display_manager_show("CAR PASSED IR", "Close delay");
+            ESP_LOGI(TAG, "[CLOSE_DELAY] IR clear; wait %u ms", (unsigned)FSM_CLOSE_DELAY_MS);
+        } else if (!fsm->passage_warning && now_us >= fsm->deadline_us) {
             fsm->passage_warning = true;
-            display_manager_show("PASS TIMEOUT", "Hold / check car");
-            ESP_LOGW(TAG, "Passage not confirmed: hold gate position and reservation; NO auto-close");
+            display_manager_show("PASS TIMEOUT", "Hold / check IR");
+            ESP_LOGW(TAG, "Passage not confirmed; holding gate open and preserving pending");
         }
         break;
     case APP_STATE_CLOSE_DELAY:
-        if (!camera_samples_continuous(fsm, now_us) || fsm->camera_present ||
-            fsm->clear_samples < FSM_CAMERA_MIN_CLEAR_SAMPLES || fsm->clear_since_us == 0) {
-            fsm->clear_samples = 0;
-            fsm->clear_since_us = 0;
-            ESP_LOGW(TAG, "[HOLD] Camera stale/present: cancel close delay");
+        if (!gate_clear) {
+            ESP_LOGI(TAG, "[HOLD] IR blocked/unsettled; restart close delay after CLEAR");
             wait_passage(fsm, now_us);
-        } else if (fsm->last_camera_status_us >= fsm->deadline_us && camera_fresh(fsm, now_us)) {
-            start_closing(fsm, false, true, now_us);
+        } else if (now_us >= fsm->deadline_us) {
+            start_closing(fsm, false, false);
         }
         break;
     case APP_STATE_CLOSING:
-        if (fsm->closing_from_camera && (!camera_fresh(fsm, now_us) || fsm->camera_present)) {
-            reopen(fsm, now_us, "CAMERA CHECK");
+        if (!gate_clear) {
+            reopen(fsm, now_us);
             break;
         }
         if (barrier_manager_motion_done(now_us)) {
@@ -471,12 +416,9 @@ void state_machine_tick(state_machine_t *fsm, int64_t now_us)
             if (parking_manager_finish(fsm->cancelled) != ESP_OK) {
                 state_machine_fault(fsm, "SAVE END ERROR");
             } else {
-                if (FSM_CAMERA_CONFIRMATION && uart_manager_watch_stop(fsm->camera_id, fsm->request_id) != ESP_OK) {
-                    ESP_LOGW(TAG, "Gate watch stop not queued; old status IDs will be ignored");
-                }
-                ESP_LOGI(TAG, "[COMPLETED] uid=%s mode=%s active=%u", fsm->uid,
+                ESP_LOGI(TAG, "[COMPLETED] uid=%s mode=%s cancelled=%u active=%u", fsm->uid,
                          fsm->direction == PARKING_ENTRY ? "ENTRY" : "EXIT",
-                         parking_manager_active_count());
+                         (unsigned)fsm->cancelled, parking_manager_active_count());
                 idle(fsm, esp_timer_get_time());
             }
         }

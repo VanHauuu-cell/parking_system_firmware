@@ -10,14 +10,9 @@ typedef struct {
     bool cancelled;
     bool passage_warning;
     uint8_t camera_id;
-    bool camera_seen_present;
-    bool camera_present;
-    bool camera_status_valid;
-    bool closing_from_camera;
-    uint32_t last_camera_sequence;
-    unsigned clear_samples;
-    int64_t last_camera_status_us;
-    int64_t clear_since_us;
+    bool gate_seen_active;
+    bool manual_closing;
+    bool init_close_started;
     int64_t state_since_us;
     int64_t deadline_us;
     uint32_t request_id;

@@ -13,7 +13,7 @@ bool parking_manager_is_inside(const char *uid);
 unsigned parking_manager_active_count(void);
 bool parking_manager_get_pending(parking_pending_t *pending);
 
-// Debounce four slot sensors. free_count is conservative: minimum of physical
+// Debounce the parking-slot sensors. free_count is the minimum of physical
 // empty slots and capacity left after active entries / pending admission.
 esp_err_t parking_manager_poll_slots(int64_t now_us);
 bool parking_manager_slots_ready(void);

@@ -13,7 +13,8 @@ static const gpio_num_t ir_gpio[IR_SENSOR_COUNT] =
     GPIO_IR_SLOT_1,
     GPIO_IR_SLOT_2,
     GPIO_IR_SLOT_3,
-    GPIO_IR_SLOT_4
+    GPIO_IR_GATE_ENTRY,
+    GPIO_IR_GATE_EXIT
 };
 
 esp_err_t ir_sensor_init(void)
@@ -47,14 +48,16 @@ esp_err_t ir_sensor_read(
     ir_sensor_id_t sensor_id,
     ir_sensor_state_t *state)
 {
-    if (sensor_id >= IR_SENSOR_COUNT || state == NULL)
+    if ((unsigned)sensor_id >= IR_SENSOR_COUNT || state == NULL)
     {
         return ESP_ERR_INVALID_ARG;
     }
 
     int level = gpio_get_level(ir_gpio[sensor_id]);
 
-    if (level == IR_SENSOR_ACTIVE_LEVEL)
+    int active_level = sensor_id >= IR_SENSOR_GATE_ENTRY
+        ? GATE_IR_ACTIVE_LEVEL : IR_SENSOR_ACTIVE_LEVEL;
+    if (level == active_level)
     {
         *state = IR_SENSOR_ACTIVE;
     }

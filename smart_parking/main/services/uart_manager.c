@@ -57,10 +57,7 @@ esp_err_t uart_manager_init(void)
     return ESP_OK;
 }
 
-typedef int (*frame_builder_t)(char *, size_t, uint8_t, uint32_t);
-
-static esp_err_t send_command(uint8_t camera_id, uint32_t request_id,
-                              frame_builder_t builder)
+esp_err_t uart_manager_request(uint8_t camera_id, uint32_t request_id)
 {
     if (!initialized) {
         return ESP_ERR_INVALID_STATE;
@@ -70,11 +67,12 @@ static esp_err_t send_command(uint8_t camera_id, uint32_t request_id,
         return ESP_ERR_INVALID_ARG;
     }
     char frame[PARKING_UART_FRAME_SIZE];
-    int length = builder(frame, sizeof(frame), camera_id, request_id);
+    int length = uart_protocol_build_capture_request(
+        frame, sizeof(frame), camera_id, request_id);
     if (length <= 0) {
         return ESP_ERR_INVALID_ARG;
     }
-    // Never flush RX here: request IDs let the app reject stale responses.
+    // Keep pending RX bytes so the FSM can reject replies with an old request ID.
     esp_err_t ret = uart_driver_write_link(link, (const uint8_t *)frame, (size_t)length);
     if (ret == ESP_OK) {
         ESP_LOGI(TAG, "TX %s %s", link == UART_LINK_ENTRY ? "ENTRY" : "EXIT", frame);
@@ -84,22 +82,7 @@ static esp_err_t send_command(uint8_t camera_id, uint32_t request_id,
     return ret;
 }
 
-esp_err_t uart_manager_request(uint8_t camera_id, uint32_t request_id)
-{
-    return send_command(camera_id, request_id, uart_protocol_build_capture_request);
-}
-
-esp_err_t uart_manager_watch_start(uint8_t camera_id, uint32_t request_id)
-{
-    return send_command(camera_id, request_id, uart_protocol_build_watch_start);
-}
-
-esp_err_t uart_manager_watch_stop(uint8_t camera_id, uint32_t request_id)
-{
-    return send_command(camera_id, request_id, uart_protocol_build_watch_stop);
-}
-
-static bool poll_link(uart_link_t link, uart_message_t *message)
+static bool poll_link(uart_link_t link, uart_ocr_result_t *result)
 {
     link_state_t *state = &links[link];
     size_t processed = 0;
@@ -124,73 +107,42 @@ static bool poll_link(uart_link_t link, uart_message_t *message)
         }
         uint8_t byte = state->buffer[state->index++];
         ++processed;
-        if (uart_protocol_feed_message(&state->parser, byte, message)) {
-            uint8_t camera_id = message->type == UART_MESSAGE_OCR
-                ? message->data.ocr.camera_id : message->data.gate.camera_id;
-            if (camera_id != camera_ids[link]) {
+        if (uart_protocol_feed(&state->parser, byte, result)) {
+            if (result->camera_id != camera_ids[link]) {
                 if (!state->mismatch_warning_shown) {
                     ESP_LOGW(TAG, "%s UART ignored camera=%u; expected camera=%u",
                              link == UART_LINK_ENTRY ? "ENTRY" : "EXIT",
-                             (unsigned)camera_id, camera_ids[link]);
+                             (unsigned)result->camera_id, camera_ids[link]);
                     state->mismatch_warning_shown = true;
                 }
                 continue;
             }
             state->mismatch_warning_shown = false;
-            if (message->type == UART_MESSAGE_OCR) {
-                const uart_ocr_result_t *result = &message->data.ocr;
-                ESP_LOGI(TAG, "RX camera=%u request=%lu %s=%s confidence=%u",
-                         (unsigned)result->camera_id, (unsigned long)result->request_id,
-                         result->success ? "plate" : "error",
-                         result->success ? result->plate : result->reason,
-                         (unsigned)result->confidence);
-            } else {
-                const uart_gate_status_t *gate = &message->data.gate;
-                ESP_LOGD(TAG, "RX gate camera=%u request=%lu seq=%lu %s",
-                         (unsigned)gate->camera_id, (unsigned long)gate->request_id,
-                         (unsigned long)gate->sequence, gate->present ? "PRESENT" : "CLEAR");
-            }
-            // Keep unread bytes in this chunk for the next poll call.
+            ESP_LOGI(TAG, "RX camera=%u request=%lu %s=%s confidence=%u",
+                     (unsigned)result->camera_id, (unsigned long)result->request_id,
+                     result->success ? "plate" : "error",
+                     result->success ? result->plate : result->reason,
+                     (unsigned)result->confidence);
+            // Preserve any unread bytes in this chunk for the next poll call.
             return true;
         }
     }
-    return false;
-}
-
-bool uart_manager_poll_message(uart_message_t *message)
-{
-    if (!initialized || message == NULL) {
-        return false;
-    }
-    unsigned first = next_link;
-    for (unsigned offset = 0; offset < UART_LINK_COUNT; ++offset) {
-        uart_link_t link = (uart_link_t)((first + offset) % UART_LINK_COUNT);
-        if (poll_link(link, message)) {
-            // Even a busy ENTRY UART cannot indefinitely starve EXIT replies.
-            next_link = ((unsigned)link + 1) % UART_LINK_COUNT;
-            return true;
-        }
-    }
-    next_link = (first + 1) % UART_LINK_COUNT;
     return false;
 }
 
 bool uart_manager_poll(uart_ocr_result_t *result)
 {
-    if (result == NULL) {
+    if (!initialized || result == NULL) {
         return false;
     }
-    // Legacy callers do not consume gate events. Keep the wrapper bounded even
-    // when the camera is publishing gate heartbeats continuously.
-    for (unsigned attempt = 0; attempt < 4; ++attempt) {
-        uart_message_t message;
-        if (!uart_manager_poll_message(&message)) {
-            return false;
-        }
-        if (message.type == UART_MESSAGE_OCR) {
-            *result = message.data.ocr;
+    unsigned first = next_link;
+    for (unsigned offset = 0; offset < UART_LINK_COUNT; ++offset) {
+        uart_link_t link = (uart_link_t)((first + offset) % UART_LINK_COUNT);
+        if (poll_link(link, result)) {
+            next_link = ((unsigned)link + 1) % UART_LINK_COUNT;
             return true;
         }
     }
+    next_link = (first + 1) % UART_LINK_COUNT;
     return false;
 }

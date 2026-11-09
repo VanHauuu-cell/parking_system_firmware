@@ -12,6 +12,9 @@
 #define LEDGER_MAGIC   0x504B4631UL
 #define LEDGER_VERSION 1UL
 #define LEDGER_KEY     "ledger"
+// Version 1 was shipped with four places. Keep old INSIDE/pending records
+// readable after reducing the physical capacity, so their exits can complete.
+#define LEDGER_MAX_ACTIVE 4U
 
 typedef struct {
     char uid[PARKING_UID_SIZE];
@@ -27,8 +30,9 @@ typedef struct {
     parking_pending_t pending;
 } parking_blob_t;
 
-_Static_assert(PARKING_SLOT_COUNT == 4, "This example manages four parking slots");
-_Static_assert(IR_SENSOR_COUNT == PARKING_SLOT_COUNT, "IR/slot count mismatch");
+_Static_assert(PARKING_SLOT_COUNT > 0 && PARKING_SLOT_COUNT <= LEDGER_MAX_ACTIVE,
+               "Invalid configured parking capacity");
+_Static_assert(IR_SENSOR_SLOT_COUNT == PARKING_SLOT_COUNT, "IR/slot count mismatch");
 _Static_assert(FSM_IR_DEBOUNCE_SAMPLES > 0 && FSM_IR_DEBOUNCE_SAMPLES <= 255,
                "Invalid IR debounce sample count");
 _Static_assert(FSM_IR_POLL_MS > 0, "Invalid IR polling interval");
@@ -155,7 +159,7 @@ static bool validate_blob(const parking_blob_t *blob)
             }
         }
     }
-    if (active > PARKING_SLOT_COUNT) {
+    if (active > LEDGER_MAX_ACTIVE) {
         return false;
     }
     const parking_pending_t *pending = &blob->pending;
@@ -181,9 +185,10 @@ static bool validate_blob(const parking_blob_t *blob)
     if ((blob->vehicles[index].inside != 0) != expected_inside) {
         return false;
     }
-    // An authorized entry has already reserved the remaining place.
+    // Validate an old authorized reservation against the historical capacity.
+    // New admission is checked against PARKING_SLOT_COUNT in begin/free_count.
     return !(pending->stage == PARKING_PENDING_AUTHORIZED &&
-             pending->direction == PARKING_ENTRY && active >= PARKING_SLOT_COUNT);
+             pending->direction == PARKING_ENTRY && active >= LEDGER_MAX_ACTIVE);
 }
 
 static void prepare_registry_blob(parking_blob_t *blob)
@@ -307,6 +312,10 @@ esp_err_t parking_manager_init(void)
     ESP_LOGI(TAG, "Ledger ready: %u registered, %u inside, pending=%u",
              (unsigned)s_current.count, parking_manager_active_count(),
              (unsigned)s_current.pending.stage);
+    if (parking_manager_active_count() > PARKING_SLOT_COUNT) {
+        ESP_LOGW(TAG, "Existing ledger exceeds capacity %u; entries blocked until exits reduce occupancy",
+                 (unsigned)PARKING_SLOT_COUNT);
+    }
     return ESP_OK;
 }
 

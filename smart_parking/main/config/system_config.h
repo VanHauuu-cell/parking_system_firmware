@@ -1,8 +1,9 @@
 #ifndef SYSTEM_CONFIG_H
 #define SYSTEM_CONFIG_H
 //IR
-#define PARKING_SLOT_COUNT 4
+#define PARKING_SLOT_COUNT 3
 #define IR_SENSOR_ACTIVE_LEVEL 0
+#define GATE_IR_ACTIVE_LEVEL 0
 
 //Servo
 #define SERVO_PWM_FREQ_HZ       50

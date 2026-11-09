@@ -21,6 +21,7 @@
 #include "barrier_manager.h"
 #include "display_manager.h"
 #include "uart_manager.h"
+#include "gate_ir_manager.h"
 
 static const char *TAG = "PARKING_APP";
 static QueueHandle_t command_queue;
@@ -29,17 +30,6 @@ static bool started;
 static bool enqueue(const app_event_t *event)
 {
     return command_queue != NULL && xQueueSend(command_queue, event, 0) == pdTRUE;
-}
-
-bool parking_app_confirm_passage(uint8_t camera_id, uint32_t request_id)
-{
-    if (camera_id == 0 || request_id == 0) { return false; }
-    app_event_t event = {
-        .type = APP_EVENT_PASSAGE_CONFIRMED,
-        .created_at_us = esp_timer_get_time(),
-        .data.passage = {.camera_id = camera_id, .request_id = request_id}
-    };
-    return enqueue(&event);
 }
 
 static bool read_uid(char text[PARKING_UID_SIZE])
@@ -158,16 +148,16 @@ static void application_task(void *arg)
     state_machine_init(&fsm, core_ready, boot_error);
 #if FSM_ENABLE_SERIAL_COMMANDS
     if (xTaskCreate(console_task, "parking_console", 3072, NULL, 2, NULL) != pdPASS) {
-        ESP_LOGW(TAG, "Console task unavailable; camera events can still operate the FSM");
+        ESP_LOGW(TAG, "Console task unavailable");
     } else { ESP_LOGI(TAG, "Type help / status then Enter in Serial Monitor"); }
 #endif
     bool card_latched = false;
     int64_t last_seen_us = 0;
     int64_t next_scan_us = 0;
     while (1) {
-        // Drain camera observations before a close deadline is evaluated.
-        // OCR handlers separately reject results past their own deadline.
+        // Sample gate IR before handling commands or evaluating close deadlines.
         if (parking_ready) {
+            gate_ir_manager_poll(esp_timer_get_time());
             ret = parking_manager_poll_slots(esp_timer_get_time());
             if (ret != ESP_OK && fsm.state != APP_STATE_FAULT) {
                 state_machine_fault(&fsm, "SLOT READ ERROR");
@@ -175,18 +165,13 @@ static void application_task(void *arg)
         }
         if (uart_ready) {
             for (unsigned i = 0; i < 8; ++i) {
-                uart_message_t message;
-                // false can also mean a byte budget was consumed while more
-                // buffered bytes remain. Keep all eight bounded drain attempts.
-                if (!uart_manager_poll_message(&message)) { continue; }
-                app_event_t event = {.created_at_us = esp_timer_get_time()};
-                if (message.type == UART_MESSAGE_OCR) {
-                    event.type = APP_EVENT_OCR;
-                    event.data.ocr = message.data.ocr;
-                } else {
-                    event.type = APP_EVENT_GATE_STATUS;
-                    event.data.gate = message.data.gate;
-                }
+                uart_ocr_result_t result;
+                if (!uart_manager_poll(&result)) { continue; }
+                app_event_t event = {
+                    .type = APP_EVENT_OCR,
+                    .created_at_us = esp_timer_get_time(),
+                    .data.ocr = result
+                };
                 state_machine_handle(&fsm, &event);
             }
         }
@@ -195,6 +180,7 @@ static void application_task(void *arg)
             if (xQueueReceive(command_queue, &event, 0) != pdTRUE) { break; }
             state_machine_handle(&fsm, &event);
         }
+        if (parking_ready) { gate_ir_manager_poll(esp_timer_get_time()); }
         state_machine_tick(&fsm, esp_timer_get_time());
         int64_t now_us = esp_timer_get_time();
         if (rfid_ready && now_us >= next_scan_us) {

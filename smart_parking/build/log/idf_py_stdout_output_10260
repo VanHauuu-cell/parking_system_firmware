@@ -1,0 +1,6 @@
+esptool.py v4.8.1
+Serial port COM4
+
+A fatal error occurred: Could not open COM4, the port is busy or doesn't exist.
+(could not open port 'COM4': PermissionError(13, 'A device attached to the system is not functioning.', None, 31))
+
