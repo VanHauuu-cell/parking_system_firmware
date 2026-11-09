@@ -14,7 +14,6 @@
 #include "esp_timer.h"
 
 #include "http_server_manager.h"
-#include "gate_watch_manager.h"
 #include "parking_link_config.h"
 #include "uart_driver.h"
 #include "uart_protocol.h"
@@ -93,7 +92,7 @@ static void uart_rx_task(void *arg)
                 uint32_t request_id;
                 if (uart_protocol_parse_capture_request(frame, &camera_id, &request_id)) {
                     accept_request(camera_id, request_id);
-                } else if (!gate_watch_manager_handle_frame(frame)) {
+                } else {
                     ESP_LOGW(TAG, "Invalid UART request: %s", frame);
                 }
             }
@@ -245,12 +244,7 @@ esp_err_t ocr_manager_start(void)
             return ESP_ERR_NO_MEM;
         }
     }
-    // Gate watch has an independent session. Completing OCR must not stop it.
     // This module remains the only consumer of bytes from the UART RX driver.
-    esp_err_t ret = gate_watch_manager_start();
-    if (ret != ESP_OK) {
-        return ret;
-    }
     const httpd_uri_t get_uri = {
         .uri = "/ocr-request", .method = HTTP_GET,
         .handler = get_request_handler, .user_ctx = NULL
@@ -260,14 +254,14 @@ esp_err_t ocr_manager_start(void)
         .handler = post_result_handler, .user_ctx = NULL
     };
     if (!get_registered) {
-        ret = http_server_manager_register_uri(&get_uri);
+        esp_err_t ret = http_server_manager_register_uri(&get_uri);
         if (ret != ESP_OK) {
             return ret;
         }
         get_registered = true;
     }
     if (!post_registered) {
-        ret = http_server_manager_register_uri(&post_uri);
+        esp_err_t ret = http_server_manager_register_uri(&post_uri);
         if (ret != ESP_OK) {
             return ret;
         }
@@ -277,7 +271,7 @@ esp_err_t ocr_manager_start(void)
         return ESP_ERR_NO_MEM;
     }
     started = true;
-    ESP_LOGI(TAG, "Ready: camera=%u UART CAPTURE_REQ/GATE_WATCH/GATE_STOP, OCR and gate HTTP",
+    ESP_LOGI(TAG, "Ready: camera=%u UART CAPTURE_REQ, GET /ocr-request POST /plate-result",
              (unsigned)PARKING_CAMERA_ID);
     return ESP_OK;
 }

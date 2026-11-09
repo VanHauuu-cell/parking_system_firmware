@@ -1,4 +1,4 @@
-"""ROI OCR on RC522 request; optional plate-presence watch for the open gate."""
+"""Read plates inside the ROI on RC522 requests and return results to the CAM."""
 import json
 import logging
 import os
@@ -19,7 +19,6 @@ from config import CAMERA_HOST
 from camera.camera_client import CameraClient
 from vision.character_detector import CharacterDetector
 from vision.lp_detector import LPDetector
-from vision.stream_processor import StreamProcessor
 
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -29,7 +28,6 @@ CROP_DIR = BASE_DIR / "crop_image"
 FRAME_COUNT = 5
 COLLECT_TIMEOUT_SECONDS = 10.0
 POLL_SECONDS = 0.5
-GATE_POLL_SECONDS = 0.15
 HTTP_TIMEOUT = (10, 10)
 LP_CONFIDENCE = 0.2
 ROI_REL = (80 / 640, 100 / 480, 480 / 640, 280 / 480)
@@ -38,9 +36,6 @@ PANEL_WIDTH = 240
 WINDOW_WIDTH = VIEW_WIDTH + PANEL_WIDTH
 WINDOW_HEIGHT = VIEW_HEIGHT
 STREAM_FRESH_SECONDS = 2.0
-ROI_CLEAR_SECONDS = 1.5
-ROI_CLEAR_SAMPLES = 3
-ROI_SAMPLE_GAP_SECONDS = 5.0
 VIETNAM_TZ = timezone(timedelta(hours=7))
 WINDOW_NAME = f"SMART PARKING - RC522 OCR LIVE [{CAMERA_HOST}]"
 LOGGER = logging.getLogger("parking_ocr")
@@ -61,7 +56,7 @@ class MonitorState:
             "state": "LOADING_MODEL", "delivery": "--",
             "camera_id": None, "request_id": None, "frame_count": 0,
             "plate": "", "confidence": None, "raw_text": "", "reason": "",
-            "recognized_at": None, "crop": None, "gate_event": "",
+            "recognized_at": None, "crop": None, "result_status": "--",
             "message": "Loading models; tap RC522 only after READY",
         }
 
@@ -72,11 +67,6 @@ class MonitorState:
     def snapshot(self):
         with self.lock:
             return dict(self.data)
-
-    def clear_result(self, gate_event="", message="READY: tap RC522 card to start OCR"):
-        self.update(state="WAITING_RFID", delivery="--", frame_count=0,
-                    plate="", confidence=None, raw_text="", reason="",
-                    recognized_at=None, crop=None, gate_event=gate_event, message=message)
 
 
 def check_stop(stop):
@@ -163,7 +153,7 @@ def process_request(camera, detector, ocr, camera_id, request_id, monitor, stop)
     monitor.update(state="COLLECTING", camera_id=camera_id, request_id=request_id,
                    delivery="WAITING_RESULT", frame_count=0, plate="",
                    confidence=None, raw_text="", reason="", recognized_at=None, crop=None,
-                   gate_event="",
+                   result_status="--",
                    message=f"RFID request received; collecting {FRAME_COUNT} new frames")
     try:
         best, roi, sharpness = collect_best_frame(camera, monitor, stop)
@@ -262,6 +252,8 @@ def read_request(http, base_url):
             return None
         response.raise_for_status()
         data = response.json()
+    if not isinstance(data, dict):
+        raise ValueError("Invalid OCR request response")
     camera_id, request_id = data.get("camera_id"), data.get("request_id")
     if (type(camera_id) is not int or not 1 <= camera_id <= 255 or
             type(request_id) is not int or not 1 <= request_id <= 0xFFFFFFFF):
@@ -269,242 +261,11 @@ def read_request(http, base_url):
     return camera_id, request_id
 
 
-class RoiClear:
-    def __init__(self):
-        self.reset()
-
-    def reset(self):
-        self.first_at = None
-        self.last_at = None
-        self.samples = 0
-
-    def observe(self, present, received_at):
-        if present:
-            self.reset()
-            return False
-        if self.last_at is None or received_at - self.last_at > ROI_SAMPLE_GAP_SECONDS:
-            self.first_at = received_at
-            self.samples = 0
-        self.last_at = received_at
-        self.samples += 1
-        return (self.samples >= ROI_CLEAR_SAMPLES and
-                received_at - self.first_at >= ROI_CLEAR_SECONDS)
-
-
-def monitor_request_key(data):
-    return data["camera_id"], data["request_id"]
-
-
-class GateWatch:
-    """Plate presence only; this does not prove vehicle passage or gate clearance."""
-
-    def __init__(self):
-        self.enabled = True
-        self.key = None
-        self.rejected_key = None
-        self.connection = None
-        self.frame_sequence = 0
-        self.status_sequence = 0
-        self.not_before = 0.0
-        self.pending = None
-        self.last_state = None
-        self.clear = RoiClear()
-        self.idle_clear = RoiClear()
-        self.idle_source = None
-        self.idle_sequence = None
-
-    def _read_watch(self, http, base_url):
-        with http.get(f"{base_url}/gate-watch", timeout=HTTP_TIMEOUT) as response:
-            if response.status_code == 404:
-                self.enabled = False
-                LOGGER.warning("CAM has no /gate-watch endpoint; OCR remains available")
-                return None
-            if response.status_code == 204:
-                return None
-            response.raise_for_status()
-            data = response.json()
-        if not isinstance(data, dict):
-            raise ValueError("Invalid gate-watch response")
-        camera_id, request_id = data.get("camera_id"), data.get("request_id")
-        sequence = data.get("last_sequence", 0)
-        if (type(camera_id) is not int or not 1 <= camera_id <= 255 or
-                type(request_id) is not int or not 1 <= request_id <= 0xFFFFFFFF or
-                type(sequence) is not int or not 0 <= sequence <= 0xFFFFFFFF):
-            raise ValueError("Invalid gate-watch camera/request/sequence")
-        return (camera_id, request_id), sequence
-
-    @staticmethod
-    def _fresh_source(camera, connection, received_at):
-        frame, _, current_connection, _, error = camera.snapshot()
-        age = time.monotonic() - received_at
-        return (frame is not None and not error and current_connection == connection
-                and received_at > 0 and 0 <= age <= STREAM_FRESH_SECONDS)
-
-    @staticmethod
-    def _plate_present(frame, detector):
-        x1, y1, x2, y2 = make_roi(frame)
-        return bool(detector.detect_candidates(frame, roi=(x1, y1, x2 - x1, y2 - y1)))
-
-    def _poll_idle_display(self, camera, detector, monitor, stop):
-        # A denied request may have an OCR result but no gate watch. In that case
-        # use the live ROI only to clear the display, with no gate status POST.
-        data = monitor.snapshot()
-        if data["request_id"] is None or data["state"] == "WAITING_RFID":
-            return
-        frame, sequence, connection, received_at, error = camera.snapshot()
-        source = (monitor_request_key(data), connection)
-        if source != self.idle_source:
-            self.idle_source = source
-            self.idle_sequence = None
-            self.idle_clear.reset()
-        if error or not self._fresh_source(camera, connection, received_at):
-            self.idle_clear.reset()
-            return
-        if sequence == self.idle_sequence:
-            return
-        self.idle_sequence = sequence
-        present = self._plate_present(frame, detector)
-        check_stop(stop)
-        if not self._fresh_source(camera, connection, received_at):
-            self.idle_clear.reset()
-            return
-        if self.idle_clear.observe(present, received_at):
-            monitor.clear_result(gate_event="ROI CLEAR")
-
-    def poll(self, http, base_url, camera, detector, monitor, stop):
-        if not self.enabled:
-            self._poll_idle_display(camera, detector, monitor, stop)
-            return
-        watch = self._read_watch(http, base_url)
-        check_stop(stop)
-        if watch is None:
-            finished_key = self.key
-            self.key = None
-            self.rejected_key = None
-            self.pending = None
-            self.last_state = None
-            self.clear.reset()
-            if finished_key is not None and self.enabled:
-                if monitor_request_key(monitor.snapshot()) == finished_key:
-                    monitor.clear_result()
-            elif not self.enabled:
-                monitor.update(gate_event="GATE WATCH UNAVAILABLE")
-            elif monitor.snapshot()["gate_event"].startswith("GATE "):
-                monitor.update(gate_event="")
-            self._poll_idle_display(camera, detector, monitor, stop)
-            return
-        key, acknowledged_sequence = watch
-        if key != self.key:
-            self.key = key
-            self.rejected_key = None
-            self.status_sequence = acknowledged_sequence
-            self.pending = None
-            self.last_state = None
-            self.clear.reset()
-            _, self.frame_sequence, self.connection, _, _ = camera.snapshot()
-            self.not_before = time.monotonic()
-            if monitor.snapshot()["state"] == "WAITING_RFID":
-                monitor.update(state="WATCHING_GATE", camera_id=key[0], request_id=key[1])
-            monitor.update(gate_event="GATE WAIT NEW FRAME")
-            LOGGER.info("[GATE WATCH] camera=%s request=%s last_sequence=%s",
-                        *key, acknowledged_sequence)
-            return
-        # Polling or restarting the app must not give an old frame a new number.
-        self.status_sequence = max(self.status_sequence, acknowledged_sequence)
-        if self.pending and self.pending[0]["sequence"] <= acknowledged_sequence:
-            self.pending = None
-        if key == self.rejected_key:
-            return
-
-        frame, sequence, connection, received_at, error = camera.snapshot()
-        if connection != self.connection:
-            self.connection = connection
-            self.frame_sequence = sequence
-            self.pending = None
-            self.last_state = None
-            self.clear.reset()
-            self.not_before = time.monotonic()
-            monitor.update(gate_event="GATE WAIT RECONNECT")
-            return
-        if (error or frame is None or received_at < self.not_before or
-                not self._fresh_source(camera, connection, received_at)):
-            self.pending = None
-            self.clear.reset()
-            monitor.update(gate_event="GATE NO FRESH FRAME")
-            return
-
-        if sequence > self.frame_sequence:
-            self.frame_sequence = sequence
-            self.pending = None
-            present = self._plate_present(frame, detector)
-            check_stop(stop)
-            # Model inference may itself take long enough to make this image old.
-            if not self._fresh_source(camera, connection, received_at):
-                self.clear.reset()
-                monitor.update(gate_event="GATE INFERENCE STALE")
-                return
-            if self.status_sequence >= 0xFFFFFFFF:
-                raise RuntimeError("Gate sequence exhausted; stop/re-arm this watch")
-            self.status_sequence += 1
-            state = "PRESENT" if present else "CLEAR"
-            packet = {"camera_id": key[0], "request_id": key[1],
-                      "sequence": self.status_sequence, "state": state}
-            self.pending = (packet, connection, received_at)
-            monitor.update(gate_event=f"GATE {state}")
-            if state != self.last_state:
-                LOGGER.info("[GATE %s] camera=%s request=%s sequence=%s",
-                            state, *key, self.status_sequence)
-                self.last_state = state
-
-        if self.pending is None:
-            return
-        packet, source_connection, source_received_at = self.pending
-        if not self._fresh_source(camera, source_connection, source_received_at):
-            self.pending = None
-            self.clear.reset()
-            monitor.update(gate_event="GATE STATUS STALE")
-            return
-        check_stop(stop)
-        # A retry keeps the same number and original image age. New JPEGs replace
-        # failed packets; there is no queue of delayed CLEAR observations.
-        with http.post(f"{base_url}/gate-status", json=packet,
-                       timeout=HTTP_TIMEOUT) as response:
-            if response.status_code == 404:
-                self.enabled = False
-                self.key = None
-                self.pending = None
-                self.clear.reset()
-                monitor.update(gate_event="GATE WATCH UNAVAILABLE")
-                LOGGER.warning("CAM has no /gate-status endpoint; OCR remains available")
-                return
-            if response.status_code == 409:
-                self.rejected_key = key
-                self.pending = None
-                monitor.update(gate_event="GATE WATCH STALE")
-                LOGGER.warning("[GATE STALE] camera=%s request=%s", *key)
-                return
-            response.raise_for_status()
-        self.pending = None
-        if not self._fresh_source(camera, source_connection, source_received_at):
-            self.clear.reset()
-            return
-        present = packet["state"] == "PRESENT"
-        settled = self.clear.observe(present, source_received_at)
-        data = monitor.snapshot()
-        if monitor_request_key(data) == key:
-            if settled and data["state"] != "WAITING_RFID":
-                monitor.clear_result(gate_event="GATE CLEAR", message="ROI clear sent to CAM")
-            elif present and data["state"] == "WAITING_RFID":
-                monitor.update(state="WATCHING_GATE")
-
-
 def ocr_worker(camera, monitor, stop):
     base_url = f"http://{CAMERA_HOST}"
     cached_key = None
     cached_packet = None
     last_poll_error = None
-    last_watch_error = None
-    gate_watch = GateWatch()
     try:
         if not MODEL_PATH.is_file():
             raise FileNotFoundError(f"LP model not found: {MODEL_PATH}")
@@ -534,22 +295,9 @@ def ocr_worker(camera, monitor, stop):
                     continue
                 if key is None:
                     if monitor.snapshot()["delivery"] == "RETRY":
-                        monitor.update(delivery="CHECK_MAIN",
+                        monitor.update(state="WAITING_RFID", delivery="CHECK_MAIN",
                                        message="CAM has no pending request; check MAIN log")
-                    try:
-                        gate_watch.poll(http, base_url, camera, detector, monitor, stop)
-                        last_watch_error = None
-                    except Stopped:
-                        raise
-                    except Exception as error:
-                        gate_watch.clear.reset()
-                        gate_watch.idle_clear.reset()
-                        message = str(error)
-                        monitor.update(gate_event="GATE WATCH ERROR", message=message)
-                        if message != last_watch_error:
-                            LOGGER.warning("Gate watch unavailable: %s", message)
-                            last_watch_error = message
-                    stop.wait(GATE_POLL_SECONDS if gate_watch.key is not None else POLL_SECONDS)
+                    stop.wait(POLL_SECONDS)
                     continue
                 check_stop(stop)
                 if key != cached_key:
@@ -557,6 +305,7 @@ def ocr_worker(camera, monitor, stop):
                     cached_packet = process_request(
                         camera, detector, ocr, *key, monitor, stop)
                     cached_key = key
+                    monitor.update(result_status=cached_packet["status"])
                     LOGGER.info("[OCR RESULT] %s", json.dumps(cached_packet))
                 # A retry reuses this packet; OCR and recognized_at stay unchanged.
                 check_stop(stop)
@@ -565,12 +314,12 @@ def ocr_worker(camera, monitor, stop):
                     with http.post(f"{base_url}/plate-result", json=cached_packet,
                                    timeout=HTTP_TIMEOUT) as response:
                         if response.status_code == 409:
-                            monitor.update(delivery="STALE",
+                            monitor.update(state="WAITING_RFID", delivery="STALE",
                                            message="Request expired or replaced; tap card again")
                             LOGGER.warning("[STALE] request=%s is no longer pending", key[1])
                         else:
                             response.raise_for_status()
-                            monitor.update(delivery="SENT_TO_CAM",
+                            monitor.update(state="WAITING_RFID", delivery="SENT_TO_CAM",
                                            message="CAM accepted forwarding; verify the MAIN log")
                             LOGGER.info("[DELIVERED TO CAM] request=%s", key[1])
                 except requests.RequestException as error:
@@ -635,17 +384,16 @@ def draw_screen(frame, data, scene):
     put_text(image, f"STATE: {state}", 10, 27, 0.65, color, 2, 490)
     put_text(image, local_now().strftime("%H:%M:%S"), 528, 26, 0.55, width=103)
     put_text(image, f"FRAMES: {data['frame_count']}/{FRAME_COUNT}"
-             f"   VEHICLE: {'YES' if scene['vehicle'] else 'NO'}", 10, 53, 0.55, width=620)
+             f"   LAST RESULT: {data['result_status']}", 10, 53, 0.55, width=620)
     put_text(image, f"PLATE: {data['plate'] or '--'}", 10, 79, 0.65,
              (255, 255, 255), 2, 620)
     age = "--" if scene["age"] is None else f"{scene['age']:.1f}s"
     stream_color = (80, 230, 100) if scene["stream"] == "ONLINE" else (60, 120, 255)
     put_text(image, f"STREAM: {scene['stream']}   IMAGE AGE: {age}",
              10, 418, 0.48, stream_color, width=620)
-    event_text = data["gate_event"] or scene["event"] or "-"
-    put_text(image, f"EVENT: {event_text}   DELIVERY: {data['delivery']}",
+    put_text(image, f"DELIVERY: {data['delivery']}   REQUEST: {data['request_id'] or '--'}",
              10, 444, 0.46, width=620)
-    put_text(image, "q / ESC: Quit   r: Reset empty ROI   OCR: RC522 only",
+    put_text(image, "q / ESC: Quit   OCR: RC522 only",
              10, 470, 0.44, (225, 225, 225), width=620)
     if transform is not None and scene["stream"] != "ONLINE":
         put_text(image, f"STALE IMAGE - {scene['stream']}", 115, 250, 0.65,
@@ -654,12 +402,13 @@ def draw_screen(frame, data, scene):
     panel_x = VIEW_WIDTH
     cv2.line(image, (panel_x, 0), (panel_x, WINDOW_HEIGHT - 1), (70, 70, 70), 1)
     x, width = panel_x + 10, PANEL_WIDTH - 20
-    put_text(image, "PLATE CROP", x, 25, 0.59, width=width)
+    put_text(image, "LAST PLATE CROP", x, 25, 0.52, width=width)
     cv2.rectangle(image, (x, 42), (x + width - 1, 217), (80, 80, 80), 1)
     if data["crop"] is not None:
         fit_image(image, data["crop"], x + 1, 43, width - 2, 173)
     else:
-        put_text(image, "Waiting for RFID...", x + 7, 132, 0.44, width=width - 14)
+        crop_message = "Waiting for RFID..." if data["request_id"] is None else "No plate crop"
+        put_text(image, crop_message, x + 7, 132, 0.44, width=width - 14)
     put_text(image, data["plate"] or "--", x, 247, 0.70, color, 2, width)
     confidence = "--" if data["confidence"] is None else f"{data['confidence']:.1f}/100"
     put_text(image, f"CONF: {confidence}", x, 274, 0.47, width=width)
@@ -679,11 +428,6 @@ def main():
     monitor = MonitorState()
     stop = threading.Event()
     worker = None
-    processor = None
-    scene_key = None
-    presence_sequence = -1
-    vehicle_locked = False
-    last_event = ""
     camera.start()
     try:
         # All window/event calls stay here; model loading and OCR use the worker.
@@ -694,45 +438,20 @@ def main():
                                   name="parking-ocr-worker", daemon=True)
         worker.start()
         while True:
-            frame, sequence, current_connection, received_at, camera_error = camera.snapshot()
+            frame, sequence, _, received_at, camera_error = camera.snapshot()
             now = time.monotonic()
             age = max(0.0, now - received_at) if frame is not None and received_at > 0 else None
             fresh = not camera_error and age is not None and age < STREAM_FRESH_SECONDS
-            # test.py's presence indication is visual feedback only. It never
-            # starts OCR; only a matching RC522 request can do that.
-            if fresh and sequence != presence_sequence:
-                key = (current_connection, frame.shape)
-                if key != scene_key:
-                    scene_key = key
-                    x1, y1, x2, y2 = make_roi(frame)
-                    area = (x2 - x1) * (y2 - y1)
-                    processor = StreamProcessor(
-                        roi_x=x1, roi_y=y1, roi_width=x2 - x1, roi_height=y2 - y1,
-                        threshold=25,
-                        min_changed_pixels=max(1, round(5000 * area / (480 * 280))),
-                        persistence_frames=5, max_occupied_frames=2**31 - 1)
-                    vehicle_locked = False
-                    last_event = "ROI_BACKGROUND_RESET"
-                vehicle_locked, _, event = processor.process_frame(frame)
-                presence_sequence = sequence
-                if event:
-                    last_event = str(event)
             stream = ("ONLINE" if fresh else
                       "CONNECTING" if sequence == 0 else
                       "RECONNECTING" if camera_error else "STALLED")
-            scene = {"stream": stream, "age": age, "vehicle": vehicle_locked,
-                     "event": last_event, "camera_error": camera_error}
+            scene = {"stream": stream, "age": age}
             # Keep the last image on a gap, with its ORIGINAL age and a clear
             # stale label. It is not counted again or submitted to OCR.
             cv2.imshow(WINDOW_NAME, draw_screen(frame, monitor.snapshot(), scene))
             key = cv2.waitKey(20) & 0xFF
             if key in (ord("q"), 27):
                 break
-            if key == ord("r") and processor is not None:
-                processor.reset()
-                vehicle_locked = False
-                last_event = "ROI_BACKGROUND_RESET"
-                LOGGER.info("Reset ROI background; keep the ROI empty during reset")
             try:
                 if cv2.getWindowProperty(WINDOW_NAME, cv2.WND_PROP_VISIBLE) < 1:
                     break

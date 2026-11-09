@@ -1,0 +1,94 @@
+{
+  "requested_at": "2026-11-09T14:14:00+07:00",
+  "recognized_at": "2026-11-09T14:14:08+07:00",
+  "best_frame": "E:\\Parking System\\parking_system_firmware\\server\\saved_images\\20261109_141400_976846_cam1_req2663228992_best.jpg",
+  "crop_image": "E:\\Parking System\\parking_system_firmware\\server\\crop_image\\20261109_141400_976846_cam1_req2663228992_plate.jpg",
+  "roi_xywh": [
+    80,
+    100,
+    480,
+    280
+  ],
+  "best_roi_sharpness": 329.09203213931403,
+  "candidate_count": 1,
+  "bbox_xywh": [
+    167,
+    196,
+    225,
+    163
+  ],
+  "lp_confidence": 0.40992024540901184,
+  "ocr": {
+    "text": "43A90518",
+    "raw_text": "43A / 905.18",
+    "confidence": 99.96,
+    "preprocess": "paddle_bgr",
+    "psm": null,
+    "valid": true,
+    "engine": "PaddleOCR",
+    "reason": "READABLE",
+    "lines": [
+      "43A",
+      "90518"
+    ],
+    "line_scores": [
+      99.96,
+      99.98
+    ],
+    "segments": [
+      {
+        "raw_text": "43A",
+        "text": "43A",
+        "confidence": 99.96,
+        "polygon": [
+          [
+            73.0,
+            36.0
+          ],
+          [
+            195.0,
+            27.0
+          ],
+          [
+            199.0,
+            83.0
+          ],
+          [
+            77.0,
+            92.0
+          ]
+        ]
+      },
+      {
+        "raw_text": "905.18",
+        "text": "90518",
+        "confidence": 99.98,
+        "polygon": [
+          [
+            45.0,
+            103.0
+          ],
+          [
+            236.0,
+            86.0
+          ],
+          [
+            241.0,
+            142.0
+          ],
+          [
+            50.0,
+            159.0
+          ]
+        ]
+      }
+    ]
+  },
+  "annotated_image": "E:\\Parking System\\parking_system_firmware\\server\\saved_images\\20261109_141400_976846_cam1_req2663228992_annotated.jpg",
+  "camera_id": 1,
+  "request_id": 2663228992,
+  "status": "OK",
+  "plate": "43A90518",
+  "confidence": 100,
+  "processing_ms": 7562.0
+}

@@ -1,0 +1,94 @@
+{
+  "requested_at": "2026-11-09T14:41:30+07:00",
+  "recognized_at": "2026-11-09T14:41:37+07:00",
+  "best_frame": "E:\\Parking System\\parking_system_firmware\\server\\saved_images\\20261109_144130_714590_cam2_req1677327643_best.jpg",
+  "crop_image": "E:\\Parking System\\parking_system_firmware\\server\\crop_image\\20261109_144130_714590_cam2_req1677327643_plate.jpg",
+  "roi_xywh": [
+    80,
+    100,
+    480,
+    280
+  ],
+  "best_roi_sharpness": 486.90097113073097,
+  "candidate_count": 1,
+  "bbox_xywh": [
+    119,
+    206,
+    207,
+    153
+  ],
+  "lp_confidence": 0.580307126045227,
+  "ocr": {
+    "text": "43A90518",
+    "raw_text": "43A / 905.18",
+    "confidence": 99.97,
+    "preprocess": "paddle_bgr",
+    "psm": null,
+    "valid": true,
+    "engine": "PaddleOCR",
+    "reason": "READABLE",
+    "lines": [
+      "43A",
+      "90518"
+    ],
+    "line_scores": [
+      99.97,
+      99.99
+    ],
+    "segments": [
+      {
+        "raw_text": "43A",
+        "text": "43A",
+        "confidence": 99.97,
+        "polygon": [
+          [
+            52.0,
+            31.0
+          ],
+          [
+            177.0,
+            29.0
+          ],
+          [
+            179.0,
+            85.0
+          ],
+          [
+            54.0,
+            87.0
+          ]
+        ]
+      },
+      {
+        "raw_text": "905.18",
+        "text": "90518",
+        "confidence": 99.99,
+        "polygon": [
+          [
+            15.0,
+            98.0
+          ],
+          [
+            215.0,
+            93.0
+          ],
+          [
+            217.0,
+            152.0
+          ],
+          [
+            17.0,
+            156.0
+          ]
+        ]
+      }
+    ]
+  },
+  "annotated_image": "E:\\Parking System\\parking_system_firmware\\server\\saved_images\\20261109_144130_714590_cam2_req1677327643_annotated.jpg",
+  "camera_id": 2,
+  "request_id": 1677327643,
+  "status": "OK",
+  "plate": "43A90518",
+  "confidence": 100,
+  "processing_ms": 7266.0
+}

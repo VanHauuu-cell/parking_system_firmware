@@ -9,7 +9,6 @@ idf_component_register(
                     "services/capture_manager.c"
                     "services/http_server_manager.c"
                     "services/ocr_manager.c"
-                    "services/gate_watch_manager.c"
                 INCLUDE_DIRS 
                     ""
                     "config"

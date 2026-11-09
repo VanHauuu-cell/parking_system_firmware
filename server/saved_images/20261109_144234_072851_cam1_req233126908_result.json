@@ -1,0 +1,94 @@
+{
+  "requested_at": "2026-11-09T14:42:34+07:00",
+  "recognized_at": null,
+  "best_frame": "E:\\Parking System\\parking_system_firmware\\server\\saved_images\\20261109_144234_072851_cam1_req233126908_best.jpg",
+  "crop_image": "E:\\Parking System\\parking_system_firmware\\server\\crop_image\\20261109_144234_072851_cam1_req233126908_plate.jpg",
+  "roi_xywh": [
+    80,
+    100,
+    480,
+    280
+  ],
+  "best_roi_sharpness": 321.31020670434515,
+  "candidate_count": 1,
+  "bbox_xywh": [
+    235,
+    121,
+    222,
+    161
+  ],
+  "lp_confidence": 0.21808864176273346,
+  "ocr": {
+    "text": "",
+    "raw_text": "43A / 905.1",
+    "confidence": 99.97,
+    "preprocess": "paddle_bgr",
+    "psm": null,
+    "valid": false,
+    "engine": "PaddleOCR",
+    "reason": "INVALID_LENGTH",
+    "lines": [
+      "43A",
+      "9051"
+    ],
+    "line_scores": [
+      99.97,
+      99.97
+    ],
+    "segments": [
+      {
+        "raw_text": "43A",
+        "text": "43A",
+        "confidence": 99.97,
+        "polygon": [
+          [
+            54.0,
+            11.0
+          ],
+          [
+            215.0,
+            5.0
+          ],
+          [
+            219.0,
+            79.0
+          ],
+          [
+            58.0,
+            86.0
+          ]
+        ]
+      },
+      {
+        "raw_text": "905.1",
+        "text": "9051",
+        "confidence": 99.97,
+        "polygon": [
+          [
+            12.0,
+            97.0
+          ],
+          [
+            238.0,
+            89.0
+          ],
+          [
+            238.0,
+            160.0
+          ],
+          [
+            16.0,
+            169.0
+          ]
+        ]
+      }
+    ]
+  },
+  "annotated_image": "E:\\Parking System\\parking_system_firmware\\server\\saved_images\\20261109_144234_072851_cam1_req233126908_annotated.jpg",
+  "camera_id": 1,
+  "request_id": 233126908,
+  "status": "OCR_FAILED",
+  "plate": "",
+  "confidence": 0,
+  "processing_ms": 3594.0
+}

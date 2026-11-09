@@ -1,0 +1,94 @@
+{
+  "requested_at": "2026-11-09T14:42:58+07:00",
+  "recognized_at": "2026-11-09T14:43:02+07:00",
+  "best_frame": "E:\\Parking System\\parking_system_firmware\\server\\saved_images\\20261109_144258_546509_cam1_req560585179_best.jpg",
+  "crop_image": "E:\\Parking System\\parking_system_firmware\\server\\crop_image\\20261109_144258_546509_cam1_req560585179_plate.jpg",
+  "roi_xywh": [
+    80,
+    100,
+    480,
+    280
+  ],
+  "best_roi_sharpness": 486.5523155450592,
+  "candidate_count": 1,
+  "bbox_xywh": [
+    270,
+    173,
+    199,
+    138
+  ],
+  "lp_confidence": 0.5244467854499817,
+  "ocr": {
+    "text": "43A90518",
+    "raw_text": "43A / 905.18",
+    "confidence": 99.66,
+    "preprocess": "paddle_bgr",
+    "psm": null,
+    "valid": true,
+    "engine": "PaddleOCR",
+    "reason": "READABLE",
+    "lines": [
+      "43A",
+      "90518"
+    ],
+    "line_scores": [
+      99.98,
+      99.66
+    ],
+    "segments": [
+      {
+        "raw_text": "43A",
+        "text": "43A",
+        "confidence": 99.98,
+        "polygon": [
+          [
+            59.0,
+            29.0
+          ],
+          [
+            186.0,
+            29.0
+          ],
+          [
+            186.0,
+            87.0
+          ],
+          [
+            59.0,
+            87.0
+          ]
+        ]
+      },
+      {
+        "raw_text": "905.18",
+        "text": "90518",
+        "confidence": 99.66,
+        "polygon": [
+          [
+            25.0,
+            97.0
+          ],
+          [
+            227.0,
+            92.0
+          ],
+          [
+            228.0,
+            151.0
+          ],
+          [
+            26.0,
+            155.0
+          ]
+        ]
+      }
+    ]
+  },
+  "annotated_image": "E:\\Parking System\\parking_system_firmware\\server\\saved_images\\20261109_144258_546509_cam1_req560585179_annotated.jpg",
+  "camera_id": 1,
+  "request_id": 560585179,
+  "status": "OK",
+  "plate": "43A90518",
+  "confidence": 100,
+  "processing_ms": 3578.0
+}

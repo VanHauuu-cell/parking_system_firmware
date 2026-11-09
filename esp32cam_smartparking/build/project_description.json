@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "esp32cam_smartparking",
-    "project_version":    "138dafc-dirty",
+    "project_version":    "210b903-dirty",
     "project_path":       "E:/Parking System/parking_system_firmware/esp32cam_smartparking",
     "idf_path":           "E:/esp/Espressif/frameworks/esp-idf-v5.3.3",
     "build_dir":          "E:/Parking System/parking_system_firmware/esp32cam_smartparking/build",
@@ -1210,7 +1210,7 @@
             "managed_reqs": [],
             "managed_priv_reqs": [ "espressif__esp32-camera" ],
             "file": "E:/Parking System/parking_system_firmware/esp32cam_smartparking/build/esp-idf/main/libmain.a",
-            "sources": [ "E:/Parking System/parking_system_firmware/esp32cam_smartparking/main/main.c", "E:/Parking System/parking_system_firmware/esp32cam_smartparking/main/drivers/uart_driver.c", "E:/Parking System/parking_system_firmware/esp32cam_smartparking/main/protocol/uart_protocol.c", "E:/Parking System/parking_system_firmware/esp32cam_smartparking/main/drivers/camera_driver.c", "E:/Parking System/parking_system_firmware/esp32cam_smartparking/main/services/network_manager.c", "E:/Parking System/parking_system_firmware/esp32cam_smartparking/main/services/stream_manager.c", "E:/Parking System/parking_system_firmware/esp32cam_smartparking/main/services/capture_manager.c", "E:/Parking System/parking_system_firmware/esp32cam_smartparking/main/services/http_server_manager.c", "E:/Parking System/parking_system_firmware/esp32cam_smartparking/main/services/ocr_manager.c", "E:/Parking System/parking_system_firmware/esp32cam_smartparking/main/services/gate_watch_manager.c" ],
+            "sources": [ "E:/Parking System/parking_system_firmware/esp32cam_smartparking/main/main.c", "E:/Parking System/parking_system_firmware/esp32cam_smartparking/main/drivers/uart_driver.c", "E:/Parking System/parking_system_firmware/esp32cam_smartparking/main/protocol/uart_protocol.c", "E:/Parking System/parking_system_firmware/esp32cam_smartparking/main/drivers/camera_driver.c", "E:/Parking System/parking_system_firmware/esp32cam_smartparking/main/services/network_manager.c", "E:/Parking System/parking_system_firmware/esp32cam_smartparking/main/services/stream_manager.c", "E:/Parking System/parking_system_firmware/esp32cam_smartparking/main/services/capture_manager.c", "E:/Parking System/parking_system_firmware/esp32cam_smartparking/main/services/http_server_manager.c", "E:/Parking System/parking_system_firmware/esp32cam_smartparking/main/services/ocr_manager.c" ],
             "include_dirs": [ "config", "drivers", "protocol", "services" ]
         },
         "mbedtls": {
