@@ -22,6 +22,7 @@
 #include "display_manager.h"
 #include "uart_manager.h"
 #include "gate_ir_manager.h"
+#include "approval_log.h"
 
 static const char *TAG = "PARKING_APP";
 static QueueHandle_t command_queue;
@@ -130,6 +131,9 @@ static void application_task(void *arg)
     esp_err_t ret = parking_manager_init();
     bool parking_ready = ret == ESP_OK;
     check_init(ret, "PARKING / NVS", &core_ready, &boot_error);
+    ret = parking_ready ? approval_log_init() : ESP_ERR_INVALID_STATE;
+    bool approval_ready = ret == ESP_OK;
+    check_init(ret, "APPROVAL LOG", &core_ready, &boot_error);
     ret = barrier_manager_init();
     check_init(ret, "SERVO", &core_ready, &boot_error);
     ret = uart_manager_init();
@@ -180,6 +184,10 @@ static void application_task(void *arg)
             if (xQueueReceive(command_queue, &event, 0) != pdTRUE) { break; }
             state_machine_handle(&fsm, &event);
         }
+        if (approval_ready && !approval_log_ready() && fsm.state != APP_STATE_FAULT) {
+            state_machine_fault(&fsm, "APPROVAL STORAGE");
+        }
+        if (uart_ready && approval_ready) { uart_manager_tick(esp_timer_get_time()); }
         if (parking_ready) { gate_ir_manager_poll(esp_timer_get_time()); }
         state_machine_tick(&fsm, esp_timer_get_time());
         int64_t now_us = esp_timer_get_time();

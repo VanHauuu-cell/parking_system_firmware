@@ -14,6 +14,7 @@
 #include "esp_timer.h"
 
 #include "http_server_manager.h"
+#include "access_event_manager.h"
 #include "parking_link_config.h"
 #include "uart_driver.h"
 #include "uart_protocol.h"
@@ -92,7 +93,7 @@ static void uart_rx_task(void *arg)
                 uint32_t request_id;
                 if (uart_protocol_parse_capture_request(frame, &camera_id, &request_id)) {
                     accept_request(camera_id, request_id);
-                } else {
+                } else if (!access_event_manager_handle_frame(frame)) {
                     ESP_LOGW(TAG, "Invalid UART request: %s", frame);
                 }
             }
@@ -192,7 +193,16 @@ static esp_err_t post_result_handler(httpd_req_t *request)
     bool success = status != NULL && strcmp(status, "OK") == 0;
     bool failure = status != NULL && (strcmp(status, "NO_PLATE") == 0 ||
         strcmp(status, "OCR_FAILED") == 0 || strcmp(status, "ERROR") == 0);
-    valid = valid && ((success && valid_plate(plate)) ||
+    int64_t server_time_ms = 0;
+    const cJSON *time_item = cJSON_GetObjectItemCaseSensitive(json, "server_time_ms");
+    bool time_valid = cJSON_IsNumber(time_item) &&
+        time_item->valuedouble >= (double)PARKING_TIMESTAMP_MIN_MS &&
+        time_item->valuedouble <= (double)PARKING_TIMESTAMP_MAX_MS;
+    if (time_valid) {
+        server_time_ms = (int64_t)time_item->valuedouble;
+        time_valid = (double)server_time_ms == time_item->valuedouble;
+    }
+    valid = valid && ((success && valid_plate(plate) && time_valid) ||
                      (failure && plate[0] == '\0' && confidence == 0));
     if (!valid) {
         cJSON_Delete(json);
@@ -215,7 +225,8 @@ static esp_err_t post_result_handler(httpd_req_t *request)
     // Sending one small buffered UART frame while holding the lock prevents a
     // replacement request from changing the pending ID during forwarding.
     esp_err_t ret = success
-        ? uart_protocol_send_plate_result(PARKING_CAMERA_ID, request_id, plate, (uint8_t)confidence)
+        ? uart_protocol_send_plate_result(PARKING_CAMERA_ID, request_id, plate,
+                                          (uint8_t)confidence, server_time_ms)
         : uart_protocol_send_plate_error(PARKING_CAMERA_ID, request_id, status);
     if (ret == ESP_OK) {
         last_forwarded_id = request_id;
@@ -243,6 +254,10 @@ esp_err_t ocr_manager_start(void)
         if (pending_lock == NULL) {
             return ESP_ERR_NO_MEM;
         }
+    }
+    esp_err_t access_ret = access_event_manager_start();
+    if (access_ret != ESP_OK) {
+        return access_ret;
     }
     // This module remains the only consumer of bytes from the UART RX driver.
     const httpd_uri_t get_uri = {

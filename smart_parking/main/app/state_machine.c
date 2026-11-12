@@ -13,6 +13,8 @@
 #include "uart_manager.h"
 #include "gate_ir_manager.h"
 #include "system_config.h"
+#include "approval_log.h"
+#include <inttypes.h>
 
 static const char *TAG = "PARKING_FSM";
 
@@ -193,6 +195,15 @@ static void ocr_result(state_machine_t *fsm, const uart_ocr_result_t *result,
         notice(fsm, "GATE IR BUSY", esp_timer_get_time());
         return;
     }
+    if (result->server_time_ms < APPROVAL_TIME_MIN_MS ||
+        result->server_time_ms > APPROVAL_TIME_MAX_MS || result->received_at_us <= 0) {
+        notice(fsm, "TIME NOT READY", esp_timer_get_time());
+        return;
+    }
+    if (!approval_log_can_grant()) {
+        notice(fsm, "ACCESS LOG FULL", esp_timer_get_time());
+        return;
+    }
     // Grant is durable before the physical barrier can start moving.
     if (parking_manager_begin(fsm->uid, fsm->direction, fsm->request_id) != ESP_OK) {
         state_machine_fault(fsm, "SAVE GRANT ERROR"); return;
@@ -202,11 +213,20 @@ static void ocr_result(state_machine_t *fsm, const uart_ocr_result_t *result,
     if (barrier_manager_open(fsm->direction, now_us) != ESP_OK) {
         state_machine_fault(fsm, "OPEN ERROR"); return;
     }
+    int64_t approved_at_ms = result->server_time_ms +
+        (esp_timer_get_time() - result->received_at_us) / 1000;
+    if (approval_log_record_grant(fsm->camera_id, fsm->request_id, fsm->uid,
+                                  result->plate, approved_at_ms) != ESP_OK) {
+        state_machine_fault(fsm, "SAVE APPROVAL");
+        return;
+    }
     change_state(fsm, APP_STATE_OPENING, now_us);
     display_manager_show(fsm->direction == PARKING_ENTRY ? "ENTRY GRANTED" : "EXIT GRANTED",
                          result->plate);
     ESP_LOGI(TAG, "[GRANTED] uid=%s plate=%s confidence=%u request=%lu", fsm->uid,
              result->plate, (unsigned)result->confidence, (unsigned long)fsm->request_id);
+    ESP_LOGI(TAG, "[APPROVED TIME] %s epoch_ms=%" PRId64,
+             fsm->direction == PARKING_ENTRY ? "ENTRY" : "EXIT", approved_at_ms);
 }
 
 static void status(const state_machine_t *fsm)
@@ -215,6 +235,8 @@ static void status(const state_machine_t *fsm)
              fsm->direction == PARKING_ENTRY ? "ENTRY" : "EXIT", fsm->uid,
              (unsigned long)fsm->request_id);
     parking_manager_dump();
+    ESP_LOGI(TAG, "[ACCESS LOG] storage=%s pending=%u",
+             approval_log_ready() ? "READY" : "ERROR", approval_log_pending_count());
     for (unsigned i = 0; i < 2; ++i) {
         gate_ir_state_t ir = gate_ir_manager_state((parking_direction_t)i);
         ESP_LOGI(TAG, "[IR %s] raw=%s stable=%s clear_for_close=%s",
@@ -275,13 +297,23 @@ static void command(state_machine_t *fsm, app_command_t cmd, int64_t issued_us,
         if (fsm->state != APP_STATE_WAIT_PASSAGE) {
             ESP_LOGW(TAG, "pass/cancel requires WAIT_PASSAGE"); return;
         }
+        if (!approval_log_ready()) {
+            state_machine_fault(fsm, "APPROVAL STORAGE");
+            return;
+        }
+        if (cmd == APP_COMMAND_PASS && approval_log_was_cancelled(
+                fsm->camera_id, fsm->request_id, fsm->uid)) {
+            ESP_LOGW(TAG, "Cancellation already saved; complete it with cancel");
+            return;
+        }
         start_closing(fsm, cmd == APP_COMMAND_CANCEL, true);
         return;
     }
     if (cmd == APP_COMMAND_RECOVER_PASSED || cmd == APP_COMMAND_RECOVER_CANCEL) {
         parking_pending_t pending;
         if (fsm->state != APP_STATE_FAULT || !fsm->core_ready ||
-            !parking_manager_storage_ready() || !parking_manager_get_pending(&pending)) {
+            !parking_manager_storage_ready() || !approval_log_ready() ||
+            !parking_manager_get_pending(&pending)) {
             ESP_LOGW(TAG, "Recovery requires FAULT, ready hardware/storage and a pending transaction"); return;
         }
         fsm->direction = pending.direction;
@@ -294,6 +326,10 @@ static void command(state_machine_t *fsm, app_command_t cmd, int64_t issued_us,
             }
             start_closing(fsm, true, true);
         } else {
+            if (approval_log_was_cancelled(fsm->camera_id, fsm->request_id, fsm->uid)) {
+                ESP_LOGW(TAG, "Cancellation already saved; use recover_cancel to finish it");
+                return;
+            }
             start_closing(fsm, false, true);
         }
     }
@@ -409,6 +445,11 @@ void state_machine_tick(state_machine_t *fsm, int64_t now_us)
             break;
         }
         if (barrier_manager_motion_done(now_us)) {
+            if (fsm->cancelled && approval_log_record_cancel(
+                    fsm->camera_id, fsm->request_id, fsm->uid) != ESP_OK) {
+                state_machine_fault(fsm, "SAVE CANCELLATION");
+                break;
+            }
             if (!fsm->cancelled && parking_manager_confirm_passage() != ESP_OK) {
                 state_machine_fault(fsm, "SAVE PASS ERROR");
                 break;

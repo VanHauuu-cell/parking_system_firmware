@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include "app_types.h"
 
 #define PARKING_UART_FRAME_SIZE 128
 
@@ -20,14 +21,36 @@ typedef struct {
     char plate[20];
     uint8_t confidence;
     char reason[24];
+    int64_t server_time_ms;
+    int64_t received_at_us;
 } uart_ocr_result_t;
+
+typedef struct {
+    uint8_t camera_id;
+    char event_id[APPROVAL_EVENT_ID_SIZE];
+} uart_access_ack_t;
+
+typedef enum {
+    UART_MESSAGE_OCR = 0,
+    UART_MESSAGE_ACCESS_ACK
+} uart_message_type_t;
+
+typedef struct {
+    uart_message_type_t type;
+    union {
+        uart_ocr_result_t ocr;
+        uart_access_ack_t ack;
+    } data;
+} uart_message_t;
 
 // Return frame length, or -1 on invalid arguments / insufficient space.
 int uart_protocol_build_capture_request(
     char *frame, size_t capacity, uint8_t camera_id, uint32_t request_id);
+int uart_protocol_build_access_event(
+    char *frame, size_t capacity, const approval_event_t *event);
 
 // Consume one UART byte and return true when a complete OCR result is decoded.
-bool uart_protocol_feed(
-    uart_frame_parser_t *parser, uint8_t byte, uart_ocr_result_t *result);
+bool uart_protocol_feed_message(
+    uart_frame_parser_t *parser, uint8_t byte, uart_message_t *message);
 
 #endif

@@ -1,5 +1,6 @@
 #include "uart_protocol.h"
 
+#include <inttypes.h>
 #include <stdio.h>
 #include <string.h>
 #include "uart_driver.h"
@@ -32,9 +33,12 @@ static esp_err_t send_frame(const char *frame, int length)
 }
 
 esp_err_t uart_protocol_send_plate_result(
-    uint8_t camera_id, uint32_t request_id, const char *plate, uint8_t confidence)
+    uint8_t camera_id, uint32_t request_id, const char *plate, uint8_t confidence,
+    int64_t server_time_ms)
 {
-    if (camera_id == 0 || request_id == 0 || plate == NULL || confidence > 100) {
+    if (camera_id == 0 || request_id == 0 || plate == NULL || confidence > 100 ||
+            server_time_ms < PARKING_TIMESTAMP_MIN_MS ||
+            server_time_ms > PARKING_TIMESTAMP_MAX_MS) {
         return ESP_ERR_INVALID_ARG;
     }
     size_t size = strlen(plate);
@@ -48,9 +52,9 @@ esp_err_t uart_protocol_send_plate_result(
         }
     }
     char frame[UART_MAX_FRAME_SIZE];
-    int length = snprintf(frame, sizeof(frame), "<PLATE_RESULT,%u,%lu,%s,%u>",
+    int length = snprintf(frame, sizeof(frame), "<PLATE_RESULT,%u,%lu,%s,%u,%" PRId64 ">",
                           (unsigned)camera_id, (unsigned long)request_id,
-                          plate, (unsigned)confidence);
+                          plate, (unsigned)confidence, server_time_ms);
     return send_frame(frame, length);
 }
 

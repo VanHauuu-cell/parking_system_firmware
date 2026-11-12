@@ -1,5 +1,7 @@
 """Read plates inside the ROI on RC522 requests and return results to the CAM."""
+import argparse
 import json
+import sqlite3
 import logging
 import os
 import threading
@@ -15,7 +17,7 @@ import cv2
 import numpy as np
 import requests
 
-from config import CAMERA_HOST
+from parking_store import ParkingStore
 from camera.camera_client import CameraClient
 from vision.character_detector import CharacterDetector
 from vision.lp_detector import LPDetector
@@ -25,6 +27,8 @@ BASE_DIR = Path(__file__).resolve().parent
 MODEL_PATH = BASE_DIR / "models" / "LP_best.pt"
 SAVED_DIR = BASE_DIR / "saved_images"
 CROP_DIR = BASE_DIR / "crop_image"
+DATABASE_PATH = BASE_DIR / "data" / "parking.sqlite3"
+ACCESS_HTTP_TIMEOUT = (3, 3)
 FRAME_COUNT = 5
 COLLECT_TIMEOUT_SECONDS = 10.0
 POLL_SECONDS = 0.5
@@ -37,7 +41,6 @@ WINDOW_WIDTH = VIEW_WIDTH + PANEL_WIDTH
 WINDOW_HEIGHT = VIEW_HEIGHT
 STREAM_FRESH_SECONDS = 2.0
 VIETNAM_TZ = timezone(timedelta(hours=7))
-WINDOW_NAME = f"SMART PARKING - RC522 OCR LIVE [{CAMERA_HOST}]"
 LOGGER = logging.getLogger("parking_ocr")
 
 
@@ -58,6 +61,7 @@ class MonitorState:
             "plate": "", "confidence": None, "raw_text": "", "reason": "",
             "recognized_at": None, "crop": None, "result_status": "--",
             "message": "Loading models; tap RC522 only after READY",
+            "approval": None, "audit_state": "CONNECTING", "audit_message": "",
         }
 
     def update(self, **values):
@@ -246,7 +250,7 @@ def process_request(camera, detector, ocr, camera_id, request_id, monitor, stop)
             LOGGER.exception("Cannot save diagnostic JSON: %s", detail_path)
 
 
-def read_request(http, base_url):
+def read_request(http, base_url, expected_camera_id):
     with http.get(f"{base_url}/ocr-request", timeout=HTTP_TIMEOUT) as response:
         if response.status_code == 204:
             return None
@@ -258,11 +262,13 @@ def read_request(http, base_url):
     if (type(camera_id) is not int or not 1 <= camera_id <= 255 or
             type(request_id) is not int or not 1 <= request_id <= 0xFFFFFFFF):
         raise ValueError("Invalid camera_id/request_id returned by CAM")
+    if camera_id != expected_camera_id:
+        raise ValueError(f"Wrong camera IP: expected {expected_camera_id}, got {camera_id}")
     return camera_id, request_id
 
 
-def ocr_worker(camera, monitor, stop):
-    base_url = f"http://{CAMERA_HOST}"
+def ocr_worker(camera, monitor, stop, camera_host, expected_camera_id):
+    base_url = f"http://{camera_host}"
     cached_key = None
     cached_packet = None
     last_poll_error = None
@@ -281,7 +287,7 @@ def ocr_worker(camera, monitor, stop):
         with requests.Session() as http:
             while not stop.is_set():
                 try:
-                    key = read_request(http, base_url)
+                    key = read_request(http, base_url, expected_camera_id)
                     if last_poll_error is not None:
                         monitor.update(message="CAM connection restored")
                     last_poll_error = None
@@ -311,7 +317,10 @@ def ocr_worker(camera, monitor, stop):
                 check_stop(stop)
                 monitor.update(delivery="SENDING")
                 try:
-                    with http.post(f"{base_url}/plate-result", json=cached_packet,
+                    packet = dict(cached_packet)
+                    # Fresh clock anchor on each send; cached OCR content keeps its original time.
+                    packet["server_time_ms"] = time.time_ns() // 1_000_000
+                    with http.post(f"{base_url}/plate-result", json=packet,
                                    timeout=HTTP_TIMEOUT) as response:
                         if response.status_code == 409:
                             monitor.update(state="WAITING_RFID", delivery="STALE",
@@ -331,6 +340,84 @@ def ocr_worker(camera, monitor, stop):
     except Exception as error:
         monitor.update(state="ERROR", reason=str(error), message=str(error))
         LOGGER.exception("OCR worker stopped")
+
+
+def approval_worker(camera_host, expected_camera_id, monitor, stop):
+    """Commit actual MAIN grants, then acknowledge the event back to MAIN."""
+    base_url = f"http://{camera_host}"
+    store = None
+    while not stop.is_set() and store is None:
+        try:
+            store = ParkingStore(DATABASE_PATH)
+        except (OSError, sqlite3.Error, ValueError) as error:
+            monitor.update(audit_state="DB_ERROR", audit_message=str(error))
+            LOGGER.error("Cannot open parking database: %s", error)
+            stop.wait(1)
+    if store is None:
+        return
+    monitor.update(audit_state="CONNECTING", audit_message="")
+    last_error = None
+    next_refresh = 0.0
+    try:
+        with requests.Session() as http:
+            while not stop.is_set():
+                try:
+                    if time.monotonic() >= next_refresh:
+                        record = store.latest_for_camera(expected_camera_id)
+                        monitor.update(approval=record)
+                        next_refresh = time.monotonic() + 1.0
+                    with http.get(f"{base_url}/access-event", timeout=ACCESS_HTTP_TIMEOUT) as response:
+                        if response.status_code == 404:
+                            raise ValueError("CAM firmware has no /access-event; update both firmwares")
+                        response.raise_for_status()
+                        event = None if response.status_code == 204 else response.json()
+                    if event is not None:
+                        # record_event returns after COMMIT. A retry is idempotent by event_id.
+                        record = store.record_event(event, expected_camera_id)
+                        monitor.update(approval=record, audit_state="SAVED", audit_message="")
+                        LOGGER.info("[ACCESS SAVED] %s", json.dumps(record))
+                        with http.post(f"{base_url}/access-event-ack",
+                                       json={"event_id": event["event_id"]},
+                                       timeout=ACCESS_HTTP_TIMEOUT) as response:
+                            response.raise_for_status()
+                        LOGGER.info("[ACCESS ACK] event=%s", event["event_id"])
+                    elif last_error is not None:
+                        monitor.update(audit_state="ONLINE", audit_message="")
+                    if event is None and monitor.snapshot()["audit_state"] == "CONNECTING":
+                        monitor.update(audit_state="ONLINE")
+                    last_error = None
+                except (requests.RequestException, sqlite3.Error, OSError, ValueError, TypeError) as error:
+                    message = str(error)
+                    monitor.update(audit_state="RETRY", audit_message=message)
+                    if message != last_error:
+                        LOGGER.warning("[ACCESS RETRY] %s", message)
+                    last_error = message
+                stop.wait(0.5)
+    finally:
+        store.close()
+
+
+def format_event_time(value):
+    if value is None:
+        return "--"
+    return datetime.fromtimestamp(value / 1000, VIETNAM_TZ).strftime("%d/%m %H:%M:%S")
+
+
+def format_stay(record):
+    if not record or record["entry_at_ms"] is None:
+        return "--"
+    if record["duration_seconds"] is not None:
+        seconds = record["duration_seconds"]
+        suffix = ""
+    elif record["status"] == "ENTRY_APPROVED":
+        seconds = max(0, time.time() - record["entry_at_ms"] / 1000)
+        suffix = " RUN"
+    else:
+        return "--"
+    whole = int(seconds)
+    hours, remainder = divmod(whole, 3600)
+    minutes, seconds = divmod(remainder, 60)
+    return f"{hours:02d}:{minutes:02d}:{seconds:02d} ({whole / 3600:.3f}h){suffix}"
 
 
 def put_text(image, message, x, y, scale=0.48, color=(240, 240, 240), thickness=1,
@@ -359,7 +446,7 @@ def fit_image(canvas, image, x, y, width, height):
     return scale, left, top
 
 
-def draw_screen(frame, data, scene):
+def draw_screen(frame, data, scene, gate_name):
     # test.py's live view and two translucent bands, plus one small crop panel.
     image = np.full((WINDOW_HEIGHT, WINDOW_WIDTH, 3), (22, 22, 22), dtype=np.uint8)
     transform = fit_image(image, frame, 0, 0, VIEW_WIDTH, VIEW_HEIGHT)
@@ -381,7 +468,7 @@ def draw_screen(frame, data, scene):
     cv2.rectangle(overlay, (0, VIEW_HEIGHT - 83), (VIEW_WIDTH - 1, VIEW_HEIGHT - 1),
                   (0, 0, 0), -1)
     cv2.addWeighted(overlay, 0.67, image, 0.33, 0, image)
-    put_text(image, f"STATE: {state}", 10, 27, 0.65, color, 2, 490)
+    put_text(image, f"{gate_name} | {state}", 10, 27, 0.53, color, 2, 490)
     put_text(image, local_now().strftime("%H:%M:%S"), 528, 26, 0.55, width=103)
     put_text(image, f"FRAMES: {data['frame_count']}/{FRAME_COUNT}"
              f"   LAST RESULT: {data['result_status']}", 10, 53, 0.55, width=620)
@@ -402,40 +489,56 @@ def draw_screen(frame, data, scene):
     panel_x = VIEW_WIDTH
     cv2.line(image, (panel_x, 0), (panel_x, WINDOW_HEIGHT - 1), (70, 70, 70), 1)
     x, width = panel_x + 10, PANEL_WIDTH - 20
-    put_text(image, "LAST PLATE CROP", x, 25, 0.52, width=width)
-    cv2.rectangle(image, (x, 42), (x + width - 1, 217), (80, 80, 80), 1)
+    put_text(image, f"CAM {gate_name}", x, 25, 0.55, color, 2, width)
+    cv2.rectangle(image, (x, 42), (x + width - 1, 179), (80, 80, 80), 1)
     if data["crop"] is not None:
-        fit_image(image, data["crop"], x + 1, 43, width - 2, 173)
+        fit_image(image, data["crop"], x + 1, 43, width - 2, 135)
     else:
-        crop_message = "Waiting for RFID..." if data["request_id"] is None else "No plate crop"
-        put_text(image, crop_message, x + 7, 132, 0.44, width=width - 14)
-    put_text(image, data["plate"] or "--", x, 247, 0.70, color, 2, width)
+        put_text(image, "Waiting for RFID...", x + 7, 112, 0.44, width=width - 14)
+    put_text(image, data["plate"] or "--", x, 205, 0.65, color, 2, width)
     confidence = "--" if data["confidence"] is None else f"{data['confidence']:.1f}/100"
-    put_text(image, f"CONF: {confidence}", x, 274, 0.47, width=width)
-    put_text(image, "RECOGNIZED AT", x, 307, 0.47, width=width)
+    put_text(image, f"CONF: {confidence}", x, 229, 0.44, width=width)
     at = datetime.fromisoformat(data["recognized_at"]) if data["recognized_at"] else None
-    put_text(image, at.strftime("%d/%m/%Y") if at else "--", x, 333, 0.55, width=width)
-    put_text(image, at.strftime("%H:%M:%S UTC+7") if at else "--", x, 359, 0.50, width=width)
+    put_text(image, "OCR: " + (at.strftime("%d/%m %H:%M:%S") if at else "--"),
+             x, 252, 0.40, width=width)
+    record = data["approval"]
+    status = record["status"] if record else "WAITING_MAIN"
+    put_text(image, "LAST ACCESS: " + status, x, 281, 0.40, width=width)
+    put_text(image, "PLATE: " + (record["plate"] if record else "--"), x, 305, 0.46, width=width)
+    put_text(image, "IN: " + format_event_time(record["entry_at_ms"] if record else None),
+             x, 330, 0.43, width=width)
+    put_text(image, "OUT: " + format_event_time(record["exit_at_ms"] if record else None),
+             x, 355, 0.43, width=width)
+    put_text(image, "STAY: " + format_stay(record), x, 380, 0.39, width=width)
+    put_text(image, "UID: " + (record["uid"] if record else "--"), x, 405, 0.43, width=width)
+    put_text(image, "LOG: " + data["audit_state"], x, 435, 0.42, width=width)
+    put_text(image, data["audit_message"] or "APPROVED time | UTC+7", x, 459, 0.36, width=width)
     return image
 
 
-def main():
+def main(camera_host, expected_camera_id, gate_name):
     logging.basicConfig(level=logging.INFO,
-                        format="%(asctime)s %(levelname)s %(message)s")
+                        format=f"%(asctime)s %(levelname)s [{gate_name}] %(message)s")
     SAVED_DIR.mkdir(parents=True, exist_ok=True)
     CROP_DIR.mkdir(parents=True, exist_ok=True)
-    camera = CameraClient(CAMERA_HOST, timeout=(10, 10))
+    window_name = f"SMART PARKING - {gate_name} [{camera_host}]"
+    camera = CameraClient(camera_host, timeout=(10, 10))
     monitor = MonitorState()
     stop = threading.Event()
     worker = None
+    audit_worker = None
     camera.start()
     try:
         # All window/event calls stay here; model loading and OCR use the worker.
-        cv2.namedWindow(WINDOW_NAME, cv2.WINDOW_NORMAL | cv2.WINDOW_KEEPRATIO)
+        cv2.namedWindow(window_name, cv2.WINDOW_NORMAL | cv2.WINDOW_KEEPRATIO)
         # A small initial window; all images are fitted in fixed-size panes.
-        cv2.resizeWindow(WINDOW_NAME, 800, round(800 * WINDOW_HEIGHT / WINDOW_WIDTH))
-        worker = threading.Thread(target=ocr_worker, args=(camera, monitor, stop),
+        cv2.resizeWindow(window_name, 800, round(800 * WINDOW_HEIGHT / WINDOW_WIDTH))
+        worker = threading.Thread(target=ocr_worker, args=(camera, monitor, stop, camera_host, expected_camera_id),
                                   name="parking-ocr-worker", daemon=True)
+        audit_worker = threading.Thread(
+            target=approval_worker, args=(camera_host, expected_camera_id, monitor, stop),
+            name="parking-access-worker", daemon=True)
+        audit_worker.start()
         worker.start()
         while True:
             frame, sequence, _, received_at, camera_error = camera.snapshot()
@@ -448,12 +551,12 @@ def main():
             scene = {"stream": stream, "age": age}
             # Keep the last image on a gap, with its ORIGINAL age and a clear
             # stale label. It is not counted again or submitted to OCR.
-            cv2.imshow(WINDOW_NAME, draw_screen(frame, monitor.snapshot(), scene))
+            cv2.imshow(window_name, draw_screen(frame, monitor.snapshot(), scene, gate_name))
             key = cv2.waitKey(20) & 0xFF
             if key in (ord("q"), 27):
                 break
             try:
-                if cv2.getWindowProperty(WINDOW_NAME, cv2.WND_PROP_VISIBLE) < 1:
+                if cv2.getWindowProperty(window_name, cv2.WND_PROP_VISIBLE) < 1:
                     break
             except cv2.error:
                 break
@@ -464,9 +567,22 @@ def main():
         cv2.destroyAllWindows()
         if worker is not None:
             worker.join(timeout=2)
+        if audit_worker is not None:
+            audit_worker.join(timeout=4)
         camera.close()
         LOGGER.info("Live monitor stopped")
 
 
+def run_gate(gate_name, camera_id, environment_key):
+    parser = argparse.ArgumentParser(description=f"Smart Parking {gate_name}")
+    parser.add_argument("--host", default=os.environ.get(environment_key, "").strip()
+                        or os.environ.get("PARKING_CAMERA_HOST", "").strip(),
+                        help="Camera IP or host, without http://")
+    args = parser.parse_args()
+    if not args.host or any(c in args.host for c in "/ \t\r\n"):
+        parser.error(f"Supply --host CAMERA_IP or set {environment_key}")
+    main(args.host, camera_id, gate_name)
+
+
 if __name__ == "__main__":
-    main()
+    raise SystemExit("Run app_entry.py --host ENTRY_IP or app_exit.py --host EXIT_IP")

@@ -5,6 +5,7 @@ idf_component_register(
         "app/state_machine.c"
         "services/parking_manager.c"
         "services/access_manager.c"
+        "services/approval_log.c"
         "services/barrier_manager.c"
         "services/gate_ir_manager.c"
         "services/display_manager.c"

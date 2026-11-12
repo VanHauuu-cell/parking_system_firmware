@@ -5,6 +5,8 @@
 #include "esp_log.h"
 #include "fsm_config.h"
 #include "uart_driver.h"
+#include "approval_log.h"
+#include "esp_timer.h"
 
 #define RX_CHUNK_SIZE 256
 #define POLL_BYTES_PER_LINK 128
@@ -22,6 +24,7 @@ static const char *TAG = "UART_MANAGER";
 static bool initialized;
 static link_state_t links[UART_LINK_COUNT];
 static unsigned next_link;
+static int64_t next_event_send_us;
 static const unsigned camera_ids[UART_LINK_COUNT] = {
     FSM_ENTRY_CAMERA_ID, FSM_EXIT_CAMERA_ID
 };
@@ -107,17 +110,29 @@ static bool poll_link(uart_link_t link, uart_ocr_result_t *result)
         }
         uint8_t byte = state->buffer[state->index++];
         ++processed;
-        if (uart_protocol_feed(&state->parser, byte, result)) {
-            if (result->camera_id != camera_ids[link]) {
+        uart_message_t message;
+        if (uart_protocol_feed_message(&state->parser, byte, &message)) {
+            uint8_t camera_id = message.type == UART_MESSAGE_ACCESS_ACK
+                ? message.data.ack.camera_id : message.data.ocr.camera_id;
+            if (camera_id != camera_ids[link]) {
                 if (!state->mismatch_warning_shown) {
                     ESP_LOGW(TAG, "%s UART ignored camera=%u; expected camera=%u",
                              link == UART_LINK_ENTRY ? "ENTRY" : "EXIT",
-                             (unsigned)result->camera_id, camera_ids[link]);
+                             (unsigned)camera_id, camera_ids[link]);
                     state->mismatch_warning_shown = true;
                 }
                 continue;
             }
             state->mismatch_warning_shown = false;
+            if (message.type == UART_MESSAGE_ACCESS_ACK) {
+                esp_err_t ret = approval_log_ack(camera_id, message.data.ack.event_id);
+                if (ret != ESP_OK) {
+                    ESP_LOGE(TAG, "Cannot save access acknowledgement: %s", esp_err_to_name(ret));
+                }
+                continue;
+            }
+            *result = message.data.ocr;
+            result->received_at_us = esp_timer_get_time();
             ESP_LOGI(TAG, "RX camera=%u request=%lu %s=%s confidence=%u",
                      (unsigned)result->camera_id, (unsigned long)result->request_id,
                      result->success ? "plate" : "error",
@@ -128,6 +143,26 @@ static bool poll_link(uart_link_t link, uart_ocr_result_t *result)
         }
     }
     return false;
+}
+
+void uart_manager_tick(int64_t now_us)
+{
+    if (!initialized || now_us < next_event_send_us) { return; }
+    approval_event_t event;
+    if (!approval_log_peek(&event)) { return; }
+    next_event_send_us = now_us + 500000;
+    uart_link_t link;
+    if (!link_for_camera(event.camera_id, &link)) { return; }
+    char frame[PARKING_UART_FRAME_SIZE];
+    int length = uart_protocol_build_access_event(frame, sizeof(frame), &event);
+    if (length < 0) {
+        ESP_LOGE(TAG, "Invalid queued access event");
+        return;
+    }
+    esp_err_t ret = uart_driver_write_link(link, (const uint8_t *)frame, (size_t)length);
+    if (ret != ESP_OK) {
+        ESP_LOGW(TAG, "Access event retry failed: %s", esp_err_to_name(ret));
+    }
 }
 
 bool uart_manager_poll(uart_ocr_result_t *result)

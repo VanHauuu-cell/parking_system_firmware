@@ -9,6 +9,21 @@
 #define PARKING_PLATE_SIZE 20
 #define PARKING_MAX_VEHICLES 32
 
+#define APPROVAL_EVENT_ID_SIZE 17
+#define APPROVAL_TIME_MIN_MS 1577836800000LL
+#define APPROVAL_TIME_MAX_MS 4102444800000LL
+
+typedef struct {
+    uint8_t camera_id;
+    uint32_t request_id;
+    char event_id[APPROVAL_EVENT_ID_SIZE];
+    char approval_id[APPROVAL_EVENT_ID_SIZE];
+    char kind;
+    char uid[PARKING_UID_SIZE];
+    char plate[PARKING_PLATE_SIZE];
+    int64_t approved_at_ms;
+} approval_event_t;
+
 typedef enum { PARKING_ENTRY = 0, PARKING_EXIT = 1 } parking_direction_t;
 
 typedef enum {
